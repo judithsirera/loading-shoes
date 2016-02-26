@@ -40,6 +40,10 @@ $config['PagesVentController']		    = PATH_CONTROLLERS . 'pages/vent.ctrl.php';
 $config['PagesCordaController']		    = PATH_CONTROLLERS . 'pages/corda.ctrl.php';
 $config['PagesPercussioController']	    = PATH_CONTROLLERS . 'pages/percussio.ctrl.php';
 
-// Shared controllers
+// Shared Controllers
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
+
+//Pages Models
+$config['PagesFormulariModel']          = PATH_MODELS . 'pages/formulari.model.php';
+$config['PagesGaleriaModel']            = PATH_MODELS . 'pages/galeria.model.php';
