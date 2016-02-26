@@ -15,9 +15,11 @@ class PagesPractica2Controller extends Controller
 		$tipus_instrument = Filter::getString('tipus_instrument');
 		$url_photo = Filter::getString('URL_instrument');
 
-		if(!empty($nom_instrument) && !empty($tipus_instrument) && empty($url_photo)){
+		if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
 			$obj = $this->getClass('PagesFormulariModel');
-			$obj->insertInstrument($nom_instrument,$tipus_instrument,$url_photo);
+
+			echo "$nom_instrument, $tipus_instrument, $url_photo";
+			$obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
 		}
 	}
 

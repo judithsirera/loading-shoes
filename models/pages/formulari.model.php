@@ -11,7 +11,7 @@ class PagesFormulariModel extends Model{
     public function insertInstrument($name, $type, $url){
         $query = <<<QUERY
             INSERT INTO instrument (name, type, url)
-            VALUES ($name, $type, $url)
+            VALUES ("$name", "$type", "$url")
 QUERY;
 
         $this->execute($query);
