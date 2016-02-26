@@ -108,6 +108,46 @@ footer.page-footer{
   text-align: center;
 }
 
-.send_button{
-  text-align: right;
+
+
+.send_button_inserir{
+ padding-left: 43%;
+  padding-top: 1%;
+
+}
+
+.send_button_galeria{
+  padding-left: 46%;
+  padding-top: 1%;
+}
+
+.send_button_galeria a{
+  color:black;
+  border-width:1px;
+  border-color: black;
+}
+
+h3{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+.div_form{
+  padding-left: 32%;
+}
+
+.input{
+  max-width: 40%;
+
+}
+
+.form-control{
+  max-width: 55%;
+}
+
+#input_url{
+  max-width: 50%;
 }

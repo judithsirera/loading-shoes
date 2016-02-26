@@ -35,6 +35,8 @@ $config['HomeHomeController']			= PATH_CONTROLLERS . 'home/home.ctrl.php';
 
 // Pages Controller
 $config['PagesPractica1Controller']		= PATH_CONTROLLERS . 'pages/practica1.ctrl.php';
+$config['PagesPractica2Controller']		= PATH_CONTROLLERS . 'pages/practica2.ctrl.php';
+$config['PagesFormulariController']		= PATH_CONTROLLERS . 'pages/formulari.ctrl.php';
 $config['PagesGaleriaController']		= PATH_CONTROLLERS . 'pages/galeria.ctrl.php';
 $config['PagesVentController']		    = PATH_CONTROLLERS . 'pages/vent.ctrl.php';
 $config['PagesCordaController']		    = PATH_CONTROLLERS . 'pages/corda.ctrl.php';

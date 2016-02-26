@@ -6,6 +6,8 @@
 $config['default']				= 'HomeHomeController';
 $config['home']					= 'HomeHomeController';
 $config['practica1']			= 'PagesPractica1Controller';
+$config['practica2']			= 'PagesPractica2Controller';
+$config['formulari']			= 'PagesFormulariController';
 $config['galeria']			    = 'PagesGaleriaController';
 $config['vent']			        = 'PagesVentController';
 $config['corda']			    = 'PagesCordaController';
