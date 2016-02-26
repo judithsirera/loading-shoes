@@ -9,12 +9,15 @@
 
 class PagesGaleriaModel extends Model{
 
-    public function selectQuery($table){
+    public function getData($id){
+        $name = "";
+        $tipus = "";
+        $url_ = "";
 
         $query = <<<QUERY
             SELECT *
-            FROM $table
-            ORDER BY id
+            FROM instrument
+            WHERE id = $id
 QUERY;
 
         $result = $this->getAll($query);
@@ -23,4 +26,16 @@ QUERY;
 
     }
 
+    public function getTotalInstruments(){
+
+        $query = <<<QUERY
+            SELECT count(*) as total
+            FROM instrument
+QUERY;
+
+        $result = $this->getAll($query);
+
+        return $result;
+
+    }
 }
