@@ -18,7 +18,6 @@ class PagesPractica2Controller extends Controller
 		if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
 			$obj = $this->getClass('PagesFormulariModel');
 
-			echo "$nom_instrument, $tipus_instrument, $url_photo";
 			$obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
 		}
 	}
