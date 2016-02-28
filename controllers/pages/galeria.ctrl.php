@@ -60,7 +60,6 @@ class PagesGaleriaController extends Controller
 		if($id == $this->limit_instruments) {
 			$seg_num = $id;
 			$this->assign('hidden_class_right', 'hidden');
-			echo "id es igual";
 		}elseif($id != 1){
 			$this->assign('hidden_class_left', '');
 		}

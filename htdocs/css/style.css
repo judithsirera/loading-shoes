@@ -151,3 +151,7 @@ h2{
 #input_url{
   max-width: 50%;
 }
+
+.message-error{
+  text-align: center;
+}
