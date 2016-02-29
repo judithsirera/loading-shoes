@@ -6,6 +6,7 @@
 class PagesPractica2Controller extends Controller
 {
 	protected $view = 'pages/formulari.tpl';
+	protected $insercio = 0;
 
 	public function build()
 	{
@@ -19,6 +20,11 @@ class PagesPractica2Controller extends Controller
 			$obj = $this->getClass('PagesFormulariModel');
 
 			$obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
+			$insercio = 1;
+			$this->assign('insercio', $this->insercio);
+
+			echo($insercio);
+
 		}
 	}
 

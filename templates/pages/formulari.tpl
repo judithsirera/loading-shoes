@@ -42,6 +42,14 @@
 		</a>
 	</div>
 
+	{if $insercio ==1}
+		<div class="send_button_galeria">
+			<img href="imag/accept.png">
+		</div>
+
+
+	{/if}
+
 </form>
 
 </body>

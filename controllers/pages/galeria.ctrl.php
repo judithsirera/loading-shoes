@@ -6,7 +6,7 @@
 class PagesGaleriaController extends Controller
 {
 	protected $view = 'pages/galeria.tpl';
-	private $tipus_instrument = '';
+
 
 	public function build()
 	{
