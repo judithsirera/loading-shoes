@@ -19,7 +19,7 @@
 						</div>
 					</div>
 					<div class="img practica-item">
-						<img src="{$url.global}/imag/LOADING_icon_2.png" alt="">
+						<img src="{$url.global}/imag/instruments.jpg" alt="">
 						<div class="overlay">
 							<a href="{$url.global}/practica2" class="expand">Practica 2</a>
 						</div>
@@ -27,7 +27,7 @@
 				</div>
 				<div class="row">
 					<div class="img practica-item">
-						<img src="{$url.global}/imag/LOADING_icon_2.png" alt="">
+						<img src="{$url.global}/imag/instruments.jpg" alt="">
 						<div class="overlay">
 							<a href="{$url.global}/practica3" class="expand">Practica 3</a>
 						</div>

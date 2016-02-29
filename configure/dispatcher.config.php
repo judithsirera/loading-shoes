@@ -12,3 +12,5 @@ $config['galeria']			    = 'PagesGaleriaController';
 $config['vent']			        = 'PagesVentController';
 $config['corda']			    = 'PagesCordaController';
 $config['percussio']			= 'PagesPercussioController';
+
+$config['practica3']			= 'PagesPractica3Controller';

@@ -45,6 +45,18 @@
 
 </form>
 
+<div class="container">
+	<div class="container">
+		<div class="row">
+			{foreach from=$instruments item=inst}
+				<div class="col s12">
+					{$inst.name}
+				</div>
+			{/foreach}
+		</div>
+	</div>
+</div>
+
 </body>
 </html>
 
