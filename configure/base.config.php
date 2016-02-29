@@ -52,3 +52,4 @@ $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php'
 //Pages Models
 $config['PagesFormulariModel']          = PATH_MODELS . 'pages/formulari.model.php';
 $config['PagesGaleriaModel']            = PATH_MODELS . 'pages/galeria.model.php';
+$config['PagesPractica3Model']          = PATH_MODELS . 'pages/practica3.model.php';
