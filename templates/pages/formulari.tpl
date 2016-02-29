@@ -10,6 +10,7 @@
 
 <h2>Practica 2</h2>
 <h3>Registre d'un instrument</h3>
+<span class="message-error">{$msg}</span>
 
 <form action="" method="post">
 	<div class="div_form">
@@ -41,14 +42,6 @@
 			Galeria
 		</a>
 	</div>
-
-	{if $insercio ==1}
-		<div class="send_button_galeria">
-			<img href="imag/accept.png">
-		</div>
-
-
-	{/if}
 
 </form>
 

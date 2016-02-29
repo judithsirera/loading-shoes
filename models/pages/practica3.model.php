@@ -7,7 +7,7 @@
  */
 
 
-class PagesGaleriaModel extends Model{
+class PagesPractica3Model extends Model{
 
     public function getData($id){
         $name = "";
@@ -36,6 +36,16 @@ QUERY;
         $result = $this->getAll($query);
 
         return $result;
+
+    }
+
+    public function insertInstrument($name, $type, $url){
+        $query = <<<QUERY
+            INSERT INTO instrument (name, type, url)
+            VALUES ("$name", "$type", "$url")
+QUERY;
+
+        $this->execute($query);
 
     }
 }

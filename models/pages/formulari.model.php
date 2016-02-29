@@ -15,6 +15,7 @@ class PagesFormulariModel extends Model{
 QUERY;
 
         $this->execute($query);
+
     }
 
 }

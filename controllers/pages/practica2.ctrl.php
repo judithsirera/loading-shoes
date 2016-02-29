@@ -20,10 +20,16 @@ class PagesPractica2Controller extends Controller
 			$obj = $this->getClass('PagesFormulariModel');
 
 			$obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
+
 			$insercio = 1;
 			$this->assign('insercio', $this->insercio);
 
 			echo($insercio);
+
+
+			$this->assign('msg', "S'ha inserit correctament");
+		}else{
+			$this->assign('msg', "Omple tots els parametres");
 
 		}
 	}

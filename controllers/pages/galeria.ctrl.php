@@ -8,49 +8,81 @@ class PagesGaleriaController extends Controller
 	protected $view = 'pages/galeria.tpl';
 
 
+	protected $errorview = 'error/error404.tpl';
+	private $obj;
+	private $limit_instruments;
+
 	public function build()
 	{
+
 		$this->setLayout( $this->view );
+
+		$this->obj = $this->getClass('PagesGaleriaModel');
+		$this->limit_instruments = $this->obj->getTotalInstruments()[0]['total'];
 
 		$info = $this->getParams();
 
-		$this->goRight($info);
+		//Guardar el numero ID
+		$id = $this->getIdFromUrl($info);
 
-		$this->goLeft($info);
+		$this->setInstrument($id);
+
+		$this->goRight($id);
+
+		$this->goLeft($id);
+
+		$this->comprovaURL($info);
+	}
+
+
+
+	private function getIdFromUrl($info){
+		$id = 1;
+
+		if(isset($info['url_arguments'][0])){
+			$id = $info['url_arguments'][0];
+		}
+		return $id;
+	}
+
+	private function setInstrument($id){
+		$data = $this->obj->getData($id);
+
+		$type = $data[0]['type'];
+		$url = $data[0]['url'];
+
+		$this->assign('tipus_instrument', $type);
+		$this->assign('url_imatge',$url);
 
 	}
 
-	private function goRight($info){
-		$num = 1;
+	private function goRight($id){
 
-		if(isset($info['url_arguments'][0])){
-			$num = $info['url_arguments'][0];
+		$seg_num = $id + 1;
+
+		if($id == $this->limit_instruments) {
+			$seg_num = $id;
+			$this->assign('hidden_class_right', 'hidden');
+		}elseif($id != 1){
+			$this->assign('hidden_class_left', '');
 		}
 
-		$seg_num = $num + 1;
-
-		$this->assign('num', $num);
 		$this->assign('seg_num', $seg_num);
 	}
 
 
-	private function goLeft($info){
-		$num = 1;
+	private function goLeft($id){
 
-		if(isset($info['url_arguments'][0])){
-			$num = $info['url_arguments'][0];
-		}
+		$ant_num = $id - 1;
 
-		$ant_num = $num - 1;
-
-		if($num == 1){
+		if($id == 1){
 			$ant_num = 1;
 			$this->assign('hidden_class_left', 'hidden');
 
+		}elseif ($id != $this->limit_instruments) {
+			$this->assign('hidden_class_right', '');
 		}
 
-		$this->assign('hidden_class_right', '');
-		$this->assign('num', $num);
 		$this->assign('ant_num', $ant_num);
 	}
 
@@ -61,6 +93,14 @@ class PagesGaleriaController extends Controller
 	 *
 	 * @return array
 	 */
+	public function comprovaURL($info){
+
+		if(isset($info['url_arguments'][0])){
+			if($info['url_arguments'][0]> $this->limit_instruments){
+				$this->setLayout($this->errorview);
+			}
+		}
+	}
 	public function loadModules() {
 		$modules['head']	= 'SharedHeadController';
 		$modules['footer']	= 'SharedFooterController';
