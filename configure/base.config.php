@@ -42,6 +42,9 @@ $config['PagesVentController']		    = PATH_CONTROLLERS . 'pages/vent.ctrl.php';
 $config['PagesCordaController']		    = PATH_CONTROLLERS . 'pages/corda.ctrl.php';
 $config['PagesPercussioController']	    = PATH_CONTROLLERS . 'pages/percussio.ctrl.php';
 
+$config['PagesPractica3Controller']		= PATH_CONTROLLERS . 'pages/practica3.ctrl.php';
+
+
 // Shared Controllers
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
