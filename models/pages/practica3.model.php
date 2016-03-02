@@ -39,6 +39,19 @@ QUERY;
 
     }
 
+    public function getAllData(){
+
+        $query = <<<QUERY
+            SELECT *
+            FROM instrument
+QUERY;
+
+        $result = $this->getAll($query);
+
+        return $result;
+
+    }
+
     public function insertInstrument($name, $type, $url){
         $query = <<<QUERY
             INSERT INTO instrument (name, type, url)

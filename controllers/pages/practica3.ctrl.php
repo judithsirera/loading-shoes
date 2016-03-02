@@ -36,7 +36,7 @@ class PagesPractica3Controller extends Controller
 
 	private function showInstrument(){
 
-		$inst = $this->obj->getTotalInstruments();
+		$inst = $this->obj->getAllData();
 		echo '<pre>';
 		print_r($inst);
 		echo '</pre>';
