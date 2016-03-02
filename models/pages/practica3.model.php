@@ -39,7 +39,8 @@ QUERY;
 
     }
 
-    public function getAllData(){
+    public function getAllData()
+    {
 
         $query = <<<QUERY
             SELECT *
@@ -49,8 +50,8 @@ QUERY;
         $result = $this->getAll($query);
 
         return $result;
+    }
 
-=======
     public function getNumInstrumentsByType($type){
         $query = <<<QUERY
             SELECT count(*)
@@ -59,7 +60,7 @@ QUERY;
 QUERY;
         $result = $this->getAll($query);
 
->>>>>>> 88c1f508c1cd7858082d8dbe1842a5d573fbbd67
+        return $result;
     }
 
     public function insertInstrument($name, $type, $url){
