@@ -39,6 +39,16 @@ QUERY;
 
     }
 
+    public function getNumInstrumentsByType($type){
+        $query = <<<QUERY
+            SELECT count(*)
+            FROM instrument
+            WHERE type = $type
+QUERY;
+        $result = $this->getAll($query);
+
+    }
+
     public function insertInstrument($name, $type, $url){
         $query = <<<QUERY
             INSERT INTO instrument (name, type, url)

@@ -48,6 +48,8 @@ $config['PagesPractica3Controller']		= PATH_CONTROLLERS . 'pages/practica3.ctrl.
 // Shared Controllers
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
+$config['SharedModul1Controller']		= PATH_CONTROLLERS . 'shared/modul1.ctrl.php';
+
 
 //Pages Models
 $config['PagesFormulariModel']          = PATH_MODELS . 'pages/formulari.model.php';
