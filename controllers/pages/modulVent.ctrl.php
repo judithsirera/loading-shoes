@@ -3,9 +3,9 @@
  * Home Controller: Controller example.
 
  */
-class SharedModul1Controller extends Controller
+class PagesModul1Controller extends Controller
 {
-	protected $view = 'shared/vent.tpl';
+	protected $view = 'pages/modul1.tpl';
 
 
 	protected $errorview = 'error/error404.tpl';

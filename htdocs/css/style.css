@@ -156,11 +156,6 @@ h2{
   text-align:center;
 }
 
-.imatges-horitzontal{
-  height: 100px;
-  margin: 5%;
-}
-
 .container .container .row_modul{
     padding: 20px;
     border: 2px solid #CC6B3C;
@@ -187,3 +182,65 @@ h2{
 
 
 
+=======
+
+/*PRACTICA 3*/
+
+
+.scrollItem{
+  height: 200px;
+  overflow: scroll;
+}
+
+
+.collection a.collection-item{
+  color: black;
+}
+
+.collection .vent{
+  background-color: #a5f1ff;
+}
+
+
+.collection .corda{
+  background-color: #8cb63d;
+}
+
+.collection .percussio{
+  background-color: #ff9696;
+}
+
+.collection .electronic{
+  background-color: #ed8b03;
+}
+
+.title{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.legend{
+  display: flex;
+}
+
+.material-icons{
+  padding-right: 7px;
+}
+
+#vent{
+  color: #a5f1ff;
+}
+
+#corda{
+  color: #8cb63d;
+}
+
+#percussio{
+  color: #ff9696;
+}
+
+#electronic{
+  color: #ed8b03;
+}
+>>>>>>> a283c2d4a2f9d357801c20fca4f878e3106f3fcb

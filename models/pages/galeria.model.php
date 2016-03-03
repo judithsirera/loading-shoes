@@ -38,4 +38,17 @@ QUERY;
         return $result;
 
     }
+
+    public function getAllData(){
+
+        $query = <<<QUERY
+            SELECT *
+            FROM instrument
+QUERY;
+
+        $result = $this->getAll($query);
+
+        return $result;
+
+    }
 }
