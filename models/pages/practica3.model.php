@@ -26,6 +26,23 @@ QUERY;
 
     }
 
+    public function getDataByType($type){
+        $name = "";
+        $tipus = "";
+        $url_ = "";
+
+        $query = <<<QUERY
+            SELECT *
+            FROM instrument
+            WHERE type = $type
+QUERY;
+
+        $result = $this->getAll($query);
+
+        return $result;
+
+    }
+
     public function getTotalInstruments(){
 
         $query = <<<QUERY
@@ -46,6 +63,8 @@ QUERY;
             WHERE type = $type
 QUERY;
         $result = $this->getAll($query);
+
+        return $result;
 
     }
 

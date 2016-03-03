@@ -3,7 +3,7 @@
  * Home Controller: Controller example.
 
  */
-class SharedModul1Controller extends Controller
+class PagesModulCordaController extends Controller
 {
 	protected $view = 'pages/modul1.tpl';
 
@@ -25,7 +25,9 @@ class SharedModul1Controller extends Controller
 		//Guardar el numero ID
 		$id = $this->getIdFromUrl($info);
 
-		$this->setInstruments($id);
+		$type = 'corda';
+
+		$this->setInstruments($type, $info);
 
 		$this->goRight($id);
 
@@ -45,25 +47,25 @@ class SharedModul1Controller extends Controller
 		return $id;
 	}
 
-	private function setInstruments($id){
-		$data[0] = $this->obj->getData($id);
-		$data[1] = $this->obj->getData($id + 1);
-		$data[2] = $this->obj->getData($id + 2);
+	private function setInstruments($type,$info){
+
+		$data = $this->obj->getDataByType($type);
 
 
-		$type[0] = $data[0]['type'];
-		$type[1] = $data[1]['type'];
-		$type[2] = $data[2]['type'];
+		$type = $data['type'];
 
-		$url[0] = $data[0]['url'];
-		$url[1] = $data[1]['url'];
-		$url[2] = $data[2]['url'];
+		$url = $data['url'];
+
+		$u = $info['urlarguments'[0]];
 
 
-		$this->assign('url_imatge_0',$url[0]);
-		$this->assign('url_imatge_1',$url[1]);
-		$this->assign('url_imatge_2',$url[2]);
-
+		for ($i= 0,$i< 3,$i++){
+			if(isset($data[$i])){
+				$this->assign('url_imatge', $url[$i * $u]);
+			}else{
+				$this->assign('url_imatge', "htdocs/imag/nomore.png" );
+			}
+		}
 
 
 	}
