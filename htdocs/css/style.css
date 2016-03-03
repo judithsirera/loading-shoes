@@ -155,3 +155,35 @@ h2{
 .message-error{
   text-align:center;
 }
+
+.imatges-horitzontal{
+  height: 100px;
+  margin: 5%;
+}
+
+.container .container .row_modul{
+    padding: 20px;
+    border: 2px solid #CC6B3C;
+}
+.container{
+    position: relative;
+}
+
+.left-arrow{
+    position: absolute;
+    float: left;
+    top:55%;
+    left: -50px;
+    width: 30px;
+}
+
+.right-arrow{
+    position: absolute;
+    float: right;
+    top:55%;
+    right: -50px;
+    width: 30px;
+}
+
+
+
