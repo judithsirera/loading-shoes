@@ -5,7 +5,7 @@
  */
 class SharedModul1ProvaController extends Controller
 {
-	protected $view = 'shared/modul1.tpl';
+	protected $view = 'shared/vent.tpl';
 
 
 	public function build()

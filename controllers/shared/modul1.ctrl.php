@@ -5,7 +5,7 @@
  */
 class SharedModul1Controller extends Controller
 {
-	protected $view = 'shared/modul1.tpl';
+	protected $view = 'shared/vent.tpl';
 
 
 	protected $errorview = 'error/error404.tpl';
