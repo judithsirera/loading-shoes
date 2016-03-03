@@ -11,6 +11,8 @@
 	<link href="{$url.global}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{$url.global}/css/materialize.min.css" rel="stylesheet">
 	<link href="{$url.global}/css/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 	<link rel="shortcut icon" href="{$url.global}/imag/LOADING_icon.png">
 

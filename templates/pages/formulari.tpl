@@ -45,17 +45,36 @@
 
 </form>
 
-<div class="container">
+<section>
 	<div class="container">
-		<div class="row">
-			{foreach from=$instruments item=inst}
-				<div class="col s12">
-					{$inst.name}
+		<div class="container">
+			<div class="row">
+				<div class="col s7">
+					<h5 class="title">Instruments</h5>
+					<div class="scrollItem collection">
+						<a href="#!" class="collection-item corda">Alvin</a>
+						<a href="#!" class="collection-item vent">Alvin</a>
+						<a href="#!" class="collection-item percussio">Alvin</a>
+						<a href="#!" class="collection-item electronic">Alvin</a>
+						{foreach from=$instruments item=i}
+							<a href="" class="collection-item {$i.tipus}">{$i.name}</a>
+						{/foreach}
+					</div>
 				</div>
-			{/foreach}
+				<div class="col s4">
+					<h5 class="title">Legend</h5>
+					<ul class="collection">
+						<li class="collection-item legend"><i id="corda" class="material-icons">label</i>Corda</li>
+						<li class="collection-item legend"><i id="vent" class="material-icons">label</i>Vent</li>
+						<li class="collection-item legend"><i id="percussio" class="material-icons">label</i>Percussio</li>
+						<li class="collection-item legend"><i id="electronic" class="material-icons">label</i>Electronic</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</section>
+
 
 </body>
 </html>
