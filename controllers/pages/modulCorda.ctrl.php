@@ -59,7 +59,7 @@ class PagesModulCordaController extends Controller
 		$u = $info['urlarguments'[0]];
 
 
-		for ($i= 0,$i< 3,$i++){
+		for ($i= 0;$i< 3;$i++){
 			if(isset($data[$i])){
 				$this->assign('url_imatge', $url[$i * $u]);
 			}else{
@@ -115,9 +115,5 @@ class PagesModulCordaController extends Controller
 			}
 		}
 	}
-	public function loadModules() {
-		$modules['head']	= 'SharedHeadController';
-		$modules['footer']	= 'SharedFooterController';
-		return $modules;
-	}
+
 }

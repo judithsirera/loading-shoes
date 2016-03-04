@@ -3,7 +3,7 @@
  * Home Controller: Controller example.
 
  */
-class PagesModul1Controller extends Controller
+class PagesModulPercussioController extends Controller
 {
 	protected $view = 'pages/modul1.tpl';
 
@@ -112,10 +112,5 @@ class PagesModul1Controller extends Controller
 				$this->setLayout($this->errorview);
 			}
 		}
-	}
-	public function loadModules() {
-		$modules['head']	= 'SharedHeadController';
-		$modules['footer']	= 'SharedFooterController';
-		return $modules;
 	}
 }
