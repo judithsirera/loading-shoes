@@ -19,28 +19,6 @@ class PagesPractica3Controller extends Controller
 		$this->showInstrument();
 	}
 
-	private function insertInstrument(){
-
-		$nom_instrument = Filter::getString('nom_instrument');
-		$tipus_instrument = Filter::getString('tipus_instrument');
-		$url_photo = Filter::getString('URL_instrument');
-
-		if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
-
-			$this->obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
-			$this->assign('msg', "S'ha inserit correctament");
-		}else{
-			$this->assign('msg', "Omple tots els parametres");
-		}
-	}
-
-	private function showInstrument(){
-
-		$inst = $this->obj->getAllData();
-		echo '<pre>';
-		print_r($inst);
-		echo '</pre>';
-	}
 
 	/**
 	 * With this method you can load other modules that we will need in our page. You will have these modules availables in your template inside the "modules" array (example: {$modules.head}).
@@ -50,8 +28,10 @@ class PagesPractica3Controller extends Controller
 	 * @return array
 	 */
 	public function loadModules() {
-		$modules['head']	= 'SharedHeadController';
-		$modules['footer']	= 'SharedFooterController';
+		$modules['head']		= 'SharedHeadController';
+		$modules['footer']		= 'SharedFooterController';
+
+
 		return $modules;
 	}
 }

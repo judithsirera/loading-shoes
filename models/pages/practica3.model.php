@@ -69,7 +69,8 @@ QUERY;
         return $result;
     }
 
-    public function getNumInstrumentsByType($type){
+    public function getNumInstrumentsByType($type)
+    {
         $query = <<<QUERY
             SELECT count(*)
             FROM instrument
@@ -78,11 +79,8 @@ QUERY;
         $result = $this->getAll($query);
 
         return $result;
-<<<<<<< HEAD
-
-=======
->>>>>>> 077c992c54779f2a25f484204a116629d3fa6764
     }
+
 
     public function insertInstrument($name, $type, $url){
         $query = <<<QUERY

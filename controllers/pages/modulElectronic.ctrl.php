@@ -3,7 +3,7 @@
  * Home Controller: Controller example.
 
  */
-class PagesModul1Controller extends Controller
+class PagesModulElectronicController extends Controller
 {
 	protected $view = 'pages/modul1.tpl';
 
