@@ -3,9 +3,9 @@
  * Home Controller: Controller example.
 
  */
-class PagesModul1Controller extends Controller
+class PagesModulVentController extends Controller
 {
-	protected $view = 'pages/modul1.tpl';
+	protected $view = 'pages/vent.tpl';
 
 
 	protected $errorview = 'error/error404.tpl';
@@ -113,9 +113,5 @@ class PagesModul1Controller extends Controller
 			}
 		}
 	}
-	public function loadModules() {
-		$modules['head']	= 'SharedHeadController';
-		$modules['footer']	= 'SharedFooterController';
-		return $modules;
-	}
+
 }

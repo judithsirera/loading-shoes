@@ -5,12 +5,14 @@
  */
 class PagesModulCordaController extends Controller
 {
-	protected $view = 'pages/modul1.tpl';
+	protected $view = 'pages/corda.tpl';
 
 
 	protected $errorview = 'error/error404.tpl';
 	private $obj;
 	private $limit_instruments;
+	private $type = 'corda';
+
 
 	public function build()
 	{
@@ -25,7 +27,6 @@ class PagesModulCordaController extends Controller
 		//Guardar el numero ID
 		$id = $this->getIdFromUrl($info);
 
-		$type = 'corda';
 
 		$this->setInstruments($type, $info);
 
@@ -47,25 +48,28 @@ class PagesModulCordaController extends Controller
 		return $id;
 	}
 
-	private function setInstruments($type,$info){
+	private function setInstruments($info){
 
-		$data = $this->obj->getDataByType($type);
+		$data = $this->obj->getDataByType($this->type);
 
 
-		$type = $data['type'];
+		$inst_type = $data['type'];
 
 		$url = $data['url'];
 
-		$u = $info['urlarguments'[0]];
+		$u = $info['url_arguments'][0];
 
 
 		for ($i= 0;$i< 3;$i++){
 			if(isset($data[$i])){
-				$this->assign('url_imatge', $url[$i * $u]);
+				$url_imatge[$i] = $url[$i * $u];
 			}else{
-				$this->assign('url_imatge', "htdocs/imag/nomore.png" );
+				$url_imatge[$i] = "htdocs/imag/nomore.png";
 			}
+
 		}
+		$this->assign('url_imatge', $url_imatge);
+
 
 
 	}
@@ -115,9 +119,5 @@ class PagesModulCordaController extends Controller
 			}
 		}
 	}
-	public function loadModules() {
-		$modules['head']	= 'SharedHeadController';
-		$modules['footer']	= 'SharedFooterController';
-		return $modules;
-	}
+
 }

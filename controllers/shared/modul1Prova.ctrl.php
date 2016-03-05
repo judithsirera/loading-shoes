@@ -3,20 +3,17 @@
  * Home Controller: Controller example.
 
  */
-class PagesPractica3Controller extends Controller
+class SharedModul1ProvaController extends Controller
 {
-	protected $view = 'pages/formulari.tpl';
-	protected $obj;
+	protected $view = 'shared/vent.tpl';
+
 
 	public function build()
 	{
 
-		$this->obj = $this->getClass('PagesPractica3Model');
-
 		$this->setLayout( $this->view );
 
-		$this->insertInstrument();
-		$this->showInstrument();
+
 	}
 
 
@@ -27,12 +24,10 @@ class PagesPractica3Controller extends Controller
 	 *
 	 * @return array
 	 */
+
 	public function loadModules() {
-
-		$modules['head']		= 'SharedHeadController';
-		$modules['footer']		= 'SharedFooterController';
-
-
+		$modules['head']	= 'SharedHeadController';
+		$modules['footer']	= 'SharedFooterController';
 		return $modules;
 	}
 }

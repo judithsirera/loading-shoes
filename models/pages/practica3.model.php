@@ -79,6 +79,10 @@ QUERY;
         $result = $this->getAll($query);
 
         return $result;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 231ac4ede560304826987835faa2edf6fb3a2cba
     }
 
 

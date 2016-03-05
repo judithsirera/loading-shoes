@@ -10,13 +10,10 @@ class PagesPractica3Controller extends Controller
 
 	public function build()
 	{
-
 		$this->obj = $this->getClass('PagesPractica3Model');
 
 		$this->setLayout( $this->view );
 
-		$this->insertInstrument();
-		$this->showInstrument();
 	}
 
 
@@ -28,11 +25,12 @@ class PagesPractica3Controller extends Controller
 	 * @return array
 	 */
 	public function loadModules() {
-
 		$modules['head']		= 'SharedHeadController';
 		$modules['footer']		= 'SharedFooterController';
-
-
+		$modules['corda']		= 'PagesModulCordaController';
+		$modules['vent']		= 'PagesModulVentController';
+		$modules['percussio']	= 'PagesModulPercussioController';
+		$modules['electronic']	= 'PagesModulElectronicController';
 		return $modules;
 	}
 }
