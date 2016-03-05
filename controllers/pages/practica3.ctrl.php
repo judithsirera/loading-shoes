@@ -37,9 +37,7 @@ class PagesPractica3Controller extends Controller
 	private function showInstrument(){
 
 		$inst = $this->obj->getAllData();
-		echo '<pre>';
-		print_r($inst);
-		echo '</pre>';
+		$this->assign('instruments', $inst);
 	}
 
 	/**

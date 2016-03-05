@@ -3,43 +3,22 @@
  * Home Controller: Controller example.
 
  */
-class PagesPractica3Controller extends Controller
+class PagesPractica3_galeriaController extends Controller
 {
-	protected $view = 'pages/formulari.tpl';
+	protected $view = 'pages/galeria3x3.tpl';
 	protected $obj;
 
 	public function build()
 	{
 
-		$this->obj = $this->getClass('PagesPractica3Model');
+        $this->obj = $this->getClass('PagesPractica3Model');
 
-		$this->setLayout( $this->view );
+        $this->setLayout( $this->view );
 
-		$this->insertInstrument();
-		$this->showInstrument();
-	}
+		//FLEXETES
 
-	private function insertInstrument(){
+		//CONTROLAR NUM MAX
 
-		$nom_instrument = Filter::getString('nom_instrument');
-		$tipus_instrument = Filter::getString('tipus_instrument');
-		$url_photo = Filter::getString('URL_instrument');
-
-		if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
-
-			$this->obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
-			$this->assign('msg', "S'ha inserit correctament");
-		}else{
-			$this->assign('msg', "Omple tots els parametres");
-		}
-	}
-
-	private function showInstrument(){
-
-		$inst = $this->obj->getAllData();
-		echo '<pre>';
-		print_r($inst);
-		echo '</pre>';
 	}
 
 	/**
@@ -50,9 +29,12 @@ class PagesPractica3Controller extends Controller
 	 * @return array
 	 */
 	public function loadModules() {
-		$modules['head']	= 'SharedHeadController';
-		$modules['footer']	= 'SharedFooterController';
-
+		$modules['head']	    = 'SharedHeadController';
+		$modules['footer']	    = 'SharedFooterController';
+		$modules['corda']	    = 'PagesModulCordaController';
+		$modules['vent']	    = 'PagesModulVentController';
+		$modules['percussio']	= 'PagesModulPercussioController';
+		$modules['electronic']	= 'PagesModulElectronicController';
 		return $modules;
 	}
 }

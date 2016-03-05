@@ -14,5 +14,4 @@ $config['corda']			    = 'PagesCordaController';
 $config['percussio']			= 'PagesPercussioController';
 
 $config['practica3']			= 'PagesPractica3Controller';
-
-$config['prova']			= 'SharedModul1ProvaController';
+$config['p3_galeria']			= 'PagesPractica3_galeriaController';

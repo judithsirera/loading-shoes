@@ -42,14 +42,17 @@ $config['PagesVentController']		    = PATH_CONTROLLERS . 'pages/vent.ctrl.php';
 $config['PagesCordaController']		    = PATH_CONTROLLERS . 'pages/corda.ctrl.php';
 $config['PagesPercussioController']	    = PATH_CONTROLLERS . 'pages/percussio.ctrl.php';
 
-$config['PagesPractica3Controller']		= PATH_CONTROLLERS . 'pages/practica3.ctrl.php';
+$config['PagesPractica3Controller']		        = PATH_CONTROLLERS . 'pages/practica3.ctrl.php';
+$config['PagesPractica3_galeriaController']		= PATH_CONTROLLERS . 'pages/practica3_galeria.ctrl.php';
 
 
 // Shared Controllers
-$config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
-$config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
-$config['SharedModul1Controller']		= PATH_CONTROLLERS . 'shared/modul1.ctrl.php';
-$config['SharedModul1ProvaController']		= PATH_CONTROLLERS . 'shared/modul1Prova.ctrl.php';
+$config['SharedHeadController']			    = PATH_CONTROLLERS . 'shared/head.ctrl.php';
+$config['SharedFooterController']	    	= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
+$config['SharedModulVentController']	    = PATH_CONTROLLERS . 'pages/modulVent.ctrl.php';
+$config['SharedModulCordaController']	    = PATH_CONTROLLERS . 'pages/modulCorda.ctrl.php';
+$config['SharedModulElectronicController']	= PATH_CONTROLLERS . 'pages/modulElectronic.ctrl.php';
+$config['SharedModulPercussioController']	= PATH_CONTROLLERS . 'pages/modulPercussio.ctrl.php';
 
 
 //Pages Models

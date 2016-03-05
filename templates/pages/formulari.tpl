@@ -38,7 +38,7 @@
 	</div>
 
 	<div class="send_button_galeria">
-		<a href="{$url.global}/galeria">
+		<a href="{$url.global}/p3_galeria">
 			Galeria
 		</a>
 	</div>
@@ -51,13 +51,9 @@
 			<div class="row">
 				<div class="col s7">
 					<h5 class="title">Instruments</h5>
-					<div class="scrollItem collection">
-						<a href="#!" class="collection-item corda">Alvin</a>
-						<a href="#!" class="collection-item vent">Alvin</a>
-						<a href="#!" class="collection-item percussio">Alvin</a>
-						<a href="#!" class="collection-item electronic">Alvin</a>
+					<div id="scrollItem" class="collection">
 						{foreach from=$instruments item=i}
-							<a href="" class="collection-item {$i.tipus}">{$i.name}</a>
+							<a href="{$url.global}/galeria/{$i.id}" class="collection-item {$i.type}">{$i.name}</a>
 						{/foreach}
 					</div>
 				</div>
