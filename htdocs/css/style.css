@@ -181,13 +181,10 @@ h2{
 }
 
 
-
-=======
-
 /*PRACTICA 3*/
 
 
-.scrollItem{
+#scrollItem{
   height: 200px;
   overflow: scroll;
 }
@@ -197,20 +194,20 @@ h2{
   color: black;
 }
 
-.collection .vent{
+.collection .Vent{
   background-color: #a5f1ff;
 }
 
 
-.collection .corda{
+.collection .Corda{
   background-color: #8cb63d;
 }
 
-.collection .percussio{
+.collection .Percussio{
   background-color: #ff9696;
 }
 
-.collection .electronic{
+.collection .Electronic{
   background-color: #ed8b03;
 }
 
@@ -243,4 +240,3 @@ h2{
 #electronic{
   color: #ed8b03;
 }
->>>>>>> a283c2d4a2f9d357801c20fca4f878e3106f3fcb
