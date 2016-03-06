@@ -10,9 +10,6 @@
 class PagesPractica3Model extends Model{
 
     public function getData($id){
-        $name = "";
-        $tipus = "";
-        $url_ = "";
 
         $query = <<<QUERY
             SELECT *
@@ -27,14 +24,11 @@ QUERY;
     }
 
     public function getDataByType($type){
-        $name = "";
-        $tipus = "";
-        $url_ = "";
 
         $query = <<<QUERY
             SELECT *
             FROM instrument
-            WHERE type = $type
+            WHERE type = "$type"
 QUERY;
 
         $result = $this->getAll($query);
@@ -69,20 +63,32 @@ QUERY;
         return $result;
     }
 
-    public function getNumInstrumentsByType($type)
+    public function getAllDataOrderById()
     {
+
         $query = <<<QUERY
-            SELECT count(*)
+            SELECT *
             FROM instrument
-            WHERE type = $type
+            ORDER BY id
 QUERY;
+
         $result = $this->getAll($query);
 
         return $result;
-<<<<<<< HEAD
-=======
+    }
 
->>>>>>> 231ac4ede560304826987835faa2edf6fb3a2cba
+
+    public function getNumInstrumentsByType($type)
+    {
+        $query = <<<QUERY
+            SELECT count(*) as num
+            FROM instrument
+            WHERE type = "$type"
+QUERY;
+        $result = $this->getAll($query);
+
+
+        return $result;
     }
 
 

@@ -11,7 +11,7 @@ class PagesModulCordaController extends Controller
 	protected $errorview = 'error/error404.tpl';
 	private $obj;
 	private $limit_instruments;
-	private $type = 'corda';
+	private $type = 'Corda';
 
 
 	public function build()
@@ -20,6 +20,7 @@ class PagesModulCordaController extends Controller
 		$this->setLayout( $this->view );
 
 		$this->obj = $this->getClass('PagesPractica3Model');
+
 		$this->limit_instruments = $this->obj->getTotalInstruments()[0]['total'];
 
 		$info = $this->getParams();
@@ -28,13 +29,8 @@ class PagesModulCordaController extends Controller
 		$id = $this->getIdFromUrl($info);
 
 
-		$this->setInstruments($type, $info);
+		$this->setInstruments($id);
 
-		$this->goRight($id);
-
-		$this->goLeft($id);
-
-		$this->comprovaURL($info);
 	}
 
 
@@ -48,76 +44,29 @@ class PagesModulCordaController extends Controller
 		return $id;
 	}
 
-	private function setInstruments($info){
+	private function setInstruments($id){
 
 		$data = $this->obj->getDataByType($this->type);
 
 
-		$inst_type = $data['type'];
+		for ($i = 0; $i < 3; $i++){
+            $plus = ($id - 1) * 3;
 
-		$url = $data['url'];
-
-		$u = $info['url_arguments'][0];
-
-
-		for ($i= 0;$i< 3;$i++){
-			if(isset($data[$i])){
-				$url_imatge[$i] = $url[$i * $u];
+			if(isset($data[$i * $id + $plus])){
+				$url_imatge[$i] = $data[$i * $id + $plus]['url'];
 			}else{
-				$url_imatge[$i] = "htdocs/imag/nomore.png";
+                $url_path = $url['global'];
+				$url_imatge[$i] = "$url_path/imag/nomore.png";
 			}
 
 		}
+
 		$this->assign('url_imatge', $url_imatge);
 
 
 
 	}
 
-	private function goRight($id){
 
-		$seg_trio = $id + 3;
-
-		if($id == $this->limit_instruments) {
-			$seg_trio = $id;
-			$this->assign('hidden_class_right', 'hidden');
-		}elseif($id != 1){
-			$this->assign('hidden_class_left', '');
-		}
-
-		$this->assign('seg_trio', $seg_trio);
-	}
-
-
-	private function goLeft($id){
-
-		$ant_num = $id - 1;
-
-		if($id == 1){
-			$ant_num = 1;
-			$this->assign('hidden_class_left', 'hidden');
-
-		}elseif ($id != $this->limit_instruments) {
-			$this->assign('hidden_class_right', '');
-		}
-
-		$this->assign('ant_num', $ant_num);
-	}
-
-	/**
-	 * With this method you can load other modules that we will need in our page. You will have these modules availables in your template inside the "modules" array (example: {$modules.head}).
-	 * The sintax is the following:
-	 * $modules['name_in_the_modules_array_of_Smarty_template'] = Controller_name_to_load;
-	 *
-	 * @return array
-	 */
-	public function comprovaURL($info){
-
-		if(isset($info['url_arguments'][0])){
-			if($info['url_arguments'][0]> $this->limit_instruments){
-				$this->setLayout($this->errorview);
-			}
-		}
-	}
 
 }

@@ -41,7 +41,7 @@ class PagesGaleriaController extends Controller
 
 		if(isset($info['url_arguments'][0])){
 			$id = $info['url_arguments'][0];
-		}
+		};
 		return $id;
 	}
 

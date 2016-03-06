@@ -49,10 +49,10 @@ $config['PagesPractica3_galeriaController']		= PATH_CONTROLLERS . 'pages/practic
 // Shared Controllers
 $config['SharedHeadController']			    = PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']	    	= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
-$config['SharedModulVentController']	    = PATH_CONTROLLERS . 'pages/modulVent.ctrl.php';
-$config['SharedModulCordaController']	    = PATH_CONTROLLERS . 'pages/modulCorda.ctrl.php';
-$config['SharedModulElectronicController']	= PATH_CONTROLLERS . 'pages/modulElectronic.ctrl.php';
-$config['SharedModulPercussioController']	= PATH_CONTROLLERS . 'pages/modulPercussio.ctrl.php';
+$config['PagesModulVentController']	    = PATH_CONTROLLERS . 'pages/modulVent.ctrl.php';
+$config['PagesModulCordaController']	    = PATH_CONTROLLERS . 'pages/modulCorda.ctrl.php';
+$config['PagesModulElectronicController']	= PATH_CONTROLLERS . 'pages/modulElectronic.ctrl.php';
+$config['PagesModulPercussioController']	= PATH_CONTROLLERS . 'pages/modulPercussio.ctrl.php';
 
 
 //Pages Models

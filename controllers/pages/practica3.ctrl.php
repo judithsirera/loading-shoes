@@ -19,8 +19,6 @@ class PagesPractica3Controller extends Controller
 		$this->showInstrument();
 	}
 
-<<<<<<< HEAD
-=======
 	private function insertInstrument(){
 
 		$nom_instrument = Filter::getString('nom_instrument');
@@ -38,10 +36,9 @@ class PagesPractica3Controller extends Controller
 
 	private function showInstrument(){
 
-		$inst = $this->obj->getAllData();
+		$inst = $this->obj->getAllDataOrderById();
 		$this->assign('instruments', $inst);
 	}
->>>>>>> 603114f74b072391f19dfda3b75c982790352b23
 
 	/**
 	 * With this method you can load other modules that we will need in our page. You will have these modules availables in your template inside the "modules" array (example: {$modules.head}).
