@@ -8,7 +8,7 @@
 <body>
 
 
-<h2>Practica 2</h2>
+<h2>Practica 3</h2>
 <h3>Registre d'un instrument</h3>
 <span class="message-error">{$msg}</span>
 
