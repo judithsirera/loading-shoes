@@ -53,7 +53,13 @@
 					<h5 class="title">Instruments</h5>
 					<div id="scrollItem" class="collection">
 						{foreach from=$instruments item=i}
-							<a href="{$url.global}/galeria/{$i.id}" class="collection-item {$i.type}">{$i.name}</a>
+                            <div class="collection-item instrument-item {$i.type}">
+                                <a href="{$url.global}/galeria/{$i.id}" class="">{$i.name}</a>
+                                <div class="edit-icons">
+                                    <a href="" class=""><i class="material-icons">delete</i></a>
+                                    <a href="" class=""><i class="material-icons">mode_edit</i></a>
+                                </div>
+                            </div>
 						{/foreach}
 					</div>
 				</div>
