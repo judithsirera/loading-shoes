@@ -53,13 +53,24 @@
 					<h5 class="title">Instruments</h5>
 					<div id="scrollItem" class="collection">
 						{foreach from=$instruments item=i}
-                            <div class="collection-item instrument-item {$i.type}">
+                            <div id="{$i.id}" class="collection-item instrument-item {$i.type}">
                                 <a href="{$url.global}/galeria/{$i.id}" class="">{$i.name}</a>
                                 <div class="edit-icons">
-                                    <a href="#modal1" class="modal-trigger"><i class="material-icons">delete</i></a>
+                                    <a href="#modal{$i.id}" class="modal-trigger"><i class="material-icons">delete</i></a>
                                     <a href="" class=""><i class="material-icons">mode_edit</i></a>
                                 </div>
                             </div>
+
+							<div id="modal{$i.id}" class="modal">
+								<div class="modal-content">
+									<h4>Estas segur que desitjas borrar aquest instrument?</h4>
+								</div>
+								<div class="modal-footer boto_accept">
+									<a href="{$url.global}/borrar/{$i.id}" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+								</div>
+							</div>
+
+
 						{/foreach}
 
 					</div>
@@ -78,14 +89,7 @@
 	</div>
 </section>
 
-<div id="modal1" class="modal">
-	<div class="modal-content">
-		<h4>Estas segur que desitjas borrar aquest instrument?</h4>
-	</div>
-	<div class="modal-footer">
-		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-	</div>
-</div>
+
 
 
 </body>
