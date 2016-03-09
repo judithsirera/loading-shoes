@@ -8,7 +8,7 @@
 <body>
 
 
-<h2>Practica 2</h2>
+<h2>Practica 3</h2>
 <h3>Registre d'un instrument</h3>
 <span class="message-error">{$msg}</span>
 
@@ -53,8 +53,15 @@
 					<h5 class="title">Instruments ({$numInstruments})</h5>
 					<div id="scrollItem" class="collection">
 						{foreach from=$instruments item=i}
-							<a href="{$url.global}/galeria/{$i.id}" class="collection-item {$i.type}">{$i.name}</a>
+                            <div class="collection-item instrument-item {$i.type}">
+                                <a href="{$url.global}/galeria/{$i.id}" class="">{$i.name}</a>
+                                <div class="edit-icons">
+                                    <a href="#modal1" class="modal-trigger"><i class="material-icons">delete</i></a>
+                                    <a href="" class=""><i class="material-icons">mode_edit</i></a>
+                                </div>
+                            </div>
 						{/foreach}
+
 					</div>
 				</div>
 				<div class="col s4">
@@ -70,6 +77,15 @@
 		</div>
 	</div>
 </section>
+
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<h4>Estas segur que desitjas borrar aquest instrument?</h4>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+	</div>
+</div>
 
 
 </body>

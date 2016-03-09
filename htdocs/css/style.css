@@ -189,8 +189,24 @@ h2{
   overflow: scroll;
 }
 
+.edit-icons{
+    position: absolute;
+    right: 20px;
+    top:7px;
+    z-index: 1000;
+}
 
-.collection a.collection-item{
+.instrument-item{
+ position: relative;
+    color: black;
+}
+
+.material-icons{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.collection a{
   color: black;
 }
 
