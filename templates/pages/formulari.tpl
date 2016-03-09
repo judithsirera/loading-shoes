@@ -50,7 +50,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col s7">
-					<h5 class="title">Instruments</h5>
+					<h5 class="title">Instruments ({$numInstruments})</h5>
 					<div id="scrollItem" class="collection">
 						{foreach from=$instruments item=i}
 							<a href="{$url.global}/galeria/{$i.id}" class="collection-item {$i.type}">{$i.name}</a>
