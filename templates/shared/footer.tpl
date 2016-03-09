@@ -17,5 +17,8 @@
 		<script type="text/javascript" src="{$url.global}/js/overlay-effect.js"></script>
 		<script type="text/javascript" src="{$url.global}/js/modernizr.js"></script>
 
-	</body>
+		<script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
+
+
+		</body>
 </html>
