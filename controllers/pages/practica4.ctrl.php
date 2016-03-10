@@ -27,7 +27,6 @@ class PagesPractica4Controller extends Controller
 		$url_photo = Filter::getString('URL_instrument');
 
 		if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
-
 			$this->obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
 			$this->assign('msg', "S'ha inserit correctament");
 		}else{

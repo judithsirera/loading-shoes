@@ -5,7 +5,9 @@
  */
 class PagesEditarController extends Controller
 {
-	protected $view = 'pages/formulari.tpl';
+	protected $view = 'pages/edit_form.tpl';
+    protected $errorview = 'error/error404.tpl';
+
 	protected $obj;
 
 	public function build()
@@ -21,7 +23,7 @@ class PagesEditarController extends Controller
 		$id = $this->getIdFromUrl($info);
 
 		$this->mostraDadesInstrument($id);
-		$this->editarInstrument($id, $name, $type, $url);
+		$this->editarInstrument($id);
 
 		$this->comprovaURL($info);
 	}
@@ -39,20 +41,38 @@ class PagesEditarController extends Controller
 		$data = $this->obj->getData($id);
 		$this->assign('name', $data[0]['name']);
 		$this->assign('type', $data[0]['type']);
-		$this->assign('url', $data[0]['url']);
+		$this->assign('url_inst', $data[0]['url']);
 	}
 
-	private function editarInstrument($id, $name, $type, $url){
-		$this->obj->editarInstrument($id, $name, $type, $url);
+	private function editarInstrument($id){
+        $nom_instrument = Filter::getString('nom_instrument');
+        $tipus_instrument = Filter::getString('tipus_instrument');
+        $url_photo = Filter::getString('URL_instrument');
+
+        $this->assign('msg', "Edita l'instrument");
+
+
+        if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
+            $this->obj->editarInstrument($id, $nom_instrument, $tipus_instrument, $url_photo);
+            header('Location: ' .$url['global'] .'/practica4');
+        }else if (empty($nom_instrument) || empty($tipus_instrument) || empty($url_photo)){
+            $this->assign('msg', "Omple tots els parametres");
+        }
+
 	}
 
 	public function comprovaURL($info){
-
 		if(isset($info['url_arguments'][0])){
-			if($info['url_arguments'][0]> $this->limit_instruments){
-				$this->setLayout($this->errorview);
-			}
-		}
+            $id = $info['url_arguments'][0];
+            $arr = $this->obj->getData($id);
+            if(!isset($arr[0])){
+                $this->setLayout($this->errorview);
+
+            }
+        }else{
+            $this->setLayout($this->errorview);
+
+        }
 	}
 
 

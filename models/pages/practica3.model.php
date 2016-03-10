@@ -113,6 +113,7 @@ QUERY;
     }
 
     public function editarInstrument($id, $name, $type, $url){
+
         $query = <<<QUERY
             UPDATE instrument
             SET name = "$name", type = "$type", url = "$url"

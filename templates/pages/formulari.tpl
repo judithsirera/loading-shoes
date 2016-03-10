@@ -56,7 +56,7 @@
                             <div id="{$i.id}" class="collection-item instrument-item {$i.type}">
                                 <a href="{$url.global}/galeria/{$i.id}" class="">{$i.name}</a>
                                 <div class="edit-icons">
-                                    <a id="edit_{$i.id}" href="#modal_edit" class="modal-trigger edit"><i class="material-icons">mode_edit</i></a>
+                                    <a id="" href="{$url.global}/edit/{$i.id}" class="modal-trigger edit"><i class="material-icons">mode_edit</i></a>
 									<a href="" class="modal-trigger"><i class="material-icons">delete</i></a>
 								</div>
                             </div>
@@ -78,54 +78,6 @@
 	</div>
 </section>
 
-<div id="modal1" class="modal">
-	<div class="modal-content">
-		<h4>Estas segur que desitjas borrar aquest instrument?</h4>
-	</div>
-	<div class="modal-footer">
-		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-	</div>
-</div>
-
-
-<div class="modal fade" id="modal_edit" role="dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title"><i class="material-icons">mode_edit</i> Edit</h4>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input name="name_instrument_edit" id="tipus_instrument_edit" type="text" class="validate">
-                    <label for="tipus_instrument">Instrument</label>
-                </div>
-                <div class="input-field col s12">
-                    <select id="edit_select" name="tipus_instrument_edit">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option>Vent</option>
-                        <option>Corda</option>
-                        <option>Percussio</option>
-                        <option>Electronic</option>
-                    </select>
-                    <label for="tipus_instrument_edit">Tipus instrument</label>
-                </div>
-                <div class="input-field col s12">
-                    <input name="url_instrument_edit" id="url_instrument_edit" type="text" class="validate">
-                    <label for="url_instrument">URL</label>
-                </div>
-            </div>
-		</div>
-		<div class="modal-footer">
-			<a id="edit_button" href="{$url.global}/editar">Editar</a>
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-		</div>
-        </div>
-
-    </div>
-</div>
 
 </body>
 </html>
