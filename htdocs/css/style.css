@@ -64,7 +64,7 @@ nav ul li a{
 
 a, a:hover, a:visited, a:active, a:link{
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .member{
@@ -257,6 +257,10 @@ h2{
   color: #ed8b03;
 }
 
+
+.boto_accept {
+    color: black;
+}
 
 .modal{
     background-color: transparent;

@@ -45,8 +45,12 @@ $config['PagesPercussioController']	    = PATH_CONTROLLERS . 'pages/percussio.ct
 $config['PagesPractica3Controller']		        = PATH_CONTROLLERS . 'pages/practica3.ctrl.php';
 $config['PagesPractica3_galeriaController']		= PATH_CONTROLLERS . 'pages/practica3_galeria.ctrl.php';
 
+
+$config['PagesBorrarController']	    = PATH_CONTROLLERS . 'pages/borrar.ctrl.php';
+
 $config['PagesPractica4Controller']		        = PATH_CONTROLLERS . 'pages/practica4.ctrl.php';
 $config['PagesEditarController']		        = PATH_CONTROLLERS . 'pages/editar.ctrl.php';
+
 
 
 
@@ -57,6 +61,7 @@ $config['PagesModulVentController']	    = PATH_CONTROLLERS . 'pages/modulVent.ct
 $config['PagesModulCordaController']	    = PATH_CONTROLLERS . 'pages/modulCorda.ctrl.php';
 $config['PagesModulElectronicController']	= PATH_CONTROLLERS . 'pages/modulElectronic.ctrl.php';
 $config['PagesModulPercussioController']	= PATH_CONTROLLERS . 'pages/modulPercussio.ctrl.php';
+
 
 
 //Pages Models

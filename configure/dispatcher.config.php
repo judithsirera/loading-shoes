@@ -13,6 +13,9 @@ $config['vent']			        = 'PagesVentController';
 $config['corda']			    = 'PagesCordaController';
 $config['percussio']			= 'PagesPercussioController';
 
+$config['borrar']	            = 'PagesBorrarController';
+
+
 $config['practica3']			= 'PagesPractica3Controller';
 $config['p3_galeria']			= 'PagesPractica3_galeriaController';
 

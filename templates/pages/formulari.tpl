@@ -57,9 +57,18 @@
                                 <a href="{$url.global}/galeria/{$i.id}" class="">{$i.name}</a>
                                 <div class="edit-icons">
                                     <a id="" href="{$url.global}/edit/{$i.id}" class="modal-trigger edit"><i class="material-icons">mode_edit</i></a>
-									<a href="" class="modal-trigger"><i class="material-icons">delete</i></a>
+									<a href="#modal{$i.id}" class="modal-trigger"><i class="material-icons">delete</i></a>
 								</div>
                             </div>
+
+							<div id="modal{$i.id}" class="modal">
+								<div class="modal-content">
+									<h4>Estas segur que desitjas borrar aquest instrument?</h4>
+									<a href="{$url.global}/borrar/{$i.id}" class=" modal-action modal-close waves-effect waves-green btn-flat right">Agree</a>
+								</div>
+							</div>
+
+
 						{/foreach}
 
 					</div>
