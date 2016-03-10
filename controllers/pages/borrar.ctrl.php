@@ -5,7 +5,7 @@
  */
 class PagesBorrarController extends Controller
 {
-	protected $view = 'pages/formulari.tpl';
+	protected $view = 'formulari.tpl';
 	protected $obj;
 
 	public function build()
@@ -15,30 +15,20 @@ class PagesBorrarController extends Controller
 
 		$this->setLayout( $this->view );
 
-		$this->insertInstrument();
-		$this->showInstrument();
+		$id = $this->getParams();
+
+		$this->eliminarInstrument($id);
+		header('Location: http://g4.dev/practica3/');
 	}
 
-	private function insertInstrument(){
+	private function eliminarInstrument($id){
 
-		$nom_instrument = Filter::getString('nom_instrument');
-		$tipus_instrument = Filter::getString('tipus_instrument');
-		$url_photo = Filter::getString('URL_instrument');
+		$this->obj->borrarInstrument($id);
 
-		if(!empty($nom_instrument) && !empty($tipus_instrument) && !empty($url_photo)){
 
-			$this->obj->insertInstrument($nom_instrument,$tipus_instrument,"$url_photo");
-			$this->assign('msg', "S'ha inserit correctament");
-		}else{
-			$this->assign('msg', "Omple tots els parametres");
-		}
 	}
 
-	private function showInstrument(){
 
-		$inst = $this->obj->getAllDataOrderById();
-		$this->assign('instruments', $inst);
-	}
 
 	/**
 	 * With this method you can load other modules that we will need in our page. You will have these modules availables in your template inside the "modules" array (example: {$modules.head}).
@@ -47,12 +37,5 @@ class PagesBorrarController extends Controller
 	 *
 	 * @return array
 	 */
-	public function loadModules() {
 
-		$modules['head']		= 'SharedHeadController';
-		$modules['footer']		= 'SharedFooterController';
-
-
-		return $modules;
-	}
 }
