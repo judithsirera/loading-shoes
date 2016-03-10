@@ -17,8 +17,8 @@ class PagesBorrarController extends Controller
 
 		$id = $this->getParams();
 
-		$this->eliminarInstrument($id);
-		header('Location: http://g4.dev/practica3/');
+		$this->eliminarInstrument($id["url_arguments"][0]);
+		header('Location: http://g4.dev/practica4/');
 	}
 
 	private function eliminarInstrument($id){

@@ -50,23 +50,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="col s7">
-					<h5 class="title">Instruments</h5>
+					<h5 class="title">Instruments ({$numInstruments})</h5>
 					<div id="scrollItem" class="collection">
 						{foreach from=$instruments item=i}
                             <div id="{$i.id}" class="collection-item instrument-item {$i.type}">
                                 <a href="{$url.global}/galeria/{$i.id}" class="">{$i.name}</a>
                                 <div class="edit-icons">
                                     <a href="#modal{$i.id}" class="modal-trigger"><i class="material-icons">delete</i></a>
-                                    <a href="" class=""><i class="material-icons">mode_edit</i></a>
+									<a id="edit_{$i.id}" href="#modal_edit" class="modal-trigger edit"><i class="material-icons">mode_edit</i></a>
                                 </div>
                             </div>
 
 							<div id="modal{$i.id}" class="modal">
 								<div class="modal-content">
 									<h4>Estas segur que desitjas borrar aquest instrument?</h4>
-								</div>
-								<div class="modal-footer boto_accept">
-									<a href="{$url.global}/borrar/{$i.id}" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+									<a href="{$url.global}/borrar/{$i.id}" class=" modal-action modal-close waves-effect waves-green btn-flat right">Agree</a>
 								</div>
 							</div>
 
@@ -88,8 +86,6 @@
 		</div>
 	</div>
 </section>
-
-
 
 
 </body>

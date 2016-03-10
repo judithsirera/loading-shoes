@@ -18,3 +18,6 @@ $config['borrar']	            = 'PagesBorrarController';
 
 $config['practica3']			= 'PagesPractica3Controller';
 $config['p3_galeria']			= 'PagesPractica3_galeriaController';
+
+$config['practica4']			= 'PagesPractica4Controller';
+$config['editar']			    = 'PagesEditarController';

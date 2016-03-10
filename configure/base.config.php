@@ -45,7 +45,13 @@ $config['PagesPercussioController']	    = PATH_CONTROLLERS . 'pages/percussio.ct
 $config['PagesPractica3Controller']		        = PATH_CONTROLLERS . 'pages/practica3.ctrl.php';
 $config['PagesPractica3_galeriaController']		= PATH_CONTROLLERS . 'pages/practica3_galeria.ctrl.php';
 
+
 $config['PagesBorrarController']	    = PATH_CONTROLLERS . 'pages/borrar.ctrl.php';
+
+$config['PagesPractica4Controller']		        = PATH_CONTROLLERS . 'pages/practica4.ctrl.php';
+$config['PagesEditarController']		        = PATH_CONTROLLERS . 'pages/editar.ctrl.php';
+
+
 
 
 // Shared Controllers
