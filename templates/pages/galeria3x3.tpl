@@ -5,9 +5,13 @@
 		<div class="container">
 			<h2>Practica 3</h2>
 
-            {$modules.corda}
+			<h5>Corda</h5>
+			{$modules.corda}
+			<h5>Vent</h5>
             {$modules.vent}
+			<h5>Percussio</h5>
             {$modules.percussio}
+			<h5>Electronic</h5>
             {$modules.electronic}
 
 

@@ -266,3 +266,7 @@ h2{
 .modal-content{
     box-shadow: 0 3px 9px rgba(0,0,0,.5);
 }
+
+.modal .modal-footer{
+    background-color: transparent;
+}

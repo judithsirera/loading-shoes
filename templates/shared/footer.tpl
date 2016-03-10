@@ -19,6 +19,5 @@
 
 		<script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 
-
-		</body>
+	</body>
 </html>

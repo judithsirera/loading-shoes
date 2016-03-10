@@ -127,6 +127,12 @@
     </div>
 </div>
 
+<script>
+	$(document).ready(function() {
+		$('#modal_edit').openModal();
+	});
+</script>
+
 </body>
 </html>
 
