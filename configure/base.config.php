@@ -46,6 +46,7 @@ $config['PagesPractica3Controller']		        = PATH_CONTROLLERS . 'pages/practic
 $config['PagesPractica3_galeriaController']		= PATH_CONTROLLERS . 'pages/practica3_galeria.ctrl.php';
 
 $config['PagesPractica4Controller']		        = PATH_CONTROLLERS . 'pages/practica4.ctrl.php';
+$config['PagesEditarController']		        = PATH_CONTROLLERS . 'pages/editar.ctrl.php';
 
 
 

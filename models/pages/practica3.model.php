@@ -101,4 +101,25 @@ QUERY;
         $this->execute($query);
 
     }
+
+    public function borrarInstrument($id){
+        $query = <<<QUERY
+            DELETE FROM instrument
+            WHERE id = "$id"
+QUERY;
+
+        $this->execute($query);
+
+    }
+
+    public function editarInstrument($id, $name, $type, $url){
+        $query = <<<QUERY
+            UPDATE instrument
+            SET name = "$name", type = "$type", url = "$url"
+            WHERE id = "$id"
+QUERY;
+
+        $this->execute($query);
+
+    }
 }
