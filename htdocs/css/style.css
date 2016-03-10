@@ -256,3 +256,17 @@ h2{
 #electronic{
   color: #ed8b03;
 }
+
+
+.modal{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.modal-content{
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
+
+.modal .modal-footer{
+    background-color: transparent;
+}

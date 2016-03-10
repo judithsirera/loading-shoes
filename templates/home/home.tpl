@@ -33,7 +33,7 @@
 						</div>
 					</div>
 					<div class="img practica-item">
-						<img src="{$url.global}/imag/LOADING_icon_2.png" alt="">
+						<img src="{$url.global}/imag/instruments.jpg" alt="">
 						<div class="overlay">
 							<a href="{$url.global}/practica4" class="expand">Practica 4</a>
 						</div>
