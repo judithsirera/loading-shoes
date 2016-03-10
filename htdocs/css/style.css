@@ -276,11 +276,15 @@ h2{
 }
 
 .modal-footer{
-    display: flex;
+    display: inline-block;
 }
 .modal-footer .editBtn{
-    color: #ed8b03;
+    background-color: #ed8b03;
     float: right;
     margin-right: 50px;
 
+}
+
+#closeIcon{
+    font-size: 35px;
 }

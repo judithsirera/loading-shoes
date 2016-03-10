@@ -46,13 +46,22 @@ class PagesGaleriaController extends Controller
 	}
 
 	private function setInstrument($id){
-		$data = $this->obj->getData($id);
+		$data = $this->obj->getAllData();
 
-		$type = $data[0]['type'];
-		$url = $data[0]['url'];
+        $i = 0;
+        foreach($data as $inst){
+            if($i == $id - 1){
+                $type = $inst['type'];
+                $url = $inst['url'];
 
-		$this->assign('tipus_instrument', $type);
-		$this->assign('url_imatge',$url);
+                $this->assign('tipus_instrument', $type);
+                $this->assign('url_imatge',$url);
+                return;
+            }
+            $i++;
+        }
+
+
 
 	}
 

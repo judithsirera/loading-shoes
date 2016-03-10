@@ -44,9 +44,6 @@ class PagesPractica4Controller extends Controller
 
 		$nInst = $this->obj->getTotalInstruments()[0]['total'];
 		$this->assign('numInstruments', $nInst);
-		echo '<pre>';
-		print_r($nInst);
-		echo '</pre>';
 	}
 
 	/**

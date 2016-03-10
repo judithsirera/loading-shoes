@@ -29,7 +29,7 @@
 			</div>
 
             <div class="send_button_galeria">
-                <a href="{$url.global}/practica3">
+                <a href="{$url.global}/practica4">
                     Registrar instrument
                 </a>
             </div>

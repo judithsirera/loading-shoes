@@ -6,7 +6,7 @@
 	<section>
 		<div class="container">
 			<div class="container">
-				<h2>Practica 2</h2>
+				<h2>Practica 4</h2>
 				<div class="row">
 					<h5 class="center">{$tipus_instrument}</h5>
 					<div class="thumbnail thumbnail-width center">
@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="send_button_galeria">
-					<a href="{$url.global}/practica3">
+					<a href="{$url.global}/practica4">
 						Registrar instrument
 					</a>
 				</div>

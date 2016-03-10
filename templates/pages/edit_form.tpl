@@ -62,8 +62,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default btnEdit" id="btnEdit" name="btnEdit">Edit</button>
-                    <a class="editBtn" href="{$url.global}/practica4"><h4><i class="material-icons">close</i></h4></a>
+
+                    <button type="submit" class="btn btn-default editBtn" id="btnEdit" name="btnEdit">Save</button>
+                    <a class="" href="{$url.global}/practica4"><i id="closeIcon" class="material-icons">close</i></a>
+
 
                 </div>
             </form>
