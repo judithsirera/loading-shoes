@@ -7,3 +7,23 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.logo{
+  width: 100px;
+}
+
+.footer_logo{
+  width: 200px;
+}
+
+span{
+  font-style: oblique;
+}
+
+.orange-bgColor, footer.page-footer{
+  background-color: #AD4D1E;
+}
+
+.orange-light-bgColor{
+  background-color: #CC6B3C;
+}
