@@ -6,7 +6,7 @@ if( DEV_MODE )
 	$config['default']['db_host']		= 'localhost';
 	$config['default']['db_user']		= 'root';
 	$config['default']['db_password']	= '';
-	$config['default']['db_name']		= '';
+	$config['default']['db_name']		= 'db_practica_final';
 }
 else
 {
