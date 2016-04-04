@@ -1,290 +1,106 @@
-
-html,body{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
+*{
+	font-size:13px;
+	font-family: sans-serif;
+}
+body
+{
+	margin:0;
+	padding:0;
 }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+.main_header,footer
+{
+	width:100%;
+	background-color:#464F4F;
+	
 }
 
-main {
-  flex: 1 0 auto;
+.site-logo a
+{
+	display:block;
+	color:white;
+	font-size: 24px;
+	font-weight:bold;
+	padding: 12px;
+	text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
 }
 
-
-
-#logo_navBar{
-  height: 70px;
-  margin-top: 12px;
+footer
+{
+	text-align:right;
+	padding:6px 0;
 }
 
-.menuBar{
-  height: 80px;
+footer a
+{
+	margin:0 6px;
+	color:white;
 }
 
-.orange-color{
-  background-color: #AD4D1E;
+#success
+{
+	color: white;
+	font-size: 20px;
+	font-weight:bold;
+
+	padding: 8px; 
+	text-shadow: 0px 1px 1px rgba(0,0,0,0.35);
+	border:2px solid #3bb02b;
+	border-radius:8px;
+	background-color:#90DE95;
 }
 
-.orange-light-color{
-  background-color: #CC6B3C;
+#wrapper
+{
+	position:relative;
+	margin:24px auto;
+	width:980px;
 }
 
-p{
-  color: white;
+.block
+{
+	position:relative;
+	float:left;
+	background-color:#DAEAEB;
+	border:2px solid #84BCBF;
+	border-radius:8px;
+	margin-right:12px;
+	
+	
+}
+.block:last-child
+{
+	margin-right:0;
 }
 
-h1{
-  text-transform: uppercase;
+.block h2
+{
+	font-size:16px;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+	color: #26545E;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.5);
 }
 
-h5{
-  text-transform: capitalize;
+.inner-block
+{
+	padding:16px 12px;
 }
 
-.menu-items{
-  padding-right: 50px;
-  text-transform: uppercase;
-  height: 100%;
+.inner-block table
+{
+	width:100%;
 }
 
-nav ul li, nav ul li a{
-  height: 100%;
+.inner-block td
+{
+	width:50%
 }
 
-nav ul li a{
-  padding-top: 8px;
-}
-
-a, a:hover, a:visited, a:active, a:link{
-  text-decoration: none;
-  color: black;
-}
-
-.member{
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.cell-spacing{
-  margin: 30px 30px 30px 30px;
-}
-
-.practiques-section{
-  margin-left: 24.5%;
-  width: 100%;
-  padding-left: 0px;
-}
-
-.practica-item{
-  border: 2px solid #CC6B3C;
-  margin: 3px 3px 3px 3px;
-}
-
-.error-panel{
-  margin-top: 30%;
-}
-
-footer.page-footer{
-  background-color: #AD4D1E;
-}
-
-.thumbnail-width{
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 5%;
-  border: 1px solid #CC6B3C;
-
-}
-
-.titol_registre{
-  text-align: center;
-}
-
-
-
-.send_button_inserir{
- padding-left: 43%;
-  padding-top: 1%;
-
-}
-
-.send_button_galeria{
-  padding-left: 46%;
-  padding-top: 1%;
-}
-
-.send_button_galeria a{
-  color:black;
-  border-width:1px;
-  border-color: black;
-}
-
-h3{
-  text-align: center;
-}
-
-h2{
-  text-align: center;
-}
-
-.div_form{
-  padding-left: 32%;
-}
-
-.input{
-  max-width: 40%;
-
-}
-
-.form-control{
-  max-width: 55%;
-}
-
-#input_url{
-  max-width: 50%;
-}
-
-.message-error{
-  text-align:center;
-}
-
-.container .container .row_modul{
-    padding: 20px;
-    border: 2px solid #CC6B3C;
-}
-.container{
-    position: relative;
-}
-
-.left-arrow{
-    position: absolute;
-    float: left;
-    top:55%;
-    left: -50px;
-    width: 30px;
-}
-
-.right-arrow{
-    position: absolute;
-    float: right;
-    top:55%;
-    right: -50px;
-    width: 30px;
-}
-
-
-/*PRACTICA 3*/
-
-
-#scrollItem{
-  height: 200px;
-  overflow: scroll;
-}
-
-.edit-icons{
-    position: absolute;
-    right: 20px;
-    top:7px;
-    z-index: 1000;
-}
-
-.instrument-item{
- position: relative;
-    color: black;
-}
-
-.material-icons{
-    margin-left: 3px;
-    margin-right: 3px;
-}
-
-.collection a{
-  color: black;
-}
-
-.collection .Vent{
-  background-color: #a5f1ff;
-}
-
-
-.collection .Corda{
-  background-color: #8cb63d;
-}
-
-.collection .Percussio{
-  background-color: #ff9696;
-}
-
-.collection .Electronic{
-  background-color: #ed8b03;
-}
-
-.title{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-.legend{
-  display: flex;
-}
-
-.material-icons{
-  padding-right: 7px;
-}
-
-#vent{
-  color: #a5f1ff;
-}
-
-#corda{
-  color: #8cb63d;
-}
-
-#percussio{
-  color: #ff9696;
-}
-
-#electronic{
-  color: #ed8b03;
-}
-
-
-.boto_accept {
-    color: black;
-}
-
-.modal{
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.modal-content{
-    box-shadow: 0 3px 9px rgba(0,0,0,.5);
-}
-
-.modal .modal-footer{
-    background-color: transparent;
-}
-
-.modal-footer{
-    display: inline-block;
-}
-.modal-footer .editBtn{
-    background-color: #ed8b03;
-    float: right;
-    margin-right: 50px;
-
-}
-
-#closeIcon{
-    font-size: 35px;
+.clear
+{
+	content:"";
+	padding-top:24px;
+	clear:left;
 }
