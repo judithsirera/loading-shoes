@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.logo{
+  width: 100px;
+}
+
+.footer_logo{
+  width: 200px;
+}
+
+a:hover, a:active{
+  text-decoration: none;
+  color: #CC6B3C;
+}
+
+span{
+  font-style: oblique;
+}
+
+.orange-bgColor, footer.page-footer{
+  background-color: #AD4D1E;
+}
+
+.orange-light-bgColor{
+  background-color: #CC6B3C;
+}
