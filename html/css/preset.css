@@ -16,6 +16,11 @@ main {
   width: 200px;
 }
 
+a:hover, a:active{
+  text-decoration: none;
+  color: #CC6B3C;
+}
+
 span{
   font-style: oblique;
 }
