@@ -5,4 +5,6 @@
 
 $config['default']				= 'HomeHomeController';
 $config['home']					= 'HomeHomeController';
-$config['prova']				= 'HomeProvaController';
+$config['signup']				= 'PagesSignupController';
+$config['login']				= 'PagesLoginController';
+

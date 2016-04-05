@@ -3,23 +3,15 @@
  * Home Controller: Controller example.
 
  */
-class HomeProvaController extends Controller
+class PagesSignupController extends Controller
 {
-	protected $view = 'home/prova.tpl';
+	protected $view = 'pages/signup.tpl';
 
 	public function build()
 	{
-		$this->setLayout($this->view);
 
-		$params = $this->getParams();
+		$this->setLayout( $this->view );
 
-		if ($params['url_arguments'][0] == '1') {
-			$nom = "Jud";
-		} else {
-			$nom = "Classroom";
-		}
-
-		$this->assign("usuari", $nom);
 	}
 
 

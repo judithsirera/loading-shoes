@@ -31,7 +31,11 @@ $config['ErrorError404Controller']		= PATH_CONTROLLERS . 'error/error404.ctrl.ph
 
 // Home Controller
 $config['HomeHomeController']			= PATH_CONTROLLERS . 'home/home.ctrl.php';
-$config['HomeProvaController']			= PATH_CONTROLLERS . 'home/prova.ctrl.php';
+
+
+// Pages Controller
+$config['PagesSignupController']		= PATH_CONTROLLERS . 'pages/signup.ctrl.php';
+$config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php';
 
 
 // Shared controllers

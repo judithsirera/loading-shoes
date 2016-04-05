@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col l3 s12">
-				<a class="brand-logo" href="#"><img class="img-responsive footer_logo"src="../imag/LOADING_logo.png" alt="" /></a>
+				<a class="brand-logo" href="#"><img class="img-responsive footer_logo"src="{$url.global}/imag/LOADING_logo.png" alt="" /></a>
 			</div>
 			<div class="col l4 offset-l5 s12">
 				<h5 class="white-text">Members</h5>
@@ -21,9 +21,9 @@
 	</div>
 </footer>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{$url.global}/js/jquery.min.js"></script>
+<script type="text/javascript" src="{$url.global}/js/materialize.min.js"></script>
+<script type="text/javascript" src="{$url.global}/js/bootstrap.min.js"></script>
 
 </body>
 </html>

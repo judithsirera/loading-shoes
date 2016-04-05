@@ -9,12 +9,13 @@
 	<title>Loading shoes</title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="css/materialize.min.css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="css/preset.css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{$url.global}/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="{$url.global}/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{$url.global}/css/main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{$url.global}/css/preset.css" media="screen" title="no title" charset="utf-8">
 
-	<link rel="shortcut icon" href="imag/LOADING_ico.png">
+
+	<link rel="shortcut icon" href="{$url.global}/imag/LOADING_ico.png">
 
 </head>
 <body>
@@ -23,21 +24,22 @@
 	<nav class="orange-bgColor">
 		<div class="container">
 			<div class="nav-wrapper">
-				<a href="#!" class="brand-logo">
-					<img class="img-responsive logo" src="imag/LOADING_logo.png" alt="" />
+				<a href="{$url.global}" class="brand-logo">
+					<img class="img-responsive logo" src="{$url.global}/imag/LOADING_logo.png" alt="" />
 				</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="sass.html"><i class="material-icons">add_circle_outline</i></a></li>
-					<li><a href="signin.html">Sign in</a></li>
-					<li><a href="#">Log in</a>
+					<li><a href="{$url.global}/signup">Sign up</a></li>
+					<li><a href="{$url.global}/login">Log in</a>
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
 					<li><a href="sass.html"><i class="material-icons">add_circle_outline</i></a></li>
-					<li><a href="signin.html">Sign in</a></li>
-					<li><a href="#">Log in</a>
+					<li><a href="{$url.global}/signup">Sign up</a></li>
+					<li><a href="{$url.global}/login">Log in</a>
 				</ul>
 			</div>
 		</div>
 	</nav>
 </header>
+
