@@ -1,12 +1,12 @@
 {$modules.head}
 
 <section id="login">
-    <div class="container">
+    <div class="container extra-margin-top">
         <div class="row">
             <div class="col s6">
                 <img class="img-logIn" src="{$url.global}/imag/logIn.jpg" alt="" />
             </div>
-            <div class="col s6">
+            <div class="col s6 box">
                 <div class="row">
                     <div class="col s12">
                         <h1>Log in</h1>

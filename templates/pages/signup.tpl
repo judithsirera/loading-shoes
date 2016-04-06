@@ -1,12 +1,12 @@
 {$modules.head}
 
 <section id="signup">
-    <div class="container">
+    <div class="container extra-margin-top">
         <div class="row">
             <div class="col s6">
                 <img class="img-signUp" src="{$url.global}/imag/signUp.png" alt="" />
             </div>
-            <div class="col s6">
+            <div class="col s6 box">
                 <div class="row">
                     <div class="col s12">
                         <h1>Sign up</h1>
@@ -14,8 +14,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
-                        <p>Click this link to activate: <a class="center" href="#">Link</a></p>
+                    <div class="col s12 borders-box">
+                        <p>To activate: <a class="center" href="#">Link</a></p>
                     </div>
                 </div>
                 <div class="row">
