@@ -2,7 +2,7 @@
 
 if( strpos( $_SERVER['HTTP_HOST'], '.dev' ) !== false )
 {
-	define( 'URL_ABSOLUTE', 'http://default.dev');
+	define( 'URL_ABSOLUTE', 'http://g4.dev');
 	define( 'DEV_MODE' , true );
 	define( 'SQL_DEBUG', true );
 }

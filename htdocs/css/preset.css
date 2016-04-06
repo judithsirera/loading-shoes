@@ -14,6 +14,24 @@ footer {
   width: 100%;
 }
 
+/*Colors*/
+.color-primary-0 { color: #CC6B3C }	/* Main Primary color */
+.color-primary-1 { color: #FFB896 }
+.color-primary-2 { color: #EA8F63 }
+.color-primary-3 { color: #AC4D1F }
+.color-primary-4 { color: #852F06 }
+
+
+
+/* As RGBa codes */
+
+.rgba-primary-0 { color: rgba(204,107, 60,1) }	/* Main Primary color */
+.rgba-primary-1 { color: rgba(255,184,150,1) }
+.rgba-primary-2 { color: rgba(234,143, 99,1) }
+.rgba-primary-3 { color: rgba(172, 77, 31,1) }
+.rgba-primary-4 { color: rgba(133, 47,  6,1) }
+
+
 .logo{
   width: 100px;
 }
@@ -22,9 +40,19 @@ footer {
   width: 200px;
 }
 
-a:hover, a:active{
+a{
+    color: #EA8F63;
+}
+
+a:hover, a:active, a:focus{
   text-decoration: none;
-  color: #CC6B3C;
+  color: #852F06;
+}
+
+nav ul a:active,
+nav ul a:hover,
+nav ul a:focus{
+    color: #FFB896;
 }
 
 span{
@@ -38,6 +66,8 @@ span{
 .orange-light-bgColor{
   background-color: #CC6B3C;
 }
+
+
 
 .img-signUp {
   width: 85%;
@@ -58,20 +88,20 @@ span{
 /*Form colors*/
 /* label color */
  .input-field label {
-   color: #000;
+   color: #EA8F63;
  }
  /* label focus color */
  .input-field input[type=text]:focus + label,
  .input-field input[type=email]:focus + label,
  .input-field input[type=password]:focus + label {
-   color: #000;
+   color: #852F06;
  }
  /* label underline focus color */
  .input-field input[type=text]:focus,
  .input-field input[type=email]:focus,
  .input-field input[type=password]:focus {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
+   border-bottom: 1px solid #852F06;
+   box-shadow: 0 1px 0 0 #852F06;
  }
  /* valid color */
  .input-field input[type=text].valid,
@@ -89,5 +119,27 @@ span{
  }
  /* icon prefix focus color */
  .input-field .prefix.active {
-   color: #000;
+   color: #CC6B3C;
  }
+
+ .box{
+     background-color: rgba(255,184,150,0.2);
+     border-radius: 10px;
+ }
+
+ .extra-margin-top{
+     margin-top: 60px;
+ }
+
+ /*Buttons*/
+
+.btn, .btn-large{
+    background-color: #CC6B3C;
+}
+
+.btn:hover, .btn-large:hover,
+.btn:hover, .btn-large:link,
+.btn:hover, .btn-large:active{
+    background-color: #AC4D1F;
+    color: white;
+}
