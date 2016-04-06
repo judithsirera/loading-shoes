@@ -1,3 +1,6 @@
 {$modules.head}
-Página 404
+
+<p>Hello {$usuari}!</p>
+
+
 {$modules.footer}
