@@ -15,6 +15,24 @@
   margin: 1em;
 }
 
+.row .col .error-message{
+    border: 2px solid red;
+    color: red;
+}
+
+.instructions {
+    color: rgba(158, 158, 158, 0.9);
+    font-size: 14px;
+}
+
+.extra-margin-top{
+    margin-top: 60px;
+}
+
+.row .extra-padding-bottom{
+    padding-bottom: 30px;
+}
+
 
 
 

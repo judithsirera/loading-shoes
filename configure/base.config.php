@@ -36,8 +36,12 @@ $config['HomeHomeController']			= PATH_CONTROLLERS . 'home/home.ctrl.php';
 // Pages Controller
 $config['PagesSignupController']		= PATH_CONTROLLERS . 'pages/signup.ctrl.php';
 $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php';
+$config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.ctrl.php';
 
 
 // Shared controllers
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
+
+// Pages models
+$config['PagesUserModel']		        = PATH_MODELS . 'pages/user.models.php';

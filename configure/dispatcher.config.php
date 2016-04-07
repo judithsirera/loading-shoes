@@ -7,4 +7,5 @@ $config['default']				= 'HomeHomeController';
 $config['home']					= 'HomeHomeController';
 $config['signup']				= 'PagesSignupController';
 $config['login']				= 'PagesLoginController';
+$config['activeuser']			= 'PagesActiveuserController';
 
