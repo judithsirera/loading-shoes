@@ -5,7 +5,8 @@
  */
 class PagesActiveuserController extends Controller
 {
-	protected $view = 'error/error404.tpl';
+	protected $errorView = 'error/error404.tpl';
+    protected $alreadyActiveView = 'error/alreadyActive.tpl';
     private $id;
     private $obj;
 
@@ -25,7 +26,7 @@ class PagesActiveuserController extends Controller
             $this->id = $info['url_arguments'][1];
             $this->checkIdisActive();
         }else{
-            $this->setLayout($this->view);
+            $this->setLayout($this->errorView);
         }
     }
 
@@ -40,7 +41,7 @@ class PagesActiveuserController extends Controller
             header('Location: '.URL_ABSOLUTE.'/welcome');
         }else
         {
-            echo "this account is already activated";
+            $this->setLayout($this->alreadyActiveView);
         }
     }
 
