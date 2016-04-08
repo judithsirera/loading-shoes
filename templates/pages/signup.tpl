@@ -16,7 +16,7 @@
                 <div class="row">
                     {if $active_link}
                     <div class="col s12 borders-box">
-                        <p>To activate: <a class="center" href="{$active_link}">{$active_link}</a></p>
+                        <p>To activate: {$active_link}</p>
                     </div>
                     {/if}
                     {if $error_msg}
@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_email" id="email" type="email" class="validate" value="{$email_value}" required>
-                                <label for="email">Email</label>
+                                <label for="email" data-error="wrong" data-success="right">Email</label>
                             </div>
                         </div>
                         <div class="row">

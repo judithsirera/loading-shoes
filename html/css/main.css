@@ -3,9 +3,68 @@
   padding: 5%;
 }
 
-.margin_top_welcome{
-  margin-top: 10%;
+.row .col .borders-box{
+  border: 2px solid #AC4D1F;
+  background-color: rgba(255,184,150,0.4);
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
 }
+
+.borders-box p{
+  margin: 1em;
+}
+
+.row .col .error-message{
+    border: 2px solid red;
+    color: red;
+}
+
+.instructions {
+    color: rgba(158, 158, 158, 0.9);
+    font-size: 14px;
+}
+
+.extra-margin-top{
+    margin-top: 60px;
+}
+
+.row .extra-padding-bottom{
+    padding-bottom: 30px;
+}
+
+.translateY{
+  transform: translateY(50%);
+}
+
+textarea.materialize-textarea:focus:not([readonly]){
+  border-bottom: 1px solid #852F06;
+  box-shadow: 0 1px 0 0 #852F06;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label,
+input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label,
+input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label{
+  color: #852F06;
+
+}
+
+.uploadShoesFoto{
+  border: 1px solid #EA8F63;
+  border-radius: 5px;
+  padding: 20px;
+  width: 60%;
+  margin-left: 15%;
+  margin-top: 10%;
+  background-color: rgba(255,184,150,0.2);
+  position: relative;
+}
+
+.uploadShoesFoto > img{
+  opacity: 0.2;
+}
+
+
 
 
 

@@ -44,7 +44,8 @@ class PagesSignupController extends Controller
 			$this->obj->insertNewUser($this->user_name, $this->email, $this->password, $this->twitter);
             $this->completeFields();
             $active_link = $this->generateActiveLink();
-            $this->assign('active_link', $active_link);
+            $this->createAndSendEmail($active_link);
+            $this->assign('active_link', "Check your mail box and your spam folder");
 		}
 	}
 
@@ -130,11 +131,7 @@ class PagesSignupController extends Controller
         $id = $this->obj->getUserByUsername($this->user_name);
         $id = $id[0]['id_user'];
 
-        $link = URL_ABSOLUTE ."/activeuser/user-id/$id";
-
-        $this->createAndSendEmail($link);
-
-        return $link;
+        return  URL_ABSOLUTE ."/activeuser/user-id/$id";
     }
 
     private function createAndSendEmail($link){
@@ -165,19 +162,19 @@ class PagesSignupController extends Controller
                             color: #CC6B3C;
                             line-height: 1.5;
                       }
-                      h3 > a{
+                      a{
                             color: #AC4D1F;
                         }
-                      .box > a{
+                      .box .a{
                             color: #AC4D1F;
                             font-size: 24px;
-                        transform: translateX(-50%);
-                        left: 50%;
-                        position: absolute;;
+                            transform: translateX(-50%);
+                            left: 50%;
+                            position: absolute;
                       }
                       a:hover, a:active, a:focus{
                             text-decoration: none;
-                        color: #852F06;
+                            color: #852F06;
                       }
                       .box{
                             background-color: rgba(255,184,150,0.2);
@@ -195,11 +192,11 @@ class PagesSignupController extends Controller
                         <div class='col-md-3'></div>
                         <div class='col-md-6'>
                           <div class='box'>
-                                <h1>Welcome $this->username</h1>
+                                <h1>Welcome " .$this->user_name ."</h1>
                                 <h3>To finalize your registration on
-                                <a href='#'>Loading Shoes</a>
+                                <a href='" .URL_ABSOLUTE ."'>Loading Shoes</a>
                                 you have to activate your account with this link:</h3>
-                                <a href='$link'>{$link}</a>
+                                <h2><a href='" .$link ."'>".$link ."</a></h2>
                           </div>
                         </div>
                       </div>

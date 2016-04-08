@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/materialize.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/preset.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/preset.css" media="screen" title="no title" charset="utf-8">
+
 
     <link rel="shortcut icon" href="img/LOADING_ico.png">
 
@@ -46,61 +47,88 @@
 
     <section id="signup">
         <div class="container extra-margin-top">
-            <div class="row">
-                <div class="col s6">
-                    <img class="img-signUp" src="img/signUp.png" alt="" />
-                </div>
-                <div class="col s6 box">
+            <div class="row box">
+                <div class="col s12">
                     <div class="row">
-                        <div class="col s12">
-                            <h1>Sign up</h1>
-                            <p>or <a href="{$url.global}/login">log in</a></p>
+                        <div class="col s6 offset-s3">
+                            <h1>New product</h1>
                         </div>
                     </div>
                     <div class="row">
+                      <div class="col s6 offset-s3">
                         <div class="col s12 borders-box">
                             <p>To activate: <a class="center" href="#">link</a></p>
                         </div>
                         <div class="col s12 error-message borders-box">
                             <p>error message</p>
                         </div>
+                      </div>
                     </div>
                     <div class="row">
-                        <form class="col s12" method="POST">
+                      <div class="col s6">
+                        <div class="uploadShoesFoto">
+                          <div class="file-field input-field">
+                            <div class="btn uploadImageButton">
+                              <i class="material-icons large">file_upload</i>
+                              <input id="shoesPhoto" name="shoesPhoto" type="file">
+                            </div>
+                          </div>
+                          <img class="img-responsive" src="img/uploadFotoShoes.png" alt="" />
+                        </div>
+                      </div>
+                        <form class="col s6" method="POST">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input name="user_name" id="user_name" type="text" class="validate" value="{$username_value}" required>
-                                    <label for="user_name">User name</label>
+                                    <input name="product_name" id="product_name" type="text" class="validate" value="" required>
+                                    <label for="product_name">Product name</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input name="user_email" id="email" type="email" class="validate" value="{$email_value}" required>
-                                    <label for="email">Email</label>
+                                  <textarea name="description_product" id="description_product" class="materialize-textarea"></textarea>
+                                  <label for="description_product">Description</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="user_password" id="password" type="password" class="validate" value="{$password_value}" required>
-                                    <label for="password">Password</label>
-                                    <span class="instructions">Minimum 6 characters, maximum 10 characters</span>
+                                <div class="input-field col s4">
+                                  <input name="price" id="price" type="number" class="validate" min="1" max="1000" value="" required>
+                                  <label for="price">Price (€)</label>
+                                </div>
+                                <div class="input-field col s4">
+                                  <input name="quantity" id="quantity" type="number" class="validate" min="1" max="1000" value="" required>
+                                  <label for="quantity">Quantity</label>
+                                </div>
+                                <div class="input-field col s4">
+                                  <input name="dateLimit" id="dateLimit" type="date" class="datepicker" required>
+                                  <label for="dateLimit">Date limit</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="user_twitter" id="twitter" type="text" {$twitter_value}class="validate">
-                                    <label for="twitter">Twitter user</label>
+                                <div class="col s8 translateY">
+                                    <input type="checkbox" class="filled-in" id="conditions" />
+                                    <label for="conditions">I accept conditions.</label>
+                                    <a class="modal-trigger" href="#modal-conditions"><span>Read conditions</span></a>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s12">
-                                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit">Sign up</button>
+                                <div class="col s4">
+                                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit">Create</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <!-- Modal Conditions -->
+            <div id="modal-conditions" class="modal bottom-sheet">
+              <div class="modal-content">
+                <h4>Conditions</h4>
+                <p>COSTS: Publish and edit a product cost 1€. If the user has not the money need it, the product will not be published or edited.</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+              </div>
+            </div>
+
         </div>
     </section>
 
@@ -130,7 +158,9 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 
   </body>
 </html>
