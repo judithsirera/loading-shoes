@@ -3,32 +3,18 @@
  * Home Controller: Controller example.
 
  */
-class PagesLoginController extends Controller
+class HomeWelcomeController extends Controller
 {
-	protected $view = 'pages/login.tpl';
+	protected $view = 'home/welcome.tpl';
 
 	public function build()
 	{
 
-		$this->obj = $this->getClass('PagesUserModel');
 
 		$this->setLayout( $this->view );
 
-		$this->getNameOrMail();
 	}
 
-	private function getNameOrMail(){
-
-		$user_name = Filter::getEmail('first_name');
-		$password= Filter::getString('password');
-
-		if($user_name== false){
-			$user_name = Filter::getString('first_name');
-
-		}
-		$passwordbd = getPasswordByName($)
-		if(
-	}
 
 	/**
 	 * With this method you can load other modules that we will need in our page. You will have these modules availables in your template inside the "modules" array (example: {$modules.head}).
