@@ -1,0 +1,22 @@
+.logo{
+  width: 100px;
+  padding: 5%;
+}
+
+.row .col .borders-box{
+  border: 2px solid #AC4D1F;
+  background-color: rgba(255,184,150,0.4);
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.borders-box p{
+  margin: 1em;
+}
+
+
+
+
+
+/*FOOTER*/
