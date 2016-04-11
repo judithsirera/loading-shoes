@@ -107,8 +107,8 @@ span{
  .input-field input[type=text].valid,
  .input-field input[type=email].valid,
  .input-field input[type=password].valid {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
+   border-bottom: 1px solid #EA8F63;
+   box-shadow: 0 1px 0 0 #EA8F63;
  }
  /* invalid color */
  .input-field input[type=text].invalid,
@@ -127,10 +127,6 @@ span{
      border-radius: 10px;
  }
 
- .extra-margin-top{
-     margin-top: 60px;
- }
-
  /*Buttons*/
 
 .btn, .btn-large{
@@ -138,8 +134,9 @@ span{
 }
 
 .btn:hover, .btn-large:hover,
-.btn:hover, .btn-large:link,
-.btn:hover, .btn-large:active{
+.btn:link, .btn-large:link,
+.btn:active, .btn-large:active,
+.btn:focus, .btn-large:focus{
     background-color: #AC4D1F;
     color: white;
 }
