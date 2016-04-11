@@ -134,8 +134,9 @@ span{
 }
 
 .btn:hover, .btn-large:hover,
-.btn:hover, .btn-large:link,
-.btn:hover, .btn-large:active{
+.btn:link, .btn-large:link,
+.btn:active, .btn-large:active,
+.btn:focus, .btn-large:focus{
     background-color: #AC4D1F;
     color: white;
 }

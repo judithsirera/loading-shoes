@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_name" id="user_name" type="text" class="validate" value="{$username_value}" required>
-                                <label for="user_name">User name</label>
+                                <label for="user_name" data-error="wrong" data-success="right">User name</label>
                             </div>
                         </div>
                         <div class="row">
@@ -42,14 +42,14 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_password" id="password" type="password" class="validate" value="{$password_value}" required>
-                                <label for="password">Password</label>
-                                <span class="instructions">Minimum 6 characters, maximum 10 characters</span>
+                                <label for="password" data-error="wrong" data-success="right">Password</label>
+                                <span class="instructions right">Minimum 6 characters, maximum 10 characters</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="user_twitter" id="twitter" type="text" {$twitter_value}class="validate">
-                                <label for="twitter">Twitter user</label>
+                                <input name="user_twitter" id="twitter" type="text" value="{$twitter_value}" class="validate">
+                                <label for="twitter" data-error="wrong" data-success="right">Twitter user</label>
                             </div>
                         </div>
                         <div class="row">
