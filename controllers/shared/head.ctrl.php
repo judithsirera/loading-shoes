@@ -1,4 +1,5 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
 
 class SharedHeadController extends PagesLoggedController
 {

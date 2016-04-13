@@ -17,7 +17,7 @@ class PagesSignupController extends Controller
 	public function build()
     {
 
-        $this->obj = $this->getClass(PagesUserModel);
+        $this->obj = $this->getClass('PagesUserModel');
 
 		$this->getUserData();
 

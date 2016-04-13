@@ -1,4 +1,6 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
+
 /**
  * Home Controller: Controller example.
 
