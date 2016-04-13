@@ -73,4 +73,27 @@ QUERY;
 
     }
 
+    public function getPasswordByName($user_name)
+    {
+        $query = <<<QUERY
+            SELECT `password`
+            FROM `usuari`
+            WHERE username = "$user_name"
+QUERY;
+        echo($query);
+        return $this->getAll($query);
+
+    }
+
+    public function getPasswordByEmail($user_name)
+    {
+        $query = <<<QUERY
+            SELECT `password`
+            FROM `usuari`
+            WHERE email = "$user_name"
+QUERY;
+        echo($query);
+        return $this->getAll($query);
+
+    }
 }

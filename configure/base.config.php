@@ -31,9 +31,10 @@ $config['ErrorError404Controller']		= PATH_CONTROLLERS . 'error/error404.ctrl.ph
 
 // Home Controller
 $config['HomeHomeController']			= PATH_CONTROLLERS . 'home/home.ctrl.php';
+$config['HomeWelcomeController']		= PATH_CONTROLLERS . 'home/welcome.ctrl.php';
 
 
-// Pages Controller
+// pages Controller
 $config['PagesSignupController']		= PATH_CONTROLLERS . 'pages/signup.ctrl.php';
 $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php';
 $config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeUser.ctrl.php';
