@@ -3,16 +3,18 @@
  * Home Controller: Controller example.
 
  */
-class HomeHomeController extends Controller
+class PagesMyProductsController extends PagesLoggedController
 {
-	protected $view = 'home/home.tpl';
+	protected $view = 'pages/myProducts.tpl';
 
 	public function build()
 	{
+		if($this->isLogged())
+		{
+			$this->setLayout( $this->view );
+		}
 
-
-		$this->setLayout( $this->view );
-    }
+	}
 
 
 	/**
