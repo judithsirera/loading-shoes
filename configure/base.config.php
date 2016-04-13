@@ -44,7 +44,5 @@ $config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.c
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
 
-//Pages models
-$config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
 // Pages models
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.models.php';
