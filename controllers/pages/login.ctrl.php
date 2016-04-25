@@ -14,13 +14,16 @@ class PagesLoginController extends Controller
 	public function build()
 	{
 
+
 		$this->obj = $this->getClass('PagesUserModel');
 
 		$this->setLayout( $this->view );
 
 		$this->getData();
+
 		if(!empty($this->user_name)){
 			if($this->checkUserName() && $this->checkPassword()){
+				$this->saveLogin();
 				header('Location: '.URL_ABSOLUTE.'/home');
 			}
 		}
@@ -32,6 +35,7 @@ class PagesLoginController extends Controller
 
 		$this->user_name = Filter::getEmail('user_name');
 
+		//comprovem si es mail
 		if(!$this->user_name){
 			$this->user_name = Filter::getString('user_name');
 			$this->byEmail = false;
@@ -40,6 +44,8 @@ class PagesLoginController extends Controller
 		$this->password= Filter::getString('password');
 	}
 
+
+	//comprovem si existeix el nom/mail entrat
 	private function checkUserName()
 	{
 		//si es mail
@@ -67,6 +73,14 @@ class PagesLoginController extends Controller
 		}else{
 			return true;
 		}
+	}
+
+
+	private function saveLogin()
+	{
+		Session::getInstance()->set('user_name', $this->user_name);
+		Session::getInstance()->set('isLogged', true);
+
 	}
 
 	/**
