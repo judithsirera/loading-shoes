@@ -43,6 +43,8 @@ $config['PagesLoggedController']        = PATH_CONTROLLERS . 'pages/logged.ctrl.
 $config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.ctrl.php';
 $config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.ctrl.php';
 
+$config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
+
 
 
 // Shared controllers

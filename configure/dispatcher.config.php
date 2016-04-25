@@ -11,4 +11,5 @@ $config['welcome']				= 'HomeWelcomeController';
 $config['activeuser']			= 'PagesActiveuserController';
 $config['my-purchases']			= 'PagesMyPurchasesController';
 $config['my-products']			= 'PagesMyProductsController';
+$config['logout']			    = 'PagesLogoutController';
 
