@@ -3,15 +3,17 @@
  * Home Controller: Controller example.
 
  */
-class HomeHomeController extends Controller
+class HomeWelcomeController extends Controller
 {
-	protected $view = 'home/home.tpl';
+	protected $view = 'home/welcome.tpl';
 
 	public function build()
 	{
+
+
 		$this->setLayout( $this->view );
 
-    }
+	}
 
 
 	/**

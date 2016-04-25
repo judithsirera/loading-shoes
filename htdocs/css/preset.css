@@ -55,6 +55,10 @@ nav ul a:focus{
     color: #FFB896;
 }
 
+nav ul a{
+    display: flex;
+}
+
 span{
   font-style: oblique;
 }
@@ -139,4 +143,61 @@ span{
 .btn:focus, .btn-large:focus{
     background-color: #AC4D1F;
     color: white;
+}
+
+
+
+/*TABLE*/
+table.striped>tbody>tr:nth-child(odd){
+    background-color: rgba(255,184,150,0.2);
+}
+table.highlight>tbody>tr:hover{
+    background-color: rgba(255,184,150,0.4);
+}
+
+.product-link{
+    font-weight: Bold;
+    font-size: 16px;
+}
+
+
+/* PAGINATION */
+.pagination{
+    transform: translateX(-50%);
+    left: 50%;
+    position: relative;
+}
+.pagination li a{
+    color: rgba(158, 158, 158, 0.9);
+    font-size: 11px;
+}
+
+.pagination li i{
+    font-size: 15px;
+}
+
+.pagination li.active{
+    background-color: transparent;
+}
+
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover{
+    color: #FFB896;
+    background-color: rgba(158, 158, 158, 0.1);
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #FFB896;
+    border-color: #FFB896;
+}
+
+
+td img{
+    max-width: 50%;
+    margin-left: 25%;
+    max-height: 50%;
+}
+
+tr #options{
+    width: 5%;
+    min-width: 50px;
 }

@@ -31,13 +31,25 @@ $config['ErrorError404Controller']		= PATH_CONTROLLERS . 'error/error404.ctrl.ph
 
 // Home Controller
 $config['HomeHomeController']			= PATH_CONTROLLERS . 'home/home.ctrl.php';
+$config['HomeWelcomeController']		= PATH_CONTROLLERS . 'home/welcome.ctrl.php';
 
 
-// Pages Controller
+// pages Controller
 $config['PagesSignupController']		= PATH_CONTROLLERS . 'pages/signup.ctrl.php';
 $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php';
+<<<<<<< HEAD
 $config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.ctrl.php';
 $config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newproduct.ctrl.php';
+=======
+$config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeUser.ctrl.php';
+
+$config['PagesLoggedController']        = PATH_CONTROLLERS . 'pages/logged.ctrl.php';
+$config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.ctrl.php';
+$config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.ctrl.php';
+
+$config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
+
+>>>>>>> 1bfb1ba3c0b8787f0f9b48b1fc1b2b545d2937af
 
 
 // Shared controllers
@@ -45,5 +57,9 @@ $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
 
 // Pages models
+<<<<<<< HEAD
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.models.php';
 $config['PagesProductModel']		    = PATH_MODELS . 'pages/product.models.php';
+=======
+$config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
+>>>>>>> 1bfb1ba3c0b8787f0f9b48b1fc1b2b545d2937af

@@ -1,17 +1,26 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
+
 /**
  * Home Controller: Controller example.
 
  */
-class HomeHomeController extends Controller
+class PagesLogoutController extends PagesLoggedController
 {
-	protected $view = 'home/home.tpl';
 
 	public function build()
 	{
-		$this->setLayout( $this->view );
+		if($this->isLogged())
+		{
+			Session::getInstance()->delete('user_name');
+			Session::getInstance()->delete('password');
+			Session::getInstance()->set('isLogged', false);
 
-    }
+
+			header('Location: '.URL_ABSOLUTE.'/home');
+		}
+
+	}
 
 
 	/**

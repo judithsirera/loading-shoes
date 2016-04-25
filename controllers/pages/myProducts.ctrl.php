@@ -1,17 +1,38 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
+
 /**
  * Home Controller: Controller example.
 
  */
-class HomeHomeController extends Controller
+class PagesMyProductsController extends PagesLoggedController
 {
-	protected $view = 'home/home.tpl';
+	protected $view = 'pages/myProducts.tpl';
+	private $obj;
+
+
+
 
 	public function build()
 	{
-		$this->setLayout( $this->view );
+		if($this->isLogged())
+		{
+			$this->setLayout( $this->view );
 
-    }
+
+			$this->obj = $this->getClass('PagesUserModel');
+
+			$this->assign("product_name", "User doesn't exists.");
+			$this->assign("product_name", "User doesn't exists.");
+			
+		}else{
+
+			$this->setLayout($this->errorView);
+
+
+		}
+
+	}
 
 
 	/**
