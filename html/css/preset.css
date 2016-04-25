@@ -59,6 +59,10 @@ span{
   font-style: oblique;
 }
 
+h1{
+  text-align: center;
+}
+
 .orange-bgColor, footer.page-footer{
   background-color: #AD4D1E;
 }
@@ -92,34 +96,56 @@ span{
  }
  /* label focus color */
  .input-field input[type=text]:focus + label,
+ /*textarea.materialize-textarea:focus + label,*/
  .input-field input[type=email]:focus + label,
+<<<<<<< HEAD
  .input-field input[type=password]:focus + label {
+=======
+ .input-field input[type=password]:focus + label,
+ .input-field input[type=number]:focus + label,
+ .input-field input[type=date]:focus + label,
+  {
+>>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
    color: #852F06;
  }
  /* label underline focus color */
  .input-field input[type=text]:focus,
+ /*textarea.materialize-textarea:focus,*/
  .input-field input[type=email]:focus,
+<<<<<<< HEAD
  .input-field input[type=password]:focus {
+=======
+ .input-field input[type=password]:focus,
+ .input-field input[type=number]:focus,
+ .input-field input[type=date]:focus {
+>>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
    border-bottom: 1px solid #852F06;
    box-shadow: 0 1px 0 0 #852F06;
  }
  /* valid color */
  .input-field input[type=text].valid,
+ .input-field input[type=textarea].valid,
  .input-field input[type=email].valid,
- .input-field input[type=password].valid {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
+ .input-field input[type=password].valid,
+ .input-field input[type=number].valid,
+ .input-field input[type=date].valid {
+   border-bottom: 1px solid #EA8F63;
+   box-shadow: 0 1px 0 0 #EA8F63;
  }
  /* invalid color */
  .input-field input[type=text].invalid,
+ .input-field input[type=textarea].invalid,
  .input-field input[type=email].invalid,
- .input-field input[type=password].invalid {
+ .input-field input[type=password].invalid,
+ .input-field input[type=number].invalid
+ .input-field input[type=date].invalid {
    border-bottom: 1px solid #000;
    box-shadow: 0 1px 0 0 #000;
  }
  /* icon prefix focus color */
  .input-field .prefix.active {
    color: #CC6B3C;
+<<<<<<< HEAD
  }
 
  .box{
@@ -132,6 +158,15 @@ span{
      margin-top: 60px;
  }
 
+=======
+ }
+
+ .box{
+     background-color: rgba(255,184,150,0.2);
+     border-radius: 10px;
+ }
+
+>>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
  /*Buttons*/
 
 .btn, .btn-large{
@@ -144,3 +179,69 @@ span{
     background-color: #AC4D1F;
     color: white;
 }
+<<<<<<< HEAD
+=======
+
+/*Check box*/
+[type="checkbox"].filled-in:checked+label:after{
+  border: 2px solid #852F06;
+  background-color: #852F06;
+}
+
+[type="checkbox"]:checked+label:before{
+  border-right: 2px solid #852F06;
+  border-bottom: 2px solid #852F06;
+}
+
+
+/*Modal*/
+.modal.bottom-sheet {
+    margin: 0;
+    width: 50%;
+    min-width: 200px;
+    max-height: 230px;
+    transform-origin: translateX(-25%) translateY(-25%);
+    left: 25%;
+    top: 25%;
+    border-radius: 10px;
+}
+
+.modal-content{
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+}
+
+.modal-footer{
+  border: none;
+}
+
+
+/*UploadIcon*/
+.file-field .btn, .file-field .btn-large{
+  height: 5rem;
+}
+
+.uploadImageButton, .uploadImageButton:hover, .uploadImageButton:active, .uploadImageButton:link{
+  position: absolute;
+  transform: translateY(100%);
+  width: 5rem;
+  left: 35%;
+  z-index: 1000;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.btn i{
+  font-size: 5rem;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 20%;
+  position: relative;
+  color: #EA8F63;
+}
+
+.uploadImageButton:hover i{
+  color: #852F06;
+}
+>>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
