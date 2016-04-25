@@ -16,7 +16,7 @@
                     <thead>
                     <tr>
                         <th data-field="img">Image</th>
-                        <th data-field="id">Product name</th>
+                        <th data-field="id" >Product name</th>
                         <th data-field="stock">Stock</th>
                         <th data-field="limitDate">Date limit</th>
                         <th data-field="price">Price</th>
