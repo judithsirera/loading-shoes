@@ -38,6 +38,14 @@
 }
 
 
+/*Table*/
+.total-information{
+    transform: translateY(100%);
+    position: relative;
+    top: 50%;
+}
+
+
 
 
 

@@ -17,7 +17,7 @@ class PagesSignupController extends Controller
 	public function build()
     {
 
-        $this->obj = $this->getClass(PagesUserModel);
+        $this->obj = $this->getClass('PagesUserModel');
 
 		$this->getUserData();
 
@@ -45,7 +45,7 @@ class PagesSignupController extends Controller
             $this->completeFields();
             $active_link = $this->generateActiveLink();
             $this->createAndSendEmail($active_link);
-            $this->assign('active_link', "Check your mail box and your spam folder");
+            $this->assign('active_link', "Check your mail box and your spam folder.");
 		}
 	}
 
@@ -131,7 +131,7 @@ class PagesSignupController extends Controller
         $id = $this->obj->getUserByUsername($this->user_name);
         $id = $id[0]['id_user'];
 
-        return  URL_ABSOLUTE ."/activeuser/user-id/$id";
+        return URL_ABSOLUTE ."/activeuser/user-id/$id";
     }
 
     private function createAndSendEmail($link){

@@ -1,17 +1,22 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
+
 /**
  * Home Controller: Controller example.
 
  */
-class HomeHomeController extends Controller
+class PagesMyProductsController extends PagesLoggedController
 {
-	protected $view = 'home/home.tpl';
+	protected $view = 'pages/myProducts.tpl';
 
 	public function build()
 	{
-		$this->setLayout( $this->view );
+		if($this->isLogged())
+		{
+			$this->setLayout( $this->view );
+		}
 
-    }
+	}
 
 
 	/**

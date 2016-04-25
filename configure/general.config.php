@@ -8,7 +8,7 @@ if( strpos( $_SERVER['HTTP_HOST'], '.dev' ) !== false )
 }
 else
 {
-	echo 'Error -> Instancia de pruebas para uso local con el nombre <i>default.dev</i>';
+	echo 'Error -> Instancia de pruebas para uso local con el nombre <i>g4.dev</i>';
 	exit;
 }
 
