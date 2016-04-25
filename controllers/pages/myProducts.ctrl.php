@@ -8,12 +8,23 @@ include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
 class PagesMyProductsController extends PagesLoggedController
 {
 	protected $view = 'pages/myProducts.tpl';
+	private $obj;
+
+
+
 
 	public function build()
 	{
 		if($this->isLogged())
 		{
 			$this->setLayout( $this->view );
+
+			$this->obj = $this->getClass('PagesUserModel');
+
+			$this->assign("product_name", "User doesn't exists.");
+			$this->assign("product_name", "User doesn't exists.");
+
+
 		}
 
 	}
