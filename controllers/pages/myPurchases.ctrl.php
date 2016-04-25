@@ -7,17 +7,42 @@ include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
 class PagesMyPurchasesController extends PagesLoggedController
 {
 	protected $view = 'pages/myPurchases.tpl';
+	private $obj;
+	private $purchases;
+	private $limitPages;
+	private $actualPage;
 
 	public function build()
 	{
 		if($this->isLogged())
 		{
 			$this->setLayout( $this->view );
+			$this->obj = $this->getClass('PagesPurchasesModel');
+
+			$this->actualPage = $this->getParams()['url_argument'];
+			$this->getAllPurchases();
+
 		}else
 		{
-			$this->setLayout($this->errorView);
+			$this->setLayout( $this->errorView );
 		}
 
+	}
+
+	private function getAllPurchases()
+	{
+		$this->purchases = $this->obj->getAllData();
+		$this->limitPages = sizeof($this->purchases[0]) / 10;
+		if (!is_int($this->limitPages))
+		{
+			$this->limitPages++;
+		}
+	}
+
+	private function setTemplate()
+	{
+		$this->assign('page_num', $this->actualPage);
+		$this->assign('data', $this->purchases);
 	}
 
 

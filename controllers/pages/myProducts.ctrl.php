@@ -14,6 +14,9 @@ class PagesMyProductsController extends PagesLoggedController
 		if($this->isLogged())
 		{
 			$this->setLayout( $this->view );
+		}else{
+
+			$this->setLayout($this->errorView);
 		}
 
 	}

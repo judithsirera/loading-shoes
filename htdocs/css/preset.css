@@ -55,6 +55,10 @@ nav ul a:focus{
     color: #FFB896;
 }
 
+nav ul a{
+    display: flex;
+}
+
 span{
   font-style: oblique;
 }
