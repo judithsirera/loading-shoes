@@ -92,7 +92,6 @@ QUERY;
             FROM `usuari`
             WHERE email = "$user_name"
 QUERY;
-        echo($query);
         return $this->getAll($query);
 
     }
