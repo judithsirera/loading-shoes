@@ -7,7 +7,7 @@
  */
 
 
-class Pages extends Model{
+class PagesPurchasesModel extends Model{
 
     public function insertNewPurchase($user_sell, $user_buy, $product, $date)
     {
@@ -19,11 +19,12 @@ QUERY;
         $this->execute($query);
     }
 
-    public function getAllData()
+    public function getPurchasesByUserBuy($user_buy)
     {
         $query = <<<QUERY
             SELECT *
             FROM purchase
+            WHERE user_buy = "$user_buy";
 QUERY;
 
         return $this->getAll($query);

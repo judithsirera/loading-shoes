@@ -24,7 +24,7 @@ class PagesMyProductsController extends PagesLoggedController
 
 			$this->assign("product_name", "User doesn't exists.");
 			$this->assign("product_name", "User doesn't exists.");
-			
+
 		}else{
 
 			$this->setLayout($this->errorView);

@@ -53,3 +53,4 @@ $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php'
 
 // Pages models
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
+$config['PagesPurchasesModel']		    = PATH_MODELS . 'pages/purchase.model.php';

@@ -7,7 +7,7 @@ class PagesLoginController extends Controller
 {
 	protected $view = 'pages/login.tpl';
 	private $obj;
-	private $user_name="";
+	private $username="";
 	private $password="";
 	private $byEmail = true;
 
@@ -21,7 +21,7 @@ class PagesLoginController extends Controller
 
 		$this->getData();
 
-		if(!empty($this->user_name)){
+		if(!empty($this->username)){
 			if($this->checkUserName() && $this->checkPassword()){
 				$this->saveLogin();
 				header('Location: '.URL_ABSOLUTE.'/home');
@@ -33,11 +33,11 @@ class PagesLoginController extends Controller
 
 	private function getData(){
 
-		$this->user_name = Filter::getEmail('user_name');
+		$this->username = Filter::getEmail('user_name');
 
 		//comprovem si es mail
-		if(!$this->user_name){
-			$this->user_name = Filter::getString('user_name');
+		if(!$this->username){
+			$this->username = Filter::getString('user_name');
 			$this->byEmail = false;
 		}
 
@@ -49,7 +49,7 @@ class PagesLoginController extends Controller
 	private function checkUserName()
 	{
 		//si es mail
-		if($this->obj->getUsernameByEmail($this->user_name) || $this->obj->getUserByUsername($this->user_name)){
+		if($this->obj->getUsernameByEmail($this->username) || $this->obj->getUserByUsername($this->username)){
 			return true;
 		}else{
 			$this->assign("error_msg", "User doesn't exists.");
@@ -60,10 +60,10 @@ class PagesLoginController extends Controller
 
 	private function checkPassword(){
 		if(!$this->byEmail){
-			$passwordbbdd = $this->obj->getPasswordByName($this->user_name);
+			$passwordbbdd = $this->obj->getPasswordByName($this->username);
 			$passwordbbdd = $passwordbbdd[0]['password'];
 		}else{
-			$passwordbbdd = $this->obj->getPasswordByEmail($this->user_name);
+			$passwordbbdd = $this->obj->getPasswordByEmail($this->username);
 			$passwordbbdd = $passwordbbdd[0]['password'];
 		}
 
@@ -78,7 +78,11 @@ class PagesLoginController extends Controller
 
 	private function saveLogin()
 	{
-		Session::getInstance()->set('user_name', $this->user_name);
+		if($this->byEmail)
+		{
+			$this->username = $this->obj->getUsernameByEmail($this->username)[0]['username'];
+		}
+		Session::getInstance()->set('user_name', $this->username);
 		Session::getInstance()->set('isLogged', true);
 
 	}
