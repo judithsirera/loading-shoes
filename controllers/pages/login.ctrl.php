@@ -82,7 +82,8 @@ class PagesLoginController extends Controller
 		{
 			$this->username = $this->obj->getUsernameByEmail($this->username)[0]['username'];
 		}
-		Session::getInstance()->set('user_name', $this->username);
+		Session::getInstance()->set('username', $this->username);
+		Session::getInstance()->set('money', $this->obj->getUserByUsername($this->username)[0]['money']);
 		Session::getInstance()->set('isLogged', true);
 
 	}

@@ -33,8 +33,8 @@
 					{if $isLogged}
                         <li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
                         <li><a href="{$url.global}/my-purchases"><i class="material-icons">shopping_cart</i></a></li>
-						<li><a href="{$url.global}">300<i class="material-icons">attach_money</i></a></li>
-						<li><a href="{$url.global}/logout"><i class="material-icons">power_settings_new</i></a></li>
+						<li><a href="{$url.global}/recharge">{$money}<i class="material-icons">euro_symbol</i></a></li>
+						<li><a href="{$url.global}/logout">{$username}<i id="logout" class="material-icons">power_settings_new</i></a></li>
 
 					{else}
 						<li><a href="{$url.global}/signup">Sign up</a></li>
@@ -46,8 +46,8 @@
 					{if $isLogged}
                         <li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
                         <li><a href="{$url.global}/my-purchases"><i class="material-icons">shopping_cart</i></a></li>
-						<li><a href="{$url.global}">300<i class="material-icons">attach_money</i></a></li>
-						<li><a href="{$url.global}/logout"><i class="material-icons">power_settings_new</i></a></li>
+						<li><a href="{$url.global}/recharge">{$money}<i class="material-icons">euro_symbol</i></a></li>
+						<li><a href="{$url.global}/logout">{$username}<i id="logout" class="material-icons">power_settings_new</i></a></li>
 					{else}
 						<li><a href="{$url.global}/signup">Sign up</a></li>
 						<li><a href="{$url.global}/login">Log in</a>

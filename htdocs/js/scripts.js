@@ -49,9 +49,6 @@ $(document).ready(function() {
     });
 });
 
-console.log($('input[type=password]').val());
-
-
 
 $(document).ready(function() {
   //CHARACTER COUNTER

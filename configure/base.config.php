@@ -46,7 +46,7 @@ $config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newproduct.c
 $config['PagesLoggedController']        = PATH_CONTROLLERS . 'pages/logged.ctrl.php';
 $config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.ctrl.php';
 $config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.ctrl.php';
-
+$config['PagesRechargeController']      = PATH_CONTROLLERS . 'pages/recharge.ctrl.php';
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
 
 

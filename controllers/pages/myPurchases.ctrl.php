@@ -43,7 +43,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 
 	private function getAllPurchases()
 	{
-		$this->purchases = $this->obj->getPurchasesByUserBuy($this->user_name);
+		$this->purchases = $this->obj->getPurchasesByUserBuy($this->username);
 
 		for ($i = 0; $i < sizeof($this->purchases); $i++)
 		{
