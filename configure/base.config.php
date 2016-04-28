@@ -37,13 +37,18 @@ $config['HomeWelcomeController']		= PATH_CONTROLLERS . 'home/welcome.ctrl.php';
 // pages Controller
 $config['PagesSignupController']		= PATH_CONTROLLERS . 'pages/signup.ctrl.php';
 $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php';
-$config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeUser.ctrl.php';
+
+$config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.ctrl.php';
+$config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newproduct.ctrl.php';
+
+
 
 $config['PagesLoggedController']        = PATH_CONTROLLERS . 'pages/logged.ctrl.php';
 $config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.ctrl.php';
 $config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.ctrl.php';
 
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
+
 
 
 
@@ -54,3 +59,4 @@ $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php'
 // Pages models
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
 $config['PagesPurchasesModel']		    = PATH_MODELS . 'pages/purchase.model.php';
+$config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';
