@@ -12,25 +12,31 @@
         </div>
         <div class="row">
             <div class="col s12">
-                <table class="striped highlight responsive-table">
-                    <thead>
-                    <tr>
-                        <th data-field="id">Product name</th>
-                        <th data-field="user">User</th>
-                        <th data-field="price">Price</th>
-                    </tr>
-                    </thead>
+                {if $total_purchases == 0}
+                    <div class="container center">
+                        <h5>You have not bought any product, go shopping</h5>
+                    </div>
+                {else}
+                    <table class="striped highlight responsive-table">
+                        <thead>
+                        <tr>
+                            <th data-field="id">Product name</th>
+                            <th data-field="user">User</th>
+                            <th data-field="price">Price</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    {foreach from=$data item=p}
-                    <tr>
-                        <td><a href="#" class="product-link">{$p.product}</a></td>
-                        <td>{$p.user_sell}</td>
-                        <td>${$p.price}</td>
-                    </tr>
-                    {/foreach}
-                    </tbody>
-                </table>
+                        <tbody>
+                        {foreach from=$data item=p}
+                        <tr>
+                            <td><a href="#" class="product-link">{$p.product}</a></td>
+                            <td>{$p.user_sell}</td>
+                            <td>{$p.price} €</td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                {/if}
             </div>
         </div>
     </div>
