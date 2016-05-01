@@ -269,3 +269,47 @@ tr #options{
 .uploadImageButton:hover i{
     color: #852F06;
 }
+
+/*SEARCH BAR*/
+.search-box .search-input{
+    width: 200px;
+    display: flex;
+    padding-left: 15px;
+}
+
+.search-box input[type=text]:focus:not([readonly]){
+    border-bottom-color: #FFB896;
+    box-shadow: 0 1px 0 0 #FFB896;
+}
+
+.search-input:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.search-input a:hover{
+    background-color: transparent;
+}
+
+.search-input input{
+    border-bottom-color: rgba(255,255,255,0.7);
+}
+
+::-webkit-input-placeholder{
+    color: #afafaf;
+    opacity: 0.5;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: white;
+    opacity: 0.5;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: white;
+    opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+    color: white;
+    opacity: 0.5;
+}

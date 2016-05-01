@@ -36,7 +36,7 @@
                                 <h5>How much money</h5>
                             </div>
                             <div class="input-field col s6">
-                                <input name="money" id="money" type="number" class="validate" min="1" max="1000" required>
+                                <input name="money" id="money" type="number" class="validate" min="1" max="100" required>
                             </div>
                         </div>
                         <div class="row">

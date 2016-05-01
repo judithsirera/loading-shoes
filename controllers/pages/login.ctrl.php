@@ -14,7 +14,6 @@ class PagesLoginController extends Controller
 	public function build()
 	{
 
-
 		$this->obj = $this->getClass('PagesUserModel');
 
 		$this->setLayout( $this->view );
@@ -55,6 +54,22 @@ class PagesLoginController extends Controller
 			$this->assign("error_msg", "User doesn't exists.");
 			return false;
 		}
+
+	}
+
+	private function checkIsActive()
+	{
+		if($this->byEmail)
+		{
+			$username = $this->obj->getUsernameByEmail($this->username)[0]['username'];
+		}
+		$isActive = $this->obj->getUserByUsername($username)[0]['isActive'];
+		if(!$isActive)
+		{
+			$this->assign("error_msg", "This user has not validate the account");
+			return false;
+		}
+		return true;
 
 	}
 

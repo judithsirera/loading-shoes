@@ -1,8 +1,7 @@
 
+//SIGN UP
 $(document).ready(function() {
     //CHECK PASSWORD
-
-
     $('input[type=password]').on('keyup',function(){
         object = $('input[type=password]');
         len = $('input[type=password]').val().length;
@@ -46,6 +45,28 @@ $(document).ready(function() {
                 object.removeClass('invalid').addClass('valid');
             }
         }
+    });
+});
+
+//SEARCH BAR
+$(document).ready(function() {
+    $('#search').keydown(function (e){
+        url = "/products/search/"
+        if(e.keyCode == 13){
+            return false;
+        }
+    });
+
+    $('#searchBtn').on('click', function() {
+        val = $('#search').val();
+        href = url;
+        if(val.length > 0){
+            href = url + val;
+            $('#searchBtn').attr("href", href);
+            href = $('#searchBtn').attr("href");
+            window.location = href;
+        }
+
     });
 });
 

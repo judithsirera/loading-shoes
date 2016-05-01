@@ -22,9 +22,9 @@
 </footer>
 
 <script type="text/javascript" src="{$url.global}/js/jquery.min.js"></script>
-<script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 <script type="text/javascript" src="{$url.global}/js/materialize.min.js"></script>
 <script type="text/javascript" src="{$url.global}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 
 
 </body>

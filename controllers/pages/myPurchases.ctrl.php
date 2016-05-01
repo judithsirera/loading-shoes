@@ -56,7 +56,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 	{
 		for ($i = $this->actualPage*10 - 10; $i <= 10*$this->actualPage && $i < sizeof($this->purchases); $i++)
 		{
-			$this->actualData[$i-$this->actualPage*10] = $this->purchases[$i];
+			$this->actualData[$i-($this->actualPage - 1)*10] = $this->purchases[$i];
 		}
 	}
 
@@ -65,10 +65,10 @@ class PagesMyPurchasesController extends PagesLoggedController
 		$totalPages = sizeof($this->purchases) / 10;
 		if (!is_int($totalPages))
 		{
-			$totalPages = floor($this->limitPages);
+			$totalPages = floor($totalPages);
 			$totalPages++;
 		}
-		for ($i = 0; $i <= $totalPages; $i++)
+		for ($i = 0; $i < $totalPages; $i++)
 		{
 			$this->limitPages[$i] = $i + 1;
 		}

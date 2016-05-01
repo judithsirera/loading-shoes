@@ -43,9 +43,15 @@ class PagesRechargeController extends PagesLoggedController
 	{
 		if (!empty($this->quantity) && !empty($this->method))
 		{
-			$this->obj->updateMoney($this->username, $this->money+$this->quantity);
-			$this->money = $this->money + $this->quantity;
-			$this->itsDone = true;
+			if ($this->money + $this->quantity > 1000)
+			{
+				$this->assign('error_msg', 'You can not have more than 1000€ in your account');
+			}else
+			{
+				$this->obj->updateMoney($this->username, $this->money+$this->quantity);
+				$this->money = $this->money + $this->quantity;
+				$this->itsDone = true;
+			}
 		}
 	}
 

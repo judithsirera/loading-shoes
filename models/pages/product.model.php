@@ -11,58 +11,42 @@ class PagesProductModel extends Model{
 
     public function insertNewProduct($productname, $description, $price, $stock, $limit_date, $username)
     {
-            $query = <<<QUERY
-            INSERT INTO producte (name, description, price,stock,limit_date,usuari)
-            VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username",);
+        $query = <<<QUERY
+        INSERT INTO producte (name, description, price, stock, limit_date, usuari)
+        VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username");
 QUERY;
-
-
         $this->execute($query);
     }
 
-    public function getUserByUsername($username)
+    public function searchProduct($search)
     {
         $query = <<<QUERY
             SELECT *
-            FROM usuari
-            WHERE username = "$username"
+            FROM product
+            WHERE name LIKE '%$search%'
 QUERY;
-
         return $this->getAll($query);
+
     }
 
-    public function getUserById($id)
+    public function getProductById($id)
     {
         $query = <<<QUERY
             SELECT *
-            FROM usuari
-            WHERE id_user = "$id"
+            FROM product
+            WHERE id = "$id"
 QUERY;
-
         return $this->getAll($query);
     }
 
-    public function getUsernameByEmail($email)
+    public function getAllProductsByIdOrderByDate()
     {
         $query = <<<QUERY
-            SELECT username
-            FROM usuari
-            WHERE email = "$email"
+            SELECT *
+            FROM product
+            ORDER by limit_date
 QUERY;
-
         return $this->getAll($query);
-
-    }
-
-    public function activeAccount($id)
-    {
-        $query = <<<QUERY
-            UPDATE usuari
-            SET isActive = true
-            WHERE id_user = "$id"
-QUERY;
-        $this->execute($query);
-
     }
 
 }

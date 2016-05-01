@@ -140,4 +140,55 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
 }
 
 
-/*FOOTER*/
+/*PRODUCT CARTS*/
+
+.card{
+    margin-top: 2rem;
+}
+
+.card-content .activator{
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card-action .row{
+    margin-bottom: 0px;
+}
+
+.views{
+    font-style: italic;
+    color: #afafaf;
+}
+
+.collection-item p i{
+    color: #777777;
+    font-size: 20px;
+}
+
+.collection-item .user{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.card-action .shopping a i{
+    color: #EA8F63;
+}
+
+.card-action .shopping a:hover i{
+    color: rgba(234,143, 99, 0.5)
+}
+
+.price-stock{
+    display: flex;
+}
+
+.price-stock h5{
+    margin-right: 80px;
+}
+
+.price-stock h6{
+    font-size: 1.50rem;
+    color: #333333;
+    margin: 0.82rem 0 0.656rem 0;
+}
+
