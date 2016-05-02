@@ -65,4 +65,14 @@ QUERY;
 
     }
 
+    public function getData()
+    {
+        $query = <<<QUERY
+            SELECT *
+            FROM producte
+QUERY;
+        return $this->getAll($query);
+
+    }
+
 }

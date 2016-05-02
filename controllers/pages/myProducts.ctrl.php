@@ -9,7 +9,7 @@ class PagesMyProductsController extends PagesLoggedController
 {
 	protected $view = 'pages/myProducts.tpl';
 	private $obj;
-
+	private $dataProducts;
 
 
 
@@ -20,11 +20,12 @@ class PagesMyProductsController extends PagesLoggedController
 			$this->setLayout( $this->view );
 
 
-			$this->obj = $this->getClass('PagesUserModel');
+			$this->obj = $this->getClass('PagesProductModel');
 
-			$this->assign("product_name", "User doesn't exists.");
-			$this->assign("product_name", "User doesn't exists.");
-			
+			$this->dataProducts = $this->obj->getData();
+			$this->assign("products", $this->dataProducts);
+
+
 		}else{
 
 			$this->setLayout($this->errorView);

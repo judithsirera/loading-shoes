@@ -25,70 +25,18 @@
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                        <td><i class="material-icons">mode_edit</i><i class="material-icons">delete</i></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                        <td><a href="#" class="product-link">Alvin</a></td>
-                        <td>2</td>
-                        <td>04/05/2001</td>
-                        <td>$0.87</td>
-                    </tr>
+
+                    {foreach from=$products item=p}
+                        <tr>
+                            <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
+                            <td><a href="#" class="product-link">{$p.name}</a></td>
+                            <td>{$p.stock}</td>
+                            <td>{$p.date}</td>
+                            <td>${$p.price}</td>
+                            <td><i class="material-icons">mode_edit</i><i class="material-icons">delete</i></td>
+                        </tr>
+                    {/foreach}
+
                     </tbody>
                 </table>
             </div>
