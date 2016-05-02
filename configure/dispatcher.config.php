@@ -13,5 +13,9 @@ $config['newproduct']			= 'PagesNewProductController';
 
 $config['my-purchases']			= 'PagesMyPurchasesController';
 $config['my-products']			= 'PagesMyProductsController';
+$config['my-purchases']			= 'PagesMyPurchasesController';
+$config['recharge']			    = 'PagesRechargeController';
 $config['logout']			    = 'PagesLogoutController';
 
+$config['products']             = 'PagesProductsController';
+$config['buy']                  = 'PagesBuyController';

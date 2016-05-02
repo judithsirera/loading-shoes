@@ -8,6 +8,8 @@ class SharedHeadController extends PagesLoggedController
 		$this->setLayout( 'shared/head.tpl' );
 
 		$this->assign('isLogged', $this->isLogged());
+		$this->assign('username', strtoupper($this->username));
+		$this->assign('money', $this->money);
 	}
 }
 

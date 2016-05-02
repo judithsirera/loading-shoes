@@ -98,27 +98,18 @@ h1{
  .input-field input[type=text]:focus + label,
  /*textarea.materialize-textarea:focus + label,*/
  .input-field input[type=email]:focus + label,
-<<<<<<< HEAD
- .input-field input[type=password]:focus + label {
-=======
  .input-field input[type=password]:focus + label,
  .input-field input[type=number]:focus + label,
- .input-field input[type=date]:focus + label,
-  {
->>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
+ .input-field input[type=date]:focus + label {
    color: #852F06;
  }
  /* label underline focus color */
  .input-field input[type=text]:focus,
  /*textarea.materialize-textarea:focus,*/
  .input-field input[type=email]:focus,
-<<<<<<< HEAD
- .input-field input[type=password]:focus {
-=======
  .input-field input[type=password]:focus,
  .input-field input[type=number]:focus,
  .input-field input[type=date]:focus {
->>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
    border-bottom: 1px solid #852F06;
    box-shadow: 0 1px 0 0 #852F06;
  }
@@ -145,7 +136,6 @@ h1{
  /* icon prefix focus color */
  .input-field .prefix.active {
    color: #CC6B3C;
-<<<<<<< HEAD
  }
 
  .box{
@@ -158,15 +148,6 @@ h1{
      margin-top: 60px;
  }
 
-=======
- }
-
- .box{
-     background-color: rgba(255,184,150,0.2);
-     border-radius: 10px;
- }
-
->>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831
  /*Buttons*/
 
 .btn, .btn-large{
@@ -179,8 +160,6 @@ h1{
     background-color: #AC4D1F;
     color: white;
 }
-<<<<<<< HEAD
-=======
 
 /*Check box*/
 [type="checkbox"].filled-in:checked+label:after{
@@ -244,4 +223,3 @@ h1{
 .uploadImageButton:hover i{
   color: #852F06;
 }
->>>>>>> fa14f6481bcc2e3132a6a2bc6c7543076fde5831

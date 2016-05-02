@@ -7,23 +7,25 @@
  */
 
 
-class Pages extends Model{
+class PagesPurchaseModel extends Model{
 
-    public function insertNewPurchase($user_sell, $user_buy, $product, $date)
+    public function insertNewPurchase($user_sell, $user_buy, $product, $date, $price)
     {
         $query = <<<QUERY
-        INSERT INTO purchase (user_sell, user_buy, product, date)
-        VALUES ("$user_sell", "$user_buy", "$product", "$date");
+        INSERT INTO purchase (user_sell, user_buy, product, purchase_date, price)
+        VALUES ("$user_sell", "$user_buy", "$product", "$date", "$price");
 QUERY;
-
+        echo $query;
         $this->execute($query);
     }
 
-    public function getAllData()
+    public function getPurchasesByUserBuy($user_buy)
     {
         $query = <<<QUERY
             SELECT *
             FROM purchase
+            WHERE user_buy = "$user_buy"
+            ORDER BY purchase_date ASC;
 QUERY;
 
         return $this->getAll($query);

@@ -29,26 +29,44 @@
 				</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
 					{if $isLogged}
-                        <li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
+						<li class="search-box">
+							<form>
+								<div class="search-input">
+									<input name="search" id="search" type="text" placeholder="Search">
+									<a id="searchBtn" href="{$global.url}/products"><i class="material-icons">search</i></a>
+								</div>
+							</form>
+						</li>
+						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
+						<li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
                         <li><a href="{$url.global}/my-purchases"><i class="material-icons">shopping_cart</i></a></li>
-						<li><a href="{$url.global}">300<i class="material-icons">attach_money</i></a></li>
-						<li><a href="{$url.global}/logout"><i class="material-icons">power_settings_new</i></a></li>
+						<li><a href="{$url.global}/recharge">{$money}<i class="material-icons">euro_symbol</i></a></li>
+						<li><a href="{$url.global}/logout">{$username}<i id="logout" class="material-icons">power_settings_new</i></a></li>
 
 					{else}
+						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
 						<li><a href="{$url.global}/signup">Sign up</a></li>
 						<li><a href="{$url.global}/login">Log in</a>
 					{/if}
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
-					<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
 					{if $isLogged}
-                        <li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
+						<li class="search-box">
+							<form>
+								<div class="search-input">
+									<input name="search" id="search" type="text" placeholder="Search">
+									<a id="searchBtn" href="{$global.url}/products"><i class="material-icons">search</i></a>
+								</div>
+							</form>
+						</li>
+						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
+						<li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
                         <li><a href="{$url.global}/my-purchases"><i class="material-icons">shopping_cart</i></a></li>
-						<li><a href="{$url.global}">300<i class="material-icons">attach_money</i></a></li>
-						<li><a href="{$url.global}/logout"><i class="material-icons">power_settings_new</i></a></li>
+						<li><a href="{$url.global}/recharge">{$money}<i class="material-icons">euro_symbol</i></a></li>
+						<li><a href="{$url.global}/logout">{$username}<i id="logout" class="material-icons">power_settings_new</i></a></li>
 					{else}
+						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
 						<li><a href="{$url.global}/signup">Sign up</a></li>
 						<li><a href="{$url.global}/login">Log in</a>
 					{/if}

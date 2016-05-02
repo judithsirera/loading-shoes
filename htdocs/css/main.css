@@ -45,10 +45,150 @@
     top: 50%;
 }
 
+.recharge-box{
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(175, 175, 175, 0.48);
+}
+
+#last_product{
+    padding-top: 70px;
+}
+
+.product{
+    border: solid 1px #FFB896 ;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    --padding-left: 4px;
+    --padding-right: 4px;
+}
+
+.important_product{
+    border: solid 1px #FFB896 ;
+    border-top-left-radius: 0;
+    border-top-right-radius:0;
+    width: calc(93%/5);
+    --padding-left: 4px;
+    --padding-right: 4px;
+    display: inline-block;
+    margin-left: 1%;
+}
+
+.info_product{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.info_product p{
+    width: 100%;
+    text-overflow: clip;
+}
+
+.last_product_image{
+    width: 50%;
+}
+
+.most_product_image{
+    width: 100%;
+}
+
+.data_product{
+    color:grey;
+}
+
+.visits_product{
+    text-align-last: justify;
+    color: #FFB896;
+}
+.visibility_icon{
+    color:#FFB896;
+}
+
+.translateY{
+    transform: translateY(50%);
+}
+
+textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid #852F06;
+    box-shadow: 0 1px 0 0 #852F06;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label,
+input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label,
+input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label{
+    color: #852F06;
+
+}
+
+.uploadShoesFoto{
+    border: 1px solid #EA8F63;
+    border-radius: 5px;
+    padding: 20px;
+    width: 60%;
+    margin-left: 15%;
+    margin-top: 10%;
+    background-color: rgba(255,184,150,0.2);
+    position: relative;
+}
+
+.uploadShoesFoto > img{
+    opacity: 0.2;
+}
+
+.actual-money > i{
+    vertical-align: bottom;
+}
 
 
+/*PRODUCT CARTS*/
 
+.card{
+    margin-top: 2rem;
+}
 
+.card-content .activator{
+    cursor: pointer;
+    margin-top: 10px;
+}
 
+.card-action .row{
+    margin-bottom: 0px;
+}
 
-/*FOOTER*/
+.views{
+    font-style: italic;
+    color: #afafaf;
+}
+
+.collection-item p i{
+    color: #777777;
+    font-size: 20px;
+}
+
+.collection-item .user{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.card-action .shopping a i{
+    color: #EA8F63;
+}
+
+.card-action .shopping a:hover i{
+    color: rgba(234,143, 99, 0.5)
+}
+
+.price-stock{
+    display: flex;
+}
+
+.price-stock h5{
+    margin-right: 80px;
+}
+
+.price-stock h6{
+    font-size: 1.50rem;
+    color: #333333;
+    margin: 0.82rem 0 0.656rem 0;
+}
+
