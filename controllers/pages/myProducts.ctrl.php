@@ -27,7 +27,7 @@ class PagesMyProductsController extends PagesLoggedController
 
 		}else{
 
-			$this->setLayout($this->errorView);
+			$this->setLayout($this->error403);
 
 
 		}

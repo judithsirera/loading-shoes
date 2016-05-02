@@ -21,7 +21,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 		if($this->isLogged())
 		{
 			$this->setLayout( $this->view );
-			$this->obj = $this->getClass('PagesPurchasesModel');
+			$this->obj = $this->getClass('PagesPurchaseModel');
 
 			$this->actualPage = 1;
 			if ($this->getParams()['url_arguments'][0])
@@ -36,7 +36,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 
 		}else
 		{
-			$this->setLayout( $this->errorView );
+			$this->setLayout( $this->error403 );
 		}
 
 	}

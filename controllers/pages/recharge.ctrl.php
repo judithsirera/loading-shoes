@@ -26,7 +26,7 @@ class PagesRechargeController extends PagesLoggedController
 			$this->setTemplate();
 		}else
 		{
-			$this->setLayout( $this->errorView );
+			$this->setLayout( $this->error403 );
 		}
 
 	}

@@ -9,7 +9,7 @@
                 <h4>No results with the word '<span>{$word}</span>'</h4>
                 <h5>We are showing all products</h5>
             {/if}
-            <h6><a href="#">See all</a></h6>
+            <h6><a href="{$global.url}/products">See all</a></h6>
         {else}
             <h4>All products</h4>
         {/if}
@@ -32,7 +32,7 @@
                                 <img class="activator img-responsive" src="{$global.url}/imag/products/{$p.image_path}">
                             </div>
                             <div class="card-content">
-                                <span class="card-title"><a href="{$global.url}/p/{$p.name}/id-{$p.id}">{$p.name}</a></span>
+                                <span class="card-title"><a href="{$global.url}/p/{$p.URL}/id={$p.id}">{$p.name}</a></span>
                                 <span><i class="activator material-icons right">description</i></span>
                                 <div class="price-stock">
                                     <h5>{$p.price}€</h5>
@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                     <div class="col s2 shopping">
-                                        <a href="#"><i class="medium material-icons right">add_shopping_cart</i></a>
+                                        <a href="{$global.url}/buy/{$p.URL}/id={$p.id}"><i class="medium material-icons right">add_shopping_cart</i></a>
                                     </div>
                                 </div>
                             </div>

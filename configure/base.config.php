@@ -41,6 +41,7 @@ $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php'
 $config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.ctrl.php';
 $config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newproduct.ctrl.php';
 $config['PagesProductsController']      = PATH_CONTROLLERS . 'pages/products.ctrl.php';
+$config['PagesBuyController']           = PATH_CONTROLLERS . 'pages/buy.ctrl.php';
 
 
 
@@ -59,5 +60,5 @@ $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php'
 
 // Pages models
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
-$config['PagesPurchasesModel']		    = PATH_MODELS . 'pages/purchase.model.php';
+$config['PagesPurchaseModel']		    = PATH_MODELS . 'pages/purchase.model.php';
 $config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';

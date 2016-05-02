@@ -34,7 +34,7 @@
 							<form>
 								<div class="search-input">
 									<input name="search" id="search" type="text" placeholder="Search">
-									<a id="searchBtn" href="{$global.url}/search-results"><i class="material-icons">search</i></a>
+									<a id="searchBtn" href="{$global.url}/products"><i class="material-icons">search</i></a>
 								</div>
 							</form>
 						</li>

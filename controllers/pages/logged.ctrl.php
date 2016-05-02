@@ -5,7 +5,8 @@
  */
 class PagesLoggedController extends Controller
 {
-	protected $errorView = 'error/error403.tpl';
+	protected $error403 = 'error/error403.tpl';
+	protected $error404 = 'error/error404.tpl';
 	protected $session;
 	protected $username;
 	protected $money;

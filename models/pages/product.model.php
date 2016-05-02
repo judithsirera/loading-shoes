@@ -24,6 +24,7 @@ QUERY;
             SELECT *
             FROM product
             WHERE name LIKE '%$search%'
+            AND stock > 0
 QUERY;
         return $this->getAll($query);
 
@@ -44,9 +45,21 @@ QUERY;
         $query = <<<QUERY
             SELECT *
             FROM product
-            ORDER by limit_date
+            WHERE stock > 0
+            ORDER BY limit_date ASC;
 QUERY;
         return $this->getAll($query);
+    }
+
+    public function updateStock($id, $stock)
+    {
+        $query = <<<QUERY
+            UPDATE product
+            SET stock = "$stock"
+            WHERE id = "$id"
+QUERY;
+        $this->execute($query);
+
     }
 
 }
