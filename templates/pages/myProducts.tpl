@@ -33,7 +33,7 @@
                         {foreach from=$products item=p}
                             <tr>
                                 <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
-                                <td><a href="#" class="product-link">{$p.name}</a></td>
+                                <td><a href="{$global.url}/p/{$p.URL}/id={$p.id}" class="product-link">{$p.name}</a></td>
                                 <td>{$p.stock}</td>
                                 <td>{$p.date}</td>
                                 <td>${$p.price}</td>

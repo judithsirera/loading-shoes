@@ -9,6 +9,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 	protected $view = 'pages/myPurchases.tpl';
 	private $obj;
 	private $purchases;
+	private $products;
 	private $dateLimit;
 	private $totalPrice = 0;
 	private $actualData;
@@ -31,6 +32,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 			}
 
 			$this->getAllPurchases();
+			$this->getAllProducts();
 			$this->setPurchasesForPage();
 			$this->setPages();
 			$this->setDateFormat();
@@ -52,6 +54,15 @@ class PagesMyPurchasesController extends PagesLoggedController
 			$this->totalPrice += $this->purchases[$i]['price'];
 		}
 
+	}
+
+	private function getAllProducts()
+	{
+		$obj_product = $this->getClass('PagesProductModel');
+		$this->products = $obj_product->getAllProducts();
+		echo '<pre>';
+		print_r($this->products);
+		echo '</pre>';
 	}
 
 	private function setPurchasesForPage()
@@ -97,6 +108,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 		$this->assign('total_purchases', sizeof($this->purchases));
 		$this->assign('total_price', $this->totalPrice);
 		$this->assign('purchases', $this->actualData);
+		$this->assign('products', $this->products);
 		$this->assign('date', $this->dateLimit);
 		$this->assign('actual_page', $this->actualPage);
 		$this->assign('prev_page', $this->actualPage - 1);

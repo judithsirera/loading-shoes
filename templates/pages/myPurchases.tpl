@@ -30,7 +30,13 @@
                         <tbody>
                         {foreach from=$purchases item=p}
                         <tr>
-                            <td><a href="#" class="product-link">{$p.product}</a></td>
+                            <td>
+                                {foreach from = $products item = prod}
+                                    {if $prod.name == $p.product}
+                                        <a href="{$global.url}/p/{$prod.URL}/id={$prod.id}" class="product-link">{$p.product}</a>
+                                    {/if}
+                                {/foreach}
+                            </td>
                             <td>{$p.user_sell}</td>
                             <td>{$p.price} €</td>
                             <td>

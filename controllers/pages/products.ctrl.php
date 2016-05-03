@@ -70,11 +70,11 @@ class PagesProductsController extends PagesLoggedController
             $this->areResults = true;
             if(sizeof($this->products) == 0)
             {
-                $this->products = $this->obj_product->getAllProductsByIdOrderByDate();
+                $this->products = $this->obj_product->getAllProductsOrderByDate();
                 $this->areResults = false;
             }
         }else{
-            $this->products = $this->obj_product->getAllProductsByIdOrderByDate();
+            $this->products = $this->obj_product->getAllProductsOrderByDate();
 
         }
     }

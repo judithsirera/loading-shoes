@@ -11,7 +11,7 @@
     <div class="container extra-margin-top">
         <div class="row">
             <div class="col s6">
-                <h1 class="product-title">NIKE BAMBES</h1>
+                <h1 class="product-title">{$p.name}</h1>
             </div>
             <div class="col s6 user">
                 <img src="{$url.global}/imag/user_default.png" alt="" class="circle img-user">

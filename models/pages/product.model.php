@@ -20,6 +20,16 @@ QUERY;
         $this->execute($query);
     }
 
+    public function searchProduct($search)
+    {
+        $query = <<<QUERY
+            SELECT *
+            FROM product
+            WHERE name LIKE '%$search%'
+QUERY;
+        return $this->getAll($query);
+    }
+
     public function getProductByUrl($url)
     {
         $query = <<<QUERY
@@ -30,7 +40,17 @@ QUERY;
         return $this->getAll($query);
     }
 
-    public function getAllProductsByIdOrderByDate()
+    public function getProductById($id)
+    {
+        $query = <<<QUERY
+            SELECT *
+            FROM product
+            WHERE id = "$id"
+QUERY;
+        return $this->getAll($query);
+    }
+
+    public function getAllProductsOrderByDate()
     {
         $query = <<<QUERY
              SELECT *
@@ -42,6 +62,15 @@ QUERY;
          return $this->getAll($query);
      }
 
+    public function getAllProducts()
+    {
+        $query = <<<QUERY
+             SELECT *
+             FROM product;
+QUERY;
+
+        return $this->getAll($query);
+    }
 
     public function updateStock($id, $stock)
     {
@@ -65,7 +94,7 @@ QUERY;
 
     }
 
-    public function getData($username)
+    public function getAllProductsByUser($username)
     {
         $query = <<<QUERY
             SELECT *

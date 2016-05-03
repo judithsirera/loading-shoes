@@ -11,6 +11,7 @@ class PagesMyProductsController extends PagesLoggedController
 	private $obj;
 	private $dataProducts;
 	private $actualPage;
+	private $actualData;
 	private $totalPrice;
 	private $limitPages;
 	private $isPrevDis = "";
@@ -51,7 +52,7 @@ class PagesMyProductsController extends PagesLoggedController
 
 	private function getCash(){
 
-		$this->dataProducts = $this->obj->getDataByUser($this->username);
+		$this->dataProducts = $this->obj->getAllProductsByUser($this->username);
 		$totalProducts = sizeof($this->dataProducts);
 
 		for ($i = 0; $i < sizeof($this->dataProducts); $i++)
