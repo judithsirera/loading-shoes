@@ -10,10 +10,13 @@ $config['login']				= 'PagesLoginController';
 $config['welcome']				= 'HomeWelcomeController';
 $config['activeuser']			= 'PagesActiveuserController';
 $config['newproduct']			= 'PagesNewProductController';
+
+$config['my-purchases']			= 'PagesMyPurchasesController';
 $config['my-products']			= 'PagesMyProductsController';
 $config['my-purchases']			= 'PagesMyPurchasesController';
 $config['recharge']			    = 'PagesRechargeController';
 $config['logout']			    = 'PagesLogoutController';
+
 $config['products']             = 'PagesProductsController';
 $config['buy']                  = 'PagesBuyController';
 $config['p']                    = 'PagesProductViewController';

@@ -60,6 +60,10 @@ $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
 
 // Pages models
+
+$config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
+$config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';
+
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
 $config['PagesPurchaseModel']		    = PATH_MODELS . 'pages/purchase.model.php';
 $config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';
