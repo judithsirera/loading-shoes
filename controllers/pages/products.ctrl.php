@@ -13,6 +13,7 @@ class PagesProductsController extends PagesLoggedController
 
     /*ALL products*/
     private $products;
+    private $diff;
     private $obj_product;
     private $obj_user;
     private $actualPage = 1;
@@ -36,6 +37,7 @@ class PagesProductsController extends PagesLoggedController
         $this->getAllProducts();
         $this->setProductsForPage();
         $this->setStars();
+        $this->setDaysToCaducate();
         $this->setPages();
         $this->setTemplate();
 
@@ -131,13 +133,33 @@ class PagesProductsController extends PagesLoggedController
 
     }
 
+    private function setDaysToCaducate()
+    {
+        $today = getdate();
+        $today = $today['year'] ."-" .$today['mon'] ."-" .$today['mday'];
+        $today = date('d-m-Y', strtotime($today));
+
+
+        for ($i = 0; $i < sizeof($this->actualData); $i++)
+        {
+
+            $date = $this->actualData[$i]['limit_date'];
+            $date = date('d-m-Y', strtotime($date));
+            $days_diff = $date - $today;
+
+            $this->diff[$i]['days'] = $days_diff;
+            $this->diff[$i]['id'] = $this->actualData[$i]['id'];
+        }
+    }
+
     private function setTemplate()
     {
         $this->assign('isResult', $this->isSearch);
         $this->assign('areResults', $this->areResults);
         $this->assign('word', $this->search);
         $this->assign('total_products', sizeof($this->products));
-        $this->assign('data', $this->actualData);
+        $this->assign('products', $this->actualData);
+        $this->assign('diff_days', $this->diff);
         $this->assign('stars', $this->starsAvaluation);
         $this->assign('actual_page', $this->actualPage);
         $this->assign('prev_page', $this->actualPage - 1);
