@@ -41,6 +41,7 @@ $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php'
 $config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.ctrl.php';
 $config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newproduct.ctrl.php';
 $config['PagesProductsController']      = PATH_CONTROLLERS . 'pages/products.ctrl.php';
+$config['PagesProductViewController']   = PATH_CONTROLLERS . 'pages/productView.ctrl.php';
 $config['PagesBuyController']           = PATH_CONTROLLERS . 'pages/buy.ctrl.php';
 
 

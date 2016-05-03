@@ -75,9 +75,21 @@ QUERY;
 
     public function updateMoney($username, $money)
     {
+        if ($money < 0) $money = 0;
+
         $query = <<<QUERY
             UPDATE usuari
             SET money = "$money"
+            WHERE username = "$username"
+QUERY;
+        $this->execute($query);
+    }
+
+    public function updateSuccess($username, $success)
+    {
+        $query = <<<QUERY
+            UPDATE usuari
+            SET success = "$success"
             WHERE username = "$username"
 QUERY;
         $this->execute($query);

@@ -9,6 +9,11 @@ main {
   flex: 1 0 auto;
 }
 
+section{
+    position: relative;
+}
+
+
 footer {
   /*position: absolute;*/
   bottom: 0px;
@@ -103,6 +108,22 @@ span{
     opacity: 0.8;
 }
 
+.img-product{
+    transform: translateX(5%);
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 90%;
+    border: 1px solid #AD4D1E;
+}
+
+.img-user{
+    width: 70px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
 /*Form colors*/
 /* label color */
 .input-field label {
@@ -169,6 +190,7 @@ span{
  .box{
      background-color: rgba(255,184,150,0.2);
      border-radius: 10px;
+     position: relative;
  }
 
  /*Buttons*/
@@ -242,6 +264,10 @@ tr #options{
     min-width: 50px;
 }
 
+tr #product-name{
+    min-width: 160px;
+}
+
 /*UploadIcon*/
 .file-field .btn, .file-field .btn-large{
     height: 5rem;
@@ -312,4 +338,16 @@ tr #options{
 :-ms-input-placeholder {
     color: white;
     opacity: 0.5;
+}
+
+.goBackBtn{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.shoppingBtn{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
 }

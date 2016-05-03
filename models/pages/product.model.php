@@ -40,6 +40,16 @@ QUERY;
         return $this->getAll($query);
     }
 
+    public function getProductByUrl($url)
+    {
+        $query = <<<QUERY
+            SELECT *
+            FROM product
+            WHERE url = "$url"
+QUERY;
+        return $this->getAll($query);
+    }
+
     public function getAllProductsByIdOrderByDate()
     {
         $query = <<<QUERY
@@ -56,6 +66,16 @@ QUERY;
         $query = <<<QUERY
             UPDATE product
             SET stock = "$stock"
+            WHERE id = "$id"
+QUERY;
+        $this->execute($query);
+    }
+
+    public function updateViews($id, $views)
+    {
+        $query = <<<QUERY
+            UPDATE product
+            SET views = "$views"
             WHERE id = "$id"
 QUERY;
         $this->execute($query);

@@ -32,7 +32,7 @@
                                 <img class="activator img-responsive" src="{$global.url}/imag/products/{$p.image_path}">
                             </div>
                             <div class="card-content">
-                                <span class="card-title"><a href="{$global.url}/p/{$p.URL}/id={$p.id}">{$p.name}</a></span>
+                                <span class="card-title"><a href="{$global.url}/p/{$p.URL}">{$p.name}</a></span>
                                 <span><i class="activator material-icons right">description</i></span>
                                 <div class="price-stock">
                                     <h5>{$p.price}€</h5>

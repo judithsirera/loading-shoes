@@ -16,3 +16,4 @@ $config['recharge']			    = 'PagesRechargeController';
 $config['logout']			    = 'PagesLogoutController';
 $config['products']             = 'PagesProductsController';
 $config['buy']                  = 'PagesBuyController';
+$config['p']                    = 'PagesProductViewController';

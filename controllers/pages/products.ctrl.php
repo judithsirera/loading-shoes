@@ -13,7 +13,8 @@ class PagesProductsController extends PagesLoggedController
 
     /*ALL products*/
     private $products;
-    private $obj;
+    private $obj_product;
+    private $obj_user;
     private $actualPage = 1;
     private $limitPages;
     private $isPrevDis = "";
@@ -28,7 +29,8 @@ class PagesProductsController extends PagesLoggedController
 
         $this->setLayout($this->view);
 
-        $this->obj = $this->getClass('PagesProductModel');
+        $this->obj_product = $this->getClass('PagesProductModel');
+        $this->obj_user = $this->getClass('PagesUserModel');
 
         $this->getAllParams();
         $this->getAllProducts();
@@ -64,15 +66,15 @@ class PagesProductsController extends PagesLoggedController
     {
         if ($this->isSearch)
         {
-            $this->products = $this->obj->searchProduct($this->search);
+            $this->products = $this->obj_product->searchProduct($this->search);
             $this->areResults = true;
             if(sizeof($this->products) == 0)
             {
-                $this->products = $this->obj->getAllProductsByIdOrderByDate();
+                $this->products = $this->obj_product->getAllProductsByIdOrderByDate();
                 $this->areResults = false;
             }
         }else{
-            $this->products = $this->obj->getAllProductsByIdOrderByDate();
+            $this->products = $this->obj_product->getAllProductsByIdOrderByDate();
 
         }
     }
@@ -108,18 +110,25 @@ class PagesProductsController extends PagesLoggedController
     {
         for($p = 0; $p < sizeof($this->actualData); $p++)
         {
-            $stars = $this->actualData[$p]['stars'];
+            $sell_user = $this->actualData[$p]['usuari'];
+            $stars = $this->obj_user->getUserByUsername($sell_user)[0]['success'];
             for ($i = 0; $i < 5; $i++)
             {
                 if($i < $stars)
                 {
                     $this->starsAvaluation[$p]['stars'][$i] = "star";
+                    if ($stars - $i < 1 && $stars - $i> 0)
+                    {
+                        $this->starsAvaluation[$p]['stars'][$i] = "star_half";
+                    }
                 }else{
                     $this->starsAvaluation[$p]['stars'][$i] = "star_border";
+
                 }
             }
             $this->starsAvaluation[$p]['id'] = $this->actualData[$p]['id'];
         }
+
     }
 
     private function setTemplate()

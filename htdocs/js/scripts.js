@@ -62,14 +62,13 @@ $(document).ready(function() {
         href = url;
         if(val.length > 0){
             href = url + val;
-            $('#searchBtn').attr("href", href);
-            href = $('#searchBtn').attr("href");
+            $(this).attr("href", href);
+            href = $(this).attr("href");
             window.location = href;
         }
 
     });
 });
-
 
 $(document).ready(function() {
   //CHARACTER COUNTER

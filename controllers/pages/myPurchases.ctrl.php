@@ -9,6 +9,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 	protected $view = 'pages/myPurchases.tpl';
 	private $obj;
 	private $purchases;
+	private $dateLimit;
 	private $totalPrice = 0;
 	private $actualData;
 	private $limitPages;
@@ -32,6 +33,7 @@ class PagesMyPurchasesController extends PagesLoggedController
 			$this->getAllPurchases();
 			$this->setPurchasesForPage();
 			$this->setPages();
+			$this->setDateFormat();
 			$this->setTemplate();
 
 		}else
@@ -78,11 +80,24 @@ class PagesMyPurchasesController extends PagesLoggedController
 
 	}
 
+	private function setDateFormat()
+	{
+		for ($i = 0; $i < sizeof($this->actualData); $i++)
+		{
+			$date = explode('-', $this->actualData[$i]['purchase_date']);
+			$this->dateLimit[$i]['date'] = $date[2] . "/" . $date[1] . "/" . $date[0];
+			$this->dateLimit[$i]['id'] = $this->actualData[$i]['id'];
+		}
+
+
+	}
+
 	private function setTemplate()
 	{
 		$this->assign('total_purchases', sizeof($this->purchases));
 		$this->assign('total_price', $this->totalPrice);
-		$this->assign('data', $this->actualData);
+		$this->assign('purchases', $this->actualData);
+		$this->assign('date', $this->dateLimit);
 		$this->assign('actual_page', $this->actualPage);
 		$this->assign('prev_page', $this->actualPage - 1);
 		$this->assign('isPrevDis', $this->isPrevDis);

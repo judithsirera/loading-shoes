@@ -16,13 +16,12 @@ class PagesBuyController extends PagesLoggedController
     private $user_sell;
     private $user_buy;
 
-    private $error = false;
-    private $errorProduct = 'error/productNoExist.tpl';
-
+    private $layout;
 
 
     public function build()
     {
+
         if($this->isLogged())
         {
             $this->obj_product = $this->getClass('PagesProductModel');
@@ -30,21 +29,32 @@ class PagesBuyController extends PagesLoggedController
             $this->obj_user = $this->getClass('PagesUserModel');
 
             $this->getAllParams();
-            if ($this->getProductToBuy())
+            if ($this->getProductToBuy() && $this->enoughMoney())
             {
                 $this->getUsers();
                 $this->updateUsersMoney();
                 $this->updateStock();
                 $this->insertPurchaseDB();
-                header('Location: '.URL_ABSOLUTE.'/my-purchases');
+                $this->updateUserSuccess();
 
-            }else{
-                $this->setLayout( $this->errorProduct );
+            }elseif (!$this->getProductToBuy())
+            {
+                $this->layout = 'error/productNoExist.tpl';
+            }elseif (!$this->enoughMoney())
+            {
+                $this->layout = 'error/noMoney.tpl';
             }
 
         }else
         {
-            $this->setLayout( $this->error403 );
+            $this->layout = $this->error403;
+        }
+
+        if(isset($this->layout))
+        {
+            $this->setLayout($this->layout);
+        }else{
+            header('Location: '.URL_ABSOLUTE.'/my-purchases');
         }
 
     }
@@ -58,7 +68,7 @@ class PagesBuyController extends PagesLoggedController
             $this->product_id = explode("=", $this->product_id)[1];
 
         } else{
-            $this->error = true;
+            $this->layout = $this->error404;
         }
     }
 
@@ -77,6 +87,16 @@ class PagesBuyController extends PagesLoggedController
     {
         $this->user_sell = $this->obj_user->getUserByUsername($this->product_to_buy['usuari'])[0];
         $this->user_buy = $this->obj_user->getUserByUsername($this->username)[0];
+    }
+
+    private function enoughMoney()
+    {
+        $product_price = $this->product_to_buy['price'];
+        if ($this->money - $product_price < 0)
+        {
+            return false;
+        }
+        return true;
     }
 
     private function updateUsersMoney()
@@ -102,8 +122,17 @@ class PagesBuyController extends PagesLoggedController
     {
         $today = getdate();
         $date = $today['year'] ."-" .$today['mon'] ."-" .$today['mday'];
-        echo $date;
         $this->obj_purchase->insertNewPurchase($this->user_sell['username'], $this->username, $this->product_to_buy['name'] , $date, $this->product_to_buy['price']);
+    }
+
+    private function updateUserSuccess()
+    {
+        $stadistics = $this->obj_purchase->getStadisticsByUserSell($this->user_sell['username'])[0];
+        $percentage = $stadistics['sells'] / $stadistics['total'];
+
+        $success = $percentage * 5;
+        $this->obj_user->updateSuccess($this->user_sell['username'], $success);
+
     }
 
 

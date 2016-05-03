@@ -20,18 +20,26 @@
                     <table class="striped highlight responsive-table">
                         <thead>
                         <tr>
-                            <th data-field="id">Product name</th>
+                            <th id="product-name" data-field="id">Product name</th>
                             <th data-field="user">User</th>
                             <th data-field="price">Price</th>
+                            <th data-field="date">Date</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        {foreach from=$data item=p}
+                        {foreach from=$purchases item=p}
                         <tr>
                             <td><a href="#" class="product-link">{$p.product}</a></td>
                             <td>{$p.user_sell}</td>
                             <td>{$p.price} €</td>
+                            <td>
+                                {foreach from = $date item = d}
+                                    {if $p.id == $d.id}
+                                        {$d.date}
+                                    {/if}
+                                {/foreach}
+                            </td>
                         </tr>
                         {/foreach}
                         </tbody>
