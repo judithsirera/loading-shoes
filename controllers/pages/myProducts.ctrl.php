@@ -51,7 +51,7 @@ class PagesMyProductsController extends PagesLoggedController
 
 	private function getCash(){
 
-		$this->dataProducts = $this->obj->getData();
+		$this->dataProducts = $this->obj->getDataByUser($this->username);
 		$totalProducts = sizeof($this->dataProducts);
 
 		for ($i = 0; $i < sizeof($this->dataProducts); $i++)

@@ -12,19 +12,24 @@
         </div>
         <div class="row">
             <div class="col s12">
-                <table class="striped highlight responsive-table">
-                    <thead>
-                    <tr>
-                        <th data-field="img">Image</th>
-                        <th data-field="id" >Product name</th>
-                        <th data-field="stock">Stock</th>
-                        <th data-field="limitDate">Date limit</th>
-                        <th data-field="price">Price</th>
-                        <th id="options" data-field="options"></th>
-                    </tr>
-                    </thead>
+                {if $numberOfProducts == 0}
+                    <div class="container center">
+                        <h5>You have not uploaded any product, create one</h5>
+                    </div>
+                {else}
+                    <table class="striped highlight responsive-table">
+                        <thead>
+                        <tr>
+                            <th data-field="img">Image</th>
+                            <th data-field="id" >Product name</th>
+                            <th data-field="stock">Stock</th>
+                            <th data-field="limitDate">Date limit</th>
+                            <th data-field="price">Price</th>
+                            <th id="options" data-field="options"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
+                        <tbody>
                         {foreach from=$products item=p}
                             <tr>
                                 <td><img src="{$url.global}/imag/LOADING_ico.png" class="img_responsive circle"></td>
@@ -36,8 +41,9 @@
                             </tr>
                         {/foreach}
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                {/if}
             </div>
         </div>
     </div>
