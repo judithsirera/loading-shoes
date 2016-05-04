@@ -27,7 +27,5 @@
 <script type="text/javascript" src="{$url.global}/js/materialize.min.js"></script>
 <script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 
-
-
 </body>
 </html>

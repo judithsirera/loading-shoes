@@ -9,12 +9,11 @@ $config['signup']				= 'PagesSignupController';
 $config['login']				= 'PagesLoginController';
 $config['welcome']				= 'HomeWelcomeController';
 $config['activeuser']			= 'PagesActiveuserController';
-
-$config['newproduct']			= 'PagesNewProductController';
-
-
+$config['new-product']			= 'PagesNewProductController';
 $config['my-purchases']			= 'PagesMyPurchasesController';
 $config['my-products']			= 'PagesMyProductsController';
+$config['recharge']			    = 'PagesRechargeController';
 $config['logout']			    = 'PagesLogoutController';
-
-
+$config['products']             = 'PagesProductsController';
+$config['buy']                  = 'PagesBuyController';
+$config['p']                    = 'PagesProductViewController';
