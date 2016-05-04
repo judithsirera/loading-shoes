@@ -18,24 +18,24 @@ class PagesNewProductController extends PagesLoggedController
     private $foto;
 
 
-
     protected $view = 'pages/newproduct.tpl';
 
 	public function build()
     {
         if ($this->isLogged())
         {
+            $this->obj = $this->getClass('PagesProductModel');
 
+            $this->getUserData();
+
+            $this->insertProductData();
+
+            $this->setLayout( $this->view );
+        }else{
+            $this->setLayout($this->error403);
         }
 
-        $this->obj = $this->getClass('PagesProductModel');
 
-		$this->getUserData();
-
-		$this->insertProductData();
-
-
-		$this->setLayout( $this->view );
 
 	}
 
@@ -63,7 +63,7 @@ class PagesNewProductController extends PagesLoggedController
 	{
 		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkCaducity() && $this->checkConditions())
 		{
-			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, "lluisk");
+			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username);
             $this->uploadPhoto();
 		}else {
             $this->completeFields();

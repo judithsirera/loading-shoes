@@ -45,7 +45,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea name="description_product" id="description_product" class="materialize-textarea">{$description_product}</textarea>
+                                <textarea name="description_product" id="description_product" class="materialize-textarea" required>{$description_product}</textarea>
                                 <label for="description_product">Description</label>
                             </div>
                         </div>
