@@ -51,7 +51,6 @@ $config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.
 $config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.ctrl.php';
 $config['PagesRechargeController']      = PATH_CONTROLLERS . 'pages/recharge.ctrl.php';
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
-$config['imgUpldr']                     = PATH_CONTROLLERS . 'pages/imageSettings.ctrl.php';
 
 
 

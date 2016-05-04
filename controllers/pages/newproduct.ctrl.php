@@ -1,13 +1,11 @@
 <?php
 include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
-include_once(PATH_CONTROLLERS . 'pages/imageSettings.ctrl.php');
 /**
  * Home Controller: Controller example.
 
  */
 class PagesNewProductController extends PagesLoggedController
 {
-	//private $user_name = "";
 	private $product_name = "";
     private $product_description = "";
 	private $price = "";
@@ -15,7 +13,7 @@ class PagesNewProductController extends PagesLoggedController
 	private $limit_date = "";
     private $conditions;
     private $obj;
-    private $foto;
+    private $photo;
 
 
     protected $view = 'pages/newproduct.tpl';
@@ -41,33 +39,45 @@ class PagesNewProductController extends PagesLoggedController
 
 	private function getUserData()
 	{
-		//$this->user_name = Filter::getString('user_name');
 		$this->product_name = Filter::getString('product_name');
 		$this->product_description = Filter::getString('description_product');
 		$this->price = Filter::getFloat('price');
         $this->stock = Filter::getInteger('quantity');
         $this->limit_date = Filter::getUnfiltered('limit_date');
         $this->conditions = Filter::getBoolean('conditions');
-        $this->foto = Filter::getUnfiltered('shoesPhoto');
 
+        $this->getPhoto();
+    }
 
-        /*echo $this->product_name;
-        echo $this->product_description;
-        echo $this->price;
-        echo $this->stock;
-        echo $this->limit_date;
-        echo $this->conditions;*/
+    private function getPhoto()
+    {
+        $ruta ="./imag/products/"; //ruta carpeta donde queremos copiar las imágenes
+        $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
+        $this->photo = $_FILES['fileName']['name'];
+
+        if (is_uploaded_file($uploadFile_temporal))
+        {
+            move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+        }
     }
 
 	private function insertProductData()
 	{
-		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkCaducity() && $this->checkConditions())
+		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkConditions())
 		{
-			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username);
-            $this->uploadPhoto();
-		}else {
+            $this->setDate();
+			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo);
+
+        }else {
             $this->completeFields();
         }
+    }
+
+    private function setDate()
+    {
+        $date = explode("/", $this->limit_date);
+        $this->limit_date = $date[2] . "-" . $date[1] . "-" . $date[0];
+        $this->limit_date = date('Y-m-d', strtotime($this->limit_date));
     }
 
 	private function checkProductName()
@@ -123,36 +133,6 @@ class PagesNewProductController extends PagesLoggedController
         return true;
 	}
 
-
-    private function checkCaducity()
-    {/*
-        date_default_timezone_set('Europe/Madrid');
-        $date = date('d/m/Y');
-
-        $today_date_array = explode("/",$date);
-        $limit_date_array = explode ("/",$this->limit_date);
-
-        if(empty($this->limit_date))
-        {
-            return false;
-        }
-        if($today_date_array[2] > $limit_date_array[2])
-        {
-            $this->assign("error_msg", "The caducity date has to be a future day.");
-            return false;
-        }else if ($today_date_array[1] > $limit_date_array[1]){
-            $this->assign("error_msg", "The caducity date has to be a future day.");
-            return false;
-        }else if ($today_date_array[0] > $limit_date_array[0]){
-            $this->assign("error_msg", "The caducity date has to be a future day.");
-            return false;
-        }
-
-        $this->assign('limit_date', $this->limit_date);*/
-
-        return true;
-    }
-
     private function checkConditions()
     {
 
@@ -166,20 +146,10 @@ class PagesNewProductController extends PagesLoggedController
             return true;
         }
     }
-    private function uploadPhoto (){
-        $subir= new imgUpldr;
-        $subir->init($_FILES['imagen']);
-
-        $img = $_FILES['imagen'];
-        /*echo '<pre>';
-        print_r($img);
-        echo '</pre>';*/
-    }
 
 
     private function completeFields()
     {
-       // $this->assign('username_value', $this->user_name);
         $this->assign('product_name', $this->product_name);
         $this->assign('description_product', $this->product_description);
         $this->assign('price', $this->price);

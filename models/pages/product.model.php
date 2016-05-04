@@ -9,14 +9,12 @@
 
 class PagesProductModel extends Model{
 
-    public function insertNewProduct($productname, $description, $price, $stock, $limit_date, $username)
+    public function insertNewProduct($productname, $description, $price, $stock, $limit_date, $username, $image)
     {
-            $query = <<<QUERY
-            INSERT INTO product (name, description, price, stock, limit_date, usuari)
-            VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username");
+        $query = <<<QUERY
+        INSERT INTO product (name, description, price, stock, limit_date, usuari, image_path)
+        VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username", "$image");
 QUERY;
-
-
         $this->execute($query);
     }
 
