@@ -20,7 +20,13 @@
                 </div>
                 <div class="row">
                     <div class="col s6">
-                        <div class="uploadShoesFoto">
+                        <form id="subirImg" name="subirImg" enctype="multipart/form-data" method="post" action="">
+                            <label for="imagen">Subir imagen:</label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+                            <input type="file" name="imagen" id="imagen" />
+                            <input type="submit" name="subirBtn" id="subirBtn" value="Subir imagen" />
+                        </form>
+                        <!--<div class="uploadShoesFoto">
                             <div class="file-field input-field">
                                 <div class="btn uploadImageButton">
                                     <i class="material-icons large">file_upload</i>
@@ -28,7 +34,7 @@
                                 </div>
                             </div>
                             <img class="img-responsive" src="img/uploadFotoShoes.png" alt="" />
-                        </div>
+                        </div>-->
                     </div>
                     <form class="col s6" method="POST">
                         <div class="row">
@@ -39,7 +45,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea name="description_product" id="description_product" class="materialize-textarea" value="{$description_product}"></textarea>
+                                <textarea name="description_product" id="description_product" class="materialize-textarea">{$description_product}</textarea>
                                 <label for="description_product">Description</label>
                             </div>
                         </div>
@@ -53,12 +59,13 @@
                                 <label for="quantity">Quantity</label>
                             </div>
                             <div class="input-field col s4">
-                                <input name="limit_date" id="limit_date" type="date" class="datepicker" value="{$limit_date}" required>
+                                <input name="limit_date" type="text" id="datepicker" class="validate" value="{$limit_date}" required>
+                                <label for="datepicker">Data caducitat</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s8 translateY">
-                                <input type="checkbox" class="filled-in" id="conditions" />
+                                <input type="checkbox" class="filled-in" id="conditions" name="conditions"/>
                                 <label for="conditions">I accept conditions.</label>
                                 <a class="modal-trigger" href="#modal-conditions"><span>Read conditions</span></a>
                             </div>

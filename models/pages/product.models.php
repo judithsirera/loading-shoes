@@ -13,7 +13,7 @@ class PagesProductModel extends Model{
     {
             $query = <<<QUERY
             INSERT INTO producte (name, description, price,stock,limit_date,usuari)
-            VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username",);
+            VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username");
 QUERY;
 
 
