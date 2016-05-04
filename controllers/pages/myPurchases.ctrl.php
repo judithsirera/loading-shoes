@@ -60,9 +60,6 @@ class PagesMyPurchasesController extends PagesLoggedController
 	{
 		$obj_product = $this->getClass('PagesProductModel');
 		$this->products = $obj_product->getAllProducts();
-		echo '<pre>';
-		print_r($this->products);
-		echo '</pre>';
 	}
 
 	private function setPurchasesForPage()
