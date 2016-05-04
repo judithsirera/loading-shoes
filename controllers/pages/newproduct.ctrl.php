@@ -1,9 +1,11 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
+include_once(PATH_CONTROLLERS . 'pages/imageSettings.ctrl.php');
 /**
  * Home Controller: Controller example.
 
  */
-class PagesNewProductController extends Controller
+class PagesNewProductController extends PagesLoggedController
 {
 	//private $user_name = "";
 	private $product_name = "";
@@ -11,14 +13,22 @@ class PagesNewProductController extends Controller
 	private $price = "";
 	private $stock = "";
 	private $limit_date = "";
+    private $conditions;
+    private $obj;
+    private $foto;
 
 
-	protected $view = 'pages/newproduct.tpl';
+
+    protected $view = 'pages/newproduct.tpl';
 
 	public function build()
     {
+        if ($this->isLogged())
+        {
 
-        $this->obj = $this->getClass(PagesProductModel);
+        }
+
+        $this->obj = $this->getClass('PagesProductModel');
 
 		$this->getUserData();
 
@@ -36,23 +46,29 @@ class PagesNewProductController extends Controller
 		$this->product_description = Filter::getString('description_product');
 		$this->price = Filter::getFloat('price');
         $this->stock = Filter::getInteger('quantity');
-        $this->limit_date = Filter::getString('limit_date');
+        $this->limit_date = Filter::getUnfiltered('limit_date');
+        $this->conditions = Filter::getBoolean('conditions');
+        $this->foto = Filter::getUnfiltered('shoesPhoto');
 
-        echo $this->product_name;
+
+        /*echo $this->product_name;
         echo $this->product_description;
         echo $this->price;
         echo $this->stock;
         echo $this->limit_date;
+        echo $this->conditions;*/
     }
 
 	private function insertProductData()
 	{
-		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkCaducity())
+		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkCaducity() && $this->checkConditions())
 		{
-			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date);
+			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, "lluisk");
+            $this->uploadPhoto();
+		}else {
             $this->completeFields();
-		}
-	}
+        }
+    }
 
 	private function checkProductName()
 	{
@@ -109,7 +125,7 @@ class PagesNewProductController extends Controller
 
 
     private function checkCaducity()
-    {
+    {/*
         date_default_timezone_set('Europe/Madrid');
         $date = date('d/m/Y');
 
@@ -132,8 +148,32 @@ class PagesNewProductController extends Controller
             return false;
         }
 
-        $this->assign('limit_date', $this->limit_date);
+        $this->assign('limit_date', $this->limit_date);*/
+
         return true;
+    }
+
+    private function checkConditions()
+    {
+
+        if(empty($this->conditions))
+        {
+            $this->assign("error_msg", "Has d'acceptar les condicions");
+            return false;
+        }
+        else {
+            $this->assign('conditions', $this->conditions);
+            return true;
+        }
+    }
+    private function uploadPhoto (){
+        $subir= new imgUpldr;
+        $subir->init($_FILES['imagen']);
+
+        $img = $_FILES['imagen'];
+        /*echo '<pre>';
+        print_r($img);
+        echo '</pre>';*/
     }
 
 

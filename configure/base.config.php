@@ -51,7 +51,7 @@ $config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.
 $config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.ctrl.php';
 $config['PagesRechargeController']      = PATH_CONTROLLERS . 'pages/recharge.ctrl.php';
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
-
+$config['imgUpldr']                     = PATH_CONTROLLERS . 'pages/imageSettings.ctrl.php';
 
 
 
@@ -60,10 +60,6 @@ $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
 $config['SharedFooterController']		= PATH_CONTROLLERS . 'shared/footer.ctrl.php';
 
 // Pages models
-
-$config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
-$config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';
-
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
 $config['PagesPurchaseModel']		    = PATH_MODELS . 'pages/purchase.model.php';
 $config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';

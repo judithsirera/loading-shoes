@@ -35,7 +35,7 @@ class PagesLoginController extends Controller
 		$this->username = Filter::getEmail('user_name');
 
 		//comprovem si es mail
-		if(!$this->username){
+		if(!$this->username) {
 			$this->username = Filter::getString('user_name');
 			$this->byEmail = false;
 		}
