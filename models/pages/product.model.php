@@ -103,4 +103,24 @@ QUERY;
 
     }
 
+    public function deleteProduct($id)
+    {
+        $query = <<<QUERY
+            DELETE FROM `product`
+            WHERE id = '$id';
+QUERY;
+        $this->execute($query);
+
+    }
+
+    public function getUserById($id)
+    {
+        $query = <<<QUERY
+            SELECT usuari
+            FROM product
+            WHERE id = "$id"
+QUERY;
+        return $this->getAll($query);
+    }
+
 }

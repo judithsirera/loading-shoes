@@ -35,6 +35,13 @@
                                 <td><img src="{$url.global}/imag/products/{$p.image_path}" class="img_responsive myProd-img"></td>
                                 <td><a href="{$global.url}/p/{$p.URL}/id={$p.id}" class="product-link">{$p.name}</a></td>
                                 <td>{$p.stock}</td>
+<<<<<<< HEAD
+                                <td>{$p.date}</td>
+                                <td>${$p.price}</td>
+                                <td>
+                                    <i class="material-icons">mode_edit</i>
+                                    <a class="material-icons modal-trigger" href="#modal{$p.id}">delete</a>
+=======
                                 <td>
                                     {foreach from = $date item = d}
                                         {if $p.id == $d.id}
@@ -46,6 +53,7 @@
                                 <td>
                                     <a href="#"><i class="material-icons">mode_edit</i></a>
                                     <a href="#"><i class="material-icons">delete</i></a>
+>>>>>>> 8fea6a7b76429ad3fb479c8b8498e7bc421b15ce
                                 </td>
                             </tr>
                         {/foreach}
@@ -81,6 +89,24 @@
             </ul>
         </div>
     </div>
+
+    {foreach from=$products item=p}
+        <div id="modal{$p.id}" class="modal">
+            <div class="modal-content">
+                <h4>Are you sure you want to delete this product?</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="modal-footer">
+                        <a href="{$url.global}/delete/{$p.URL}/id={$p.id}" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {/foreach}
+
 
 </section>
 
