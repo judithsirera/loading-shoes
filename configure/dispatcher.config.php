@@ -5,10 +5,10 @@
 
 $config['default']				= 'HomeHomeController';
 $config['home']					= 'HomeHomeController';
-$config['signup']				= 'PagesSignupController';
+$config['signup']				= 'PagesSignUpController';
 $config['login']				= 'PagesLoginController';
 $config['welcome']				= 'HomeWelcomeController';
-$config['activeuser']			= 'PagesActiveuserController';
+$config['active-user']			= 'PagesActiveUserController';
 $config['new-product']			= 'PagesNewProductController';
 $config['my-purchases']			= 'PagesMyPurchasesController';
 $config['my-products']			= 'PagesMyProductsController';

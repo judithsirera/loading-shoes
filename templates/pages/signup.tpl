@@ -26,7 +26,7 @@
                     {/if}
                 </div>
                 <div class="row">
-                    <form class="col s12" method="POST">
+                    <form class="col s12" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_name" id="user_name" type="text" class="validate" value="{$username_value}" required>
@@ -44,6 +44,19 @@
                                 <input name="user_password" id="password" type="password" class="validate" value="{$password_value}" required>
                                 <label for="password" data-error="wrong" data-success="right">Password</label>
                                 <span class="instructions right">Minimum 6 characters, maximum 10 characters</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <div style="width: 100%; margin-left: auto" id="fileInput" class="file-field input-field">
+                                    <div style="height: 3rem" class="btn waves-effect waves-light btn-large">
+                                        <span>File</span>
+                                        <input id="fileName" name="fileName" type="file" required>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">

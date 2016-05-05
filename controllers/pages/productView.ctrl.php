@@ -15,6 +15,7 @@ class PagesProductViewController extends PagesLoggedController
     private $starsAvaluation;
     private $obj_product;
     private $obj_user;
+    private $image_user;
 
 
 
@@ -32,6 +33,7 @@ class PagesProductViewController extends PagesLoggedController
             $this->updateViews();
             $this->setDateFormat();
             $this->setStars();
+            $this->setImagePath();
             $this->setTemplate();
         }else{
             $this->layout = 'error/productNoExist.tpl';
@@ -105,6 +107,15 @@ class PagesProductViewController extends PagesLoggedController
         }
     }
 
+    private function setImagePath()
+    {
+        $sell_user = $this->product['usuari'];
+        $img = $this->obj_user->getUserByUsername($sell_user)[0]['image_path'];
+        $info = explode(".", $img);
+        $this->image_user = $info[0] . "_600x600." . $info[1];
+
+    }
+
     private function updateViews()
     {
         $views = $this->product['views'] + 1;
@@ -116,6 +127,14 @@ class PagesProductViewController extends PagesLoggedController
         $this->assign('p', $this->product);
         $this->assign('date_limit', $this->dateLimit);
         $this->assign('stars', $this->starsAvaluation);
+        $this->assign('image_user', $this->image_user);
+
+        if ($this->isLogged())
+        {
+            $this->assign('user', $this->username);
+        }else {
+            $this->assign('user', "");
+        }
     }
 
 

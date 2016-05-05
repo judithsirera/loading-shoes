@@ -1,46 +1,53 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
+
 /**
  * Home Controller: Controller example.
 
  */
-class PagesLoginController extends Controller
+class PagesLoginController extends PagesLoggedController
 {
 	protected $view = 'pages/login.tpl';
 	private $obj;
-	private $username="";
+	private $user_name="";
 	private $password="";
-	private $byEmail = true;
+	private $byEmail;
 
 	public function build()
 	{
 
-		$this->obj = $this->getClass('PagesUserModel');
+		if (!$this->isLogged())
+		{
+			$this->byEmail = true;
+			$this->obj = $this->getClass('PagesUserModel');
 
-		$this->setLayout( $this->view );
+			$this->setLayout( $this->view );
 
-		$this->getData();
+			$this->getData();
 
-		if(!empty($this->username)){
-			if($this->checkUserName() && $this->checkPassword()){
-				$this->saveLogin();
-				header('Location: '.URL_ABSOLUTE.'/home');
+			if(!empty($this->user_name)){
+				if($this->checkUserName() && $this->checkIsActive() && $this->checkPassword() ){
+					$this->saveLogin();
+					header('Location: '.URL_ABSOLUTE.'/home');
+				}
 			}
+		}else {
+			header('Location: '. URL_ABSOLUTE . '/home');
 		}
-
 
 	}
 
 	private function getData(){
 
-		$this->username = Filter::getEmail('user_name');
+		$this->user_name = Filter::getEmail('user_name');
 
 		//comprovem si es mail
-		if(!$this->username) {
-			$this->username = Filter::getString('user_name');
+		if(!$this->user_name) {
+			$this->user_name = Filter::getString('user_name');
 			$this->byEmail = false;
 		}
 
-		$this->password= Filter::getString('password');
+		$this->password = Filter::getString('password');
 	}
 
 
@@ -48,7 +55,7 @@ class PagesLoginController extends Controller
 	private function checkUserName()
 	{
 		//si es mail
-		if($this->obj->getUsernameByEmail($this->username) || $this->obj->getUserByUsername($this->username)){
+		if($this->obj->getUsernameByEmail($this->user_name) || $this->obj->getUserByUsername($this->user_name)){
 			return true;
 		}else{
 			$this->assign("error_msg", "User doesn't exists.");
@@ -61,10 +68,14 @@ class PagesLoginController extends Controller
 	{
 		if($this->byEmail)
 		{
-			$username = $this->obj->getUsernameByEmail($this->username)[0]['username'];
+			$username = $this->obj->getUsernameByEmail($this->user_name)[0]['username'];
+		}else {
+			$username = $this->user_name;
 		}
+
 		$isActive = $this->obj->getUserByUsername($username)[0]['isActive'];
-		if(!$isActive)
+
+		if($isActive == 0)
 		{
 			$this->assign("error_msg", "This user has not validate the account");
 			return false;
@@ -74,14 +85,14 @@ class PagesLoginController extends Controller
 	}
 
 	private function checkPassword(){
+
 		if(!$this->byEmail){
-			$passwordbbdd = $this->obj->getPasswordByName($this->username);
-			$passwordbbdd = $passwordbbdd[0]['password'];
+			$passwordbbdd = $this->obj->getPasswordByName($this->user_name);
 		}else{
-			$passwordbbdd = $this->obj->getPasswordByEmail($this->username);
-			$passwordbbdd = $passwordbbdd[0]['password'];
+			$passwordbbdd = $this->obj->getPasswordByEmail($this->user_name);
 		}
 
+		$passwordbbdd = $passwordbbdd[0]['password'];
 
 		if($passwordbbdd != $this->password){
 			$this->assign("error_msg", "The password is wrong.");
@@ -95,10 +106,10 @@ class PagesLoginController extends Controller
 	{
 		if($this->byEmail)
 		{
-			$this->username = $this->obj->getUsernameByEmail($this->username)[0]['username'];
+			$this->user_name = $this->obj->getUsernameByEmail($this->user_name)[0]['username'];
 		}
-		Session::getInstance()->set('username', $this->username);
-		Session::getInstance()->set('money', $this->obj->getUserByUsername($this->username)[0]['money']);
+		Session::getInstance()->set('username', $this->user_name);
+		Session::getInstance()->set('money', $this->obj->getUserByUsername($this->user_name)[0]['money']);
 		Session::getInstance()->set('isLogged', true);
 
 	}

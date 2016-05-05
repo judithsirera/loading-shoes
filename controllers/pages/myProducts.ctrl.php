@@ -39,13 +39,13 @@ class PagesMyProductsController extends PagesLoggedController
 			$this->getCash();
 			$this->setProductsForPage();
 			$this->setPages();
+			$this->setDateFormat();
+			$this->setImagesPath();
 
 
 		}else{
 
 			$this->setLayout($this->error403);
-
-
 		}
 
 	}
@@ -95,6 +95,27 @@ class PagesMyProductsController extends PagesLoggedController
 		$this->assign('isPrevDis', $this->isPrevDis);
 		$this->assign('isNextDis', $this->isNextDis);
 
+	}
+
+	private function setDateFormat()
+	{
+		for ($i = 0; $i < sizeof($this->actualData); $i++)
+		{
+			$date = explode('-', $this->actualData[$i]['limit_date']);
+			$dateLimit[$i]['date'] = $date[2] . "/" . $date[1] . "/" . $date[0];
+			$dateLimit[$i]['id'] = $this->actualData[$i]['id'];
+		}
+		$this->assign('date', $dateLimit);
+	}
+
+	private function setImagesPath()
+	{
+		foreach ($this->actualData as $p)
+		{
+			$img = explode(".", $p['image_path']);
+			$p['image_path'] = $img[0] . "_100x100." . $img[1];
+			echo $p['image_path'];
+		}
 	}
 
 	/**

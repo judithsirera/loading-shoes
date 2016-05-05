@@ -9,16 +9,28 @@
 
 class PagesUserModel extends Model{
 
-    public function insertNewUser($username, $email, $password, $u_twitter)
+    public function insertNewUser($username, $email, $password, $u_twitter, $photo)
     {
-        if($u_twitter != "")
+        if($u_twitter != "" && $photo != "")
         {
+            $query = <<<QUERY
+            INSERT INTO usuari (username, email, password, u_twitter, image_path)
+            VALUES ("$username", "$email", "$password", "$u_twitter", "$photo");
+QUERY;
+
+        }elseif ($u_twitter != ""){
+
             $query = <<<QUERY
             INSERT INTO usuari (username, email, password, u_twitter)
             VALUES ("$username", "$email", "$password", "$u_twitter");
 QUERY;
+        }elseif ($photo != "") {
 
-        }else{
+            $query = <<<QUERY
+            INSERT INTO usuari (username, email, password, image_path)
+            VALUES ("$username", "$email", "$password", "$photo");
+QUERY;
+        }else {
             $query = <<<QUERY
             INSERT INTO usuari (username, email, password)
             VALUES ("$username", "$email", "$password");
@@ -57,7 +69,6 @@ QUERY;
             FROM usuari
             WHERE email = "$email"
 QUERY;
-
         return $this->getAll($query);
 
     }
@@ -110,8 +121,8 @@ QUERY;
     public function getPasswordByEmail($user_name)
     {
         $query = <<<QUERY
-            SELECT `password`
-            FROM `usuari`
+            SELECT password
+            FROM usuari
             WHERE email = "$user_name"
 QUERY;
         return $this->getAll($query);

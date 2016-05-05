@@ -96,8 +96,6 @@ class PagesMyPurchasesController extends PagesLoggedController
 			$this->dateLimit[$i]['date'] = $date[2] . "/" . $date[1] . "/" . $date[0];
 			$this->dateLimit[$i]['id'] = $this->actualData[$i]['id'];
 		}
-
-
 	}
 
 	private function setTemplate()

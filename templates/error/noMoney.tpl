@@ -5,7 +5,7 @@
         <div class="row ">
             <div class="extra-padding-bottom col s10 offset-s1 box">
                 <h1>You don't have enough money.</h1>
-                <h5>The purchase has not been succesfull. Recharge your account or go home.</h5>
+                <h5>Recharge your account or go home.</h5>
                 <div class="row">
                     <div class="col s2 offset s11">
                         <a style="width: 20%" href="{$url.global}/recharge" class="btn waves-effect waves-light right">Recharge</a>

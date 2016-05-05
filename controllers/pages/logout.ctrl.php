@@ -12,12 +12,14 @@ class PagesLogoutController extends PagesLoggedController
 	{
 		if($this->isLogged())
 		{
-			Session::getInstance()->delete('user_name');
+			Session::getInstance()->delete('username');
 			Session::getInstance()->delete('password');
 			Session::getInstance()->set('isLogged', false);
 
 
 			header('Location: '.URL_ABSOLUTE.'/home');
+		}else {
+			$this->setLayout($this->error403);
 		}
 
 	}

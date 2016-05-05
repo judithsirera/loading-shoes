@@ -35,16 +35,14 @@ $config['HomeWelcomeController']		= PATH_CONTROLLERS . 'home/welcome.ctrl.php';
 
 
 // pages Controller
-$config['PagesSignupController']		= PATH_CONTROLLERS . 'pages/signup.ctrl.php';
+$config['PagesSignUpController']		= PATH_CONTROLLERS . 'pages/signUp.ctrl.php';
 $config['PagesLoginController']		    = PATH_CONTROLLERS . 'pages/login.ctrl.php';
 
-$config['PagesActiveuserController']    = PATH_CONTROLLERS . 'pages/activeuser.ctrl.php';
-$config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newproduct.ctrl.php';
+$config['PagesActiveUserController']    = PATH_CONTROLLERS . 'pages/activeUser.ctrl.php';
+$config['PagesNewProductController']    = PATH_CONTROLLERS . 'pages/newProduct.ctrl.php';
 $config['PagesProductsController']      = PATH_CONTROLLERS . 'pages/products.ctrl.php';
 $config['PagesProductViewController']   = PATH_CONTROLLERS . 'pages/productView.ctrl.php';
 $config['PagesBuyController']           = PATH_CONTROLLERS . 'pages/buy.ctrl.php';
-
-
 
 $config['PagesLoggedController']        = PATH_CONTROLLERS . 'pages/logged.ctrl.php';
 $config['PagesMyPurchasesController']   = PATH_CONTROLLERS . 'pages/myPurchases.ctrl.php';

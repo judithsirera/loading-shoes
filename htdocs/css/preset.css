@@ -253,8 +253,8 @@ table.highlight>tbody>tr:hover{
 }
 
 
-td img{
-    max-width: 50%;
+td .myProd-img{
+    max-width: 100px;
     margin-left: 25%;
     max-height: 50%;
 }
@@ -350,4 +350,26 @@ tr #product-name{
     position: absolute;
     bottom: 50px;
     right: 50px;
+}
+
+/*Modal*/
+.modal.bottom-sheet {
+    margin: 0;
+    width: 50%;
+    min-width: 200px;
+    max-height: 230px;
+    transform-origin: translateX(-25%) translateY(-25%);
+    left: 25%;
+    top: 25%;
+    border-radius: 10px;
+}
+
+.modal-content{
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+}
+
+.modal-footer{
+    border: none;
 }

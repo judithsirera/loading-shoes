@@ -12,8 +12,10 @@ class PagesNewProductController extends PagesLoggedController
 	private $stock = "";
 	private $limit_date = "";
     private $conditions;
-    private $obj;
     private $photo;
+    private $url;
+    private $obj_product;
+    private $obj_user;
 
 
     protected $view = 'pages/newproduct.tpl';
@@ -22,7 +24,9 @@ class PagesNewProductController extends PagesLoggedController
     {
         if ($this->isLogged())
         {
-            $this->obj = $this->getClass('PagesProductModel');
+            $this->obj_product = $this->getClass('PagesProductModel');
+            $this->obj_user = $this->getClass('PagesUserModel');
+
 
             $this->getUserData();
 
@@ -46,10 +50,10 @@ class PagesNewProductController extends PagesLoggedController
         $this->limit_date = Filter::getUnfiltered('limit_date');
         $this->conditions = Filter::getBoolean('conditions');
 
-        $this->getPhoto();
+        $this->getImage();
     }
 
-    private function getPhoto()
+    private function getImage()
     {
         $ruta ="./imag/products/"; //ruta carpeta donde queremos copiar las imágenes
         $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
@@ -59,14 +63,55 @@ class PagesNewProductController extends PagesLoggedController
         {
             move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
         }
+
+        $this->redimImage(600, 600);
+        $this->redimImage(100, 100);
+
+    }
+
+    private function redimImage($new_width, $new_height)
+    {
+        $ruta = "./imag/products/";
+        $filename = $ruta . $this->photo;
+        $info = explode(".", $this->photo);
+        $newFilename = $info[0] . "_" . $new_width . "x" . $new_height . "." . $info[1];
+
+        list($width, $height) = getimagesize($filename);
+        if ($info[1] == 'jpg') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromjpeg($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagejpeg($image_p, $ruta . $newFilename);
+        } elseif ($info[1] == 'gif') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromgif($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagegif($image_p, $ruta . $newFilename);
+        } elseif ($info[1] == 'png') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefrompng($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagepng($image_p, $ruta . $newFilename);
+        }
     }
 
 	private function insertProductData()
 	{
 		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkConditions())
 		{
-            $this->setDate();
-			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo);
+            if ($this->enoughMoney())
+            {
+                $this->setDate();
+                $this->setUrl();
+                $this->obj_product->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo, $this->url);
+                $this->updateUsersMoney();
+
+                $product = $this->obj_product->getProductByUrl($this->url)[0];
+                header('Location: ' . URL_ABSOLUTE . '/p/' . $this->url . '/' . $product['id']);
+            }else{
+                $this->setLayout('error/noMoney.tpl');
+            }
+
 
         }else {
             $this->completeFields();
@@ -75,9 +120,34 @@ class PagesNewProductController extends PagesLoggedController
 
     private function setDate()
     {
-        $date = explode("/", $this->limit_date);
-        $this->limit_date = $date[2] . "-" . $date[1] . "-" . $date[0];
-        $this->limit_date = date('Y-m-d', strtotime($this->limit_date));
+        $date = strtotime($this->limit_date);
+        $this->limit_date = date('Y-m-d', $date);
+    }
+
+    private function setUrl()
+    {
+        $this->url = $this->product_name;
+        $this->url = str_replace(" ", "-", $this->url);
+    }
+
+    private function enoughMoney()
+    {
+        $publish_price = 1;
+        if ($this->money - $publish_price < 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private function updateUsersMoney()
+    {
+        $publish_price = 1;
+
+        //update money to user who is buying
+        $this->money = $this->money - $publish_price;
+        $this->obj_user->updateMoney($this->username, $this->money);
+        $this->updateMoney();
     }
 
 	private function checkProductName()

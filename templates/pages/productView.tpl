@@ -14,7 +14,7 @@
                 <h1 class="product-title">{$p.name}</h1>
             </div>
             <div class="col s6 user">
-                <img src="{$url.global}/imag/user_default.png" alt="" class="circle img-user">
+                <img src="{$url.global}/imag/users/{$image_user}" alt="" class="circle img-user">
                 <h4>{$p.usuari}</h4>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        {if $p.stock > 0}
+        {if $p.stock > 0 && $p.usuari != $user}
         <div class="shoppingBtn">
             <a href="{$global.url}/buy/{$p.URL}/id={$p.id}">
                 <i id="shopping-icon" class="medium material-icons right">add_shopping_cart</i>
