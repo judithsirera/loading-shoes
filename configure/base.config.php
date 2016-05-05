@@ -52,6 +52,7 @@ $config['PagesMyProductsController']    = PATH_CONTROLLERS . 'pages/myProducts.c
 $config['PagesRechargeController']      = PATH_CONTROLLERS . 'pages/recharge.ctrl.php';
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
 
+$config['PagesDeleteController']        = PATH_CONTROLLERS . 'pages/delete.ctrl.php';
 
 
 
@@ -67,3 +68,4 @@ $config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';
 $config['PagesUserModel']		        = PATH_MODELS . 'pages/user.model.php';
 $config['PagesPurchaseModel']		    = PATH_MODELS . 'pages/purchase.model.php';
 $config['PagesProductModel']		    = PATH_MODELS . 'pages/product.model.php';
+

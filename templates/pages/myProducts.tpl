@@ -37,7 +37,10 @@
                                 <td>{$p.stock}</td>
                                 <td>{$p.date}</td>
                                 <td>${$p.price}</td>
-                                <td><i class="material-icons">mode_edit</i><i class="material-icons">delete</i></td>
+                                <td>
+                                    <i class="material-icons">mode_edit</i>
+                                    <a class="material-icons modal-trigger" href="#modal{$p.id}">delete</a>
+                                </td>
                             </tr>
                         {/foreach}
 
@@ -72,6 +75,24 @@
             </ul>
         </div>
     </div>
+
+    {foreach from=$products item=p}
+        <div id="modal{$p.id}" class="modal">
+            <div class="modal-content">
+                <h4>Are you sure you want to delete this product?</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="modal-footer">
+                        <a href="{$url.global}/delete/{$p.URL}/id={$p.id}" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {/foreach}
+
 
 </section>
 

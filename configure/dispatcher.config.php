@@ -20,3 +20,5 @@ $config['logout']			    = 'PagesLogoutController';
 $config['products']             = 'PagesProductsController';
 $config['buy']                  = 'PagesBuyController';
 $config['p']                    = 'PagesProductViewController';
+
+$config['delete']               = 'PagesDeleteController';
