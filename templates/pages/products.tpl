@@ -63,7 +63,7 @@
 
                                         </div>
                                     </div>
-                                    {if $p.usuari != $user}
+                                    {if $p.usuari != $user && $logged}
                                         <div class="col s2 shopping">
                                             <a href="{$global.url}/buy/{$p.URL}/id={$p.id}"><i class="medium material-icons right">add_shopping_cart</i></a>
                                         </div>

@@ -14,10 +14,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    {if $active_link}
+                    {if $to_active}
                     <div class="col s12 borders-box">
-                        <p>To activate: {$active_link}</p>
+                        <p>To activate: {$to_active}</p>
                     </div>
+                    {/if}
+                    {if $active_link}
+                        <div class="col s12 borders-box">
+                            <p>To activate: <a href="{$active_link}">click to active your account</a></p>
+                        </div>
                     {/if}
                     {if $error_msg}
                     <div class="col s12 error-message borders-box">

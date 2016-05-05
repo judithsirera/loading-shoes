@@ -38,11 +38,21 @@ class PagesActiveuserController extends Controller
         if(!$isActive)
         {
             $this->obj->activeAccount($this->id);
-            header('Location: '.URL_ABSOLUTE.'/welcome');
+            $this->saveLogin($user[0]['username']);
+            header('Location: '.URL_ABSOLUTE.'/home');
+
         }else
         {
             $this->setLayout($this->alreadyActiveView);
         }
+    }
+
+    private function saveLogin($user_name)
+    {
+        Session::getInstance()->set('username', $user_name);
+        Session::getInstance()->set('money', $this->obj->getUserByUsername($user_name)[0]['money']);
+        Session::getInstance()->set('isLogged', true);
+
     }
 
 

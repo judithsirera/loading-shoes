@@ -54,8 +54,9 @@ class PagesSignUpController extends PagesLoggedController
 			$this->obj->insertNewUser($this->user_name, $this->email, $this->password, $this->twitter, $this->photo);
             $this->completeFields();
             $active_link = $this->generateActiveLink();
+            $this->assign('active_link', $active_link);
             $this->createAndSendEmail($active_link);
-            $this->assign('active_link', "Check your mail box and your spam folder.");
+            $this->assign('to_active', "Check your mail box and your spam folder.");
 		}
 	}
 

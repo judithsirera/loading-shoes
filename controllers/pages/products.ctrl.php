@@ -183,6 +183,7 @@ class PagesProductsController extends PagesLoggedController
         }else {
             $this->assign('user', "");
         }
+        $this->assign('logged', $this->isLogged());
 
     }
 

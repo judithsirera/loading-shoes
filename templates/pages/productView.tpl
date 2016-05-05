@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        {if $p.stock > 0 && $p.usuari != $user}
+        {if $p.stock > 0 && $p.usuari != $user && $logged}
         <div class="shoppingBtn">
             <a href="{$global.url}/buy/{$p.URL}/id={$p.id}">
                 <i id="shopping-icon" class="medium material-icons right">add_shopping_cart</i>
