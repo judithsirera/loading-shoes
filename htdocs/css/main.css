@@ -124,19 +124,25 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
 
 }
 
-.uploadShoesFoto{
+#uploadshoesfoto{
     border: 1px solid #EA8F63;
     border-radius: 5px;
     padding: 20px;
-    width: 60%;
-    margin-left: 15%;
+    width: 40%;
+    margin-left: 30%;
     margin-top: 10%;
     background-color: rgba(255,184,150,0.2);
     position: relative;
 }
 
-.uploadShoesFoto > img{
+#uploadshoesfoto > img{
     opacity: 0.2;
+}
+
+#fileInput{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3.5%;
 }
 
 .actual-money > i{

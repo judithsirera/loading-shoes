@@ -5,18 +5,15 @@
 
 $config['default']				= 'HomeHomeController';
 $config['home']					= 'HomeHomeController';
-$config['signup']				= 'PagesSignupController';
+$config['signup']				= 'PagesSignUpController';
 $config['login']				= 'PagesLoginController';
 $config['welcome']				= 'HomeWelcomeController';
-$config['activeuser']			= 'PagesActiveuserController';
-$config['newproduct']			= 'PagesNewProductController';
-
+$config['active-user']			= 'PagesActiveUserController';
+$config['new-product']			= 'PagesNewProductController';
 $config['my-purchases']			= 'PagesMyPurchasesController';
 $config['my-products']			= 'PagesMyProductsController';
-$config['my-purchases']			= 'PagesMyPurchasesController';
 $config['recharge']			    = 'PagesRechargeController';
 $config['logout']			    = 'PagesLogoutController';
-
 $config['products']             = 'PagesProductsController';
 $config['buy']                  = 'PagesBuyController';
 $config['p']                    = 'PagesProductViewController';

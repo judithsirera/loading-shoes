@@ -1,14 +1,16 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
 /**
  * Home Controller: Controller example.
 
  */
-class PagesSignupController extends Controller
+class PagesSignUpController extends PagesLoggedController
 {
 	private $user_name = "";
 	private $email = "";
 	private $password = "";
 	private $twitter = "";
+    private $photo = "";
 	private $obj;
 
 
@@ -17,14 +19,20 @@ class PagesSignupController extends Controller
 	public function build()
     {
 
-        $this->obj = $this->getClass('PagesUserModel');
+        if (!$this->isLogged())
+        {
+            $this->obj = $this->getClass('PagesUserModel');
 
-		$this->getUserData();
+            $this->getUserData();
 
-		$this->insertUserData();
+            $this->insertUserData();
 
 
-		$this->setLayout( $this->view );
+            $this->setLayout( $this->view );
+        }else {
+            header('Location: '.URL_ABSOLUTE.'/home');
+        }
+
 
 	}
 
@@ -35,13 +43,15 @@ class PagesSignupController extends Controller
 		$this->password = Filter::getString('user_password');
 		$this->twitter = Filter::getString('user_twitter');
 
+        $this->getImage();
+
     }
 
 	private function insertUserData()
 	{
 		if ($this->checkUserName() && $this->checkPassword() && $this->checkEmail() && $this->checkTwitter())
 		{
-			$this->obj->insertNewUser($this->user_name, $this->email, $this->password, $this->twitter);
+			$this->obj->insertNewUser($this->user_name, $this->email, $this->password, $this->twitter, $this->photo);
             $this->completeFields();
             $active_link = $this->generateActiveLink();
             $this->createAndSendEmail($active_link);
@@ -131,7 +141,7 @@ class PagesSignupController extends Controller
         $id = $this->obj->getUserByUsername($this->user_name);
         $id = $id[0]['id_user'];
 
-        return URL_ABSOLUTE ."/activeuser/user-id/$id";
+        return URL_ABSOLUTE ."/active-user/user-id/$id";
     }
 
     private function createAndSendEmail($link){
@@ -209,6 +219,49 @@ class PagesSignupController extends Controller
 
         mail($to, $subject, $body, $headers);
 
+    }
+
+    private function getImage()
+    {
+        $ruta ="./imag/users/"; //ruta carpeta donde queremos copiar las imágenes
+        $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
+        $end = explode(".", $_FILES['fileName']['name'])[1];
+        $this->photo = $this->user_name . "." . $end;
+
+        if (is_uploaded_file($uploadFile_temporal))
+        {
+            move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+        }
+
+        $this->redimImage(600, 600);
+        $this->redimImage(100, 100);
+
+    }
+
+    private function redimImage($new_width, $new_height)
+    {
+        $ruta = "./imag/users/";
+        $filename = $ruta . $this->photo;
+        $info = explode(".", $this->photo);
+        $newFilename = $info[0] . "_" . $new_width . "x" . $new_height . "." . $info[1];
+
+        list($width, $height) = getimagesize($filename);
+        if ($info[1] == 'jpg') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromjpeg($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagejpeg($image_p, $ruta . $newFilename);
+        } elseif ($info[1] == 'gif') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromgif($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagegif($image_p, $ruta . $newFilename);
+        } elseif ($info[1] == 'png') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefrompng($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagepng($image_p, $ruta . $newFilename);
+        }
     }
 
 	/**

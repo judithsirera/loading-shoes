@@ -9,11 +9,11 @@
 
 class PagesPurchaseModel extends Model{
 
-    public function insertNewPurchase($user_sell, $user_buy, $product, $date, $price)
+    public function insertNewPurchase($user_sell, $user_buy, $product, $product_id , $date, $price)
     {
         $query = <<<QUERY
-        INSERT INTO purchase (user_sell, user_buy, product, purchase_date, price)
-        VALUES ("$user_sell", "$user_buy", "$product", "$date", "$price");
+        INSERT INTO purchase (user_sell, user_buy, product, product_id, purchase_date, price)
+        VALUES ("$user_sell", "$user_buy", "$product", "$product_id", "$date", "$price");
 QUERY;
         $this->execute($query);
     }

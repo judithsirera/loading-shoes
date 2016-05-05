@@ -3,72 +3,84 @@
 <section id="newproduct">
     <div class="container extra-margin-top">
         <div class="row box">
-            <div class="col s12">
-                <div class="row">
-                    <div class="col s6 offset-s3">
-                        <h1>New product</h1>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s6 offset-s3">
+                            <h1>New product</h1>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s6 offset-s3">
-                        {if $error_msg}
-                            <div class="col s12 error-message borders-box">
-                                <p>{$error_msg}</p>
-                            </div>
-                        {/if}
+                    <div class="row">
+                        <div class="col s6 offset-s3">
+                            {if $error_msg}
+                                <div class="col s12 error-message borders-box">
+                                    <p>{$error_msg}</p>
+                                </div>
+                            {/if}
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s6">
-                        <div class="uploadShoesFoto">
-                            <div class="file-field input-field">
-                                <div class="btn uploadImageButton">
-                                    <i class="material-icons large">file_upload</i>
-                                    <input id="shoesPhoto" name="shoesPhoto" type="file">
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div id="uploadshoesfoto">
+                                        <img class="img-responsive" src="{$url.global}/imag/uploadFotoShoes.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="col s12">
+                                    <div id="fileInput" class="file-field input-field">
+                                        <div style="height: 3rem" class="btn waves-effect waves-light btn-large">
+                                            <span>File</span>
+                                            <input id="fileName" name="fileName" type="file" required>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <img class="img-responsive" src="img/uploadFotoShoes.png" alt="" />
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="product_name" id="product_name" type="text" class="validate" value="{$product_name}" required>
+                                    <label for="product_name">Product name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea name="description_product" id="description_product" class="materialize-textarea" required>{$description_product}</textarea>
+                                    <label for="description_product">Description</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <input name="price" id="price" type="number" class="validate" min="1" max="1000" value="{$price}" required>
+                                    <label for="price">Price (€)</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <input name="quantity" id="quantity" type="number" class="validate" min="1" max="1000" value="{$quantity_value}" required>
+                                    <label for="quantity">Quantity</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <input name="limit_date" type="text" id="datepicker" class="validate" value="{$limit_date}" required>
+                                    <label for="datepicker">Data caducitat</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8 translateY">
+                                    <input type="checkbox" class="filled-in" id="conditions" name="conditions"/>
+                                    <label for="conditions">I accept conditions.</label>
+                                    <a class="modal-trigger" href="#modal-conditions"><span>Read conditions</span></a>
+                                </div>
+                                <div class="col s4">
+                                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit">Create</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <form class="col s6" method="POST">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="product_name" id="product_name" type="text" class="validate" value="{$product_name}" required>
-                                <label for="product_name">Product name</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea name="description_product" id="description_product" class="materialize-textarea" value="{$description_product}"></textarea>
-                                <label for="description_product">Description</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s4">
-                                <input name="price" id="price" type="number" class="validate" min="1" max="1000" value="{$price}" required>
-                                <label for="price">Price (€)</label>
-                            </div>
-                            <div class="input-field col s4">
-                                <input name="quantity" id="quantity" type="number" class="validate" min="1" max="1000" value="{$quantity_value}" required>
-                                <label for="quantity">Quantity</label>
-                            </div>
-                            <div class="input-field col s4">
-                                <input name="limit_date" id="limit_date" type="date" class="datepicker" value="{$limit_date}" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s8 translateY">
-                                <input type="checkbox" class="filled-in" id="conditions" />
-                                <label for="conditions">I accept conditions.</label>
-                                <a class="modal-trigger" href="#modal-conditions"><span>Read conditions</span></a>
-                            </div>
-                            <div class="col s4">
-                                <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit">Create</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!-- Modal Conditions -->

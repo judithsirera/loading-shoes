@@ -74,11 +74,10 @@ $(document).ready(function() {
   //CHARACTER COUNTER
   $('#description_product').characterCounter();
 
-  //DATE PICKER
-  $('#dateLimit').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+    $('#datepicker').datepicker({
+        minDate: 0,
+        startOfWeek: 1
+    });
 });
 
 //MODAL
@@ -89,8 +88,3 @@ $(document).ready(function(){
 
 //date
 
-$('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
-    minDate: 0
-});

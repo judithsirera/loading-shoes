@@ -122,7 +122,7 @@ class PagesBuyController extends PagesLoggedController
     {
         $today = getdate();
         $date = $today['year'] ."-" .$today['mon'] ."-" .$today['mday'];
-        $this->obj_purchase->insertNewPurchase($this->user_sell['username'], $this->username, $this->product_to_buy['name'] , $date, $this->product_to_buy['price']);
+        $this->obj_purchase->insertNewPurchase($this->user_sell['username'], $this->username, $this->product_to_buy['name'], $this->product_to_buy['id'] , $date, $this->product_to_buy['price']);
     }
 
     private function updateUserSuccess()

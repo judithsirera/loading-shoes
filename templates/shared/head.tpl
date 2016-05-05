@@ -9,11 +9,11 @@
 	<title>Loading shoes</title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{$url.global}/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="{$url.global}/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="{$url.global}/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="{$url.global}/css/main.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="{$url.global}/css/preset.css" media="screen" title="no title" charset="utf-8">
-
+	<link rel="stylesheet" href="{$url.global}/css/preset.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="{$url.global}/css/main.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="{$url.global}/css/jquery-ui.min.css">
 
 	<link rel="shortcut icon" href="{$url.global}/imag/LOADING_ico.png">
 

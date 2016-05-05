@@ -18,7 +18,7 @@ class PagesDeleteController extends PagesLoggedController
 			$this->obj = $this->getClass('PagesProductModel');
 
 			$this->getUserBBDD();
-			
+
 			if($this->username == $this->usuari_bbdd){
 				$this->deleteProduct();
 				header('Location: '.URL_ABSOLUTE.'/myProducts');

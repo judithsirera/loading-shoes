@@ -37,6 +37,7 @@ class PagesProductsController extends PagesLoggedController
         $this->getAllProducts();
         $this->setProductsForPage();
         $this->setStars();
+        $this->setImagesPath();
         $this->setDaysToCaducate();
         $this->setPages();
         $this->setTemplate();
@@ -105,7 +106,6 @@ class PagesProductsController extends PagesLoggedController
 
         if($this->actualPage - 1 <= 0) $this->isPrevDis = 'disabled';
         if($this->actualPage + 1 > $totalPages) $this->isNextDis = 'disabled';
-
     }
 
     private function setStars()
@@ -131,6 +131,15 @@ class PagesProductsController extends PagesLoggedController
             $this->starsAvaluation[$p]['id'] = $this->actualData[$p]['id'];
         }
 
+    }
+
+    private function setImagesPath()
+    {
+        foreach ($this->actualData as $p)
+        {
+            $img = explode(".", $p['image_path']);
+            $p['image_path'] = $img[0] . "_600x600" . $img[1];
+        }
     }
 
     private function setDaysToCaducate()
@@ -167,6 +176,13 @@ class PagesProductsController extends PagesLoggedController
         $this->assign('next_page', $this->actualPage + 1);
         $this->assign('isNextDis', $this->isNextDis);
         $this->assign('limit_pages', $this->limitPages);
+        $this->assign('user', $this->username);
+        if ($this->isLogged())
+        {
+            $this->assign('user', $this->username);
+        }else {
+            $this->assign('user', "");
+        }
 
     }
 

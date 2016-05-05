@@ -1,58 +1,154 @@
 <?php
+include_once( PATH_CONTROLLERS . 'pages/logged.ctrl.php' );
 /**
  * Home Controller: Controller example.
 
  */
-class PagesNewProductController extends Controller
+class PagesNewProductController extends PagesLoggedController
 {
-	//private $user_name = "";
 	private $product_name = "";
     private $product_description = "";
 	private $price = "";
 	private $stock = "";
 	private $limit_date = "";
+    private $conditions;
+    private $photo;
+    private $url;
+    private $obj_product;
+    private $obj_user;
 
 
-	protected $view = 'pages/newproduct.tpl';
+    protected $view = 'pages/newproduct.tpl';
 
 	public function build()
     {
-
-        $this->obj = $this->getClass(PagesProductModel);
-
-		$this->getUserData();
-
-		$this->insertProductData();
+        if ($this->isLogged())
+        {
+            $this->obj_product = $this->getClass('PagesProductModel');
+            $this->obj_user = $this->getClass('PagesUserModel');
 
 
-		$this->setLayout( $this->view );
+            $this->getUserData();
+
+            $this->insertProductData();
+
+            $this->setLayout( $this->view );
+        }else{
+            $this->setLayout($this->error403);
+        }
+
+
 
 	}
 
 	private function getUserData()
 	{
-		//$this->user_name = Filter::getString('user_name');
 		$this->product_name = Filter::getString('product_name');
 		$this->product_description = Filter::getString('description_product');
 		$this->price = Filter::getFloat('price');
         $this->stock = Filter::getInteger('quantity');
-        $this->limit_date = Filter::getString('limit_date');
+        $this->limit_date = Filter::getUnfiltered('limit_date');
+        $this->conditions = Filter::getBoolean('conditions');
 
-        echo $this->product_name;
-        echo $this->product_description;
-        echo $this->price;
-        echo $this->stock;
-        echo $this->limit_date;
+        $this->getImage();
+    }
+
+    private function getImage()
+    {
+        $ruta ="./imag/products/"; //ruta carpeta donde queremos copiar las imágenes
+        $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
+        $this->photo = $_FILES['fileName']['name'];
+
+        if (is_uploaded_file($uploadFile_temporal))
+        {
+            move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+        }
+
+        $this->redimImage(600, 600);
+        $this->redimImage(100, 100);
+
+    }
+
+    private function redimImage($new_width, $new_height)
+    {
+        $ruta = "./imag/products/";
+        $filename = $ruta . $this->photo;
+        $info = explode(".", $this->photo);
+        $newFilename = $info[0] . "_" . $new_width . "x" . $new_height . "." . $info[1];
+
+        list($width, $height) = getimagesize($filename);
+        if ($info[1] == 'jpg') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromjpeg($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagejpeg($image_p, $ruta . $newFilename);
+        } elseif ($info[1] == 'gif') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromgif($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagegif($image_p, $ruta . $newFilename);
+        } elseif ($info[1] == 'png') {
+            $image_p = imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefrompng($filename);
+            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagepng($image_p, $ruta . $newFilename);
+        }
     }
 
 	private function insertProductData()
 	{
-		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkCaducity())
+		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkConditions())
 		{
-			$this->obj->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date);
+            if ($this->enoughMoney())
+            {
+                $this->setDate();
+                $this->setUrl();
+                $this->obj_product->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo, $this->url);
+                $this->updateUsersMoney();
+
+                $product = $this->obj_product->getProductByUrl($this->url)[0];
+                header('Location: ' . URL_ABSOLUTE . '/p/' . $this->url . '/' . $product['id']);
+            }else{
+                $this->setLayout('error/noMoney.tpl');
+            }
+
+
+        }else {
             $this->completeFields();
-		}
-	}
+        }
+    }
+
+    private function setDate()
+    {
+        $date = strtotime($this->limit_date);
+        $this->limit_date = date('Y-m-d', $date);
+    }
+
+    private function setUrl()
+    {
+        $this->url = $this->product_name;
+        $this->url = str_replace(" ", "-", $this->url);
+    }
+
+    private function enoughMoney()
+    {
+        $publish_price = 1;
+        if ($this->money - $publish_price < 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private function updateUsersMoney()
+    {
+        $publish_price = 1;
+
+        //update money to user who is buying
+        $this->money = $this->money - $publish_price;
+        $this->obj_user->updateMoney($this->username, $this->money);
+        $this->updateMoney();
+    }
 
 	private function checkProductName()
 	{
@@ -107,39 +203,23 @@ class PagesNewProductController extends Controller
         return true;
 	}
 
-
-    private function checkCaducity()
+    private function checkConditions()
     {
-        date_default_timezone_set('Europe/Madrid');
-        $date = date('d/m/Y');
 
-        $today_date_array = explode("/",$date);
-        $limit_date_array = explode ("/",$this->limit_date);
-
-        if(empty($this->limit_date))
+        if(empty($this->conditions))
         {
+            $this->assign("error_msg", "Has d'acceptar les condicions");
             return false;
         }
-        if($today_date_array[2] > $limit_date_array[2])
-        {
-            $this->assign("error_msg", "The caducity date has to be a future day.");
-            return false;
-        }else if ($today_date_array[1] > $limit_date_array[1]){
-            $this->assign("error_msg", "The caducity date has to be a future day.");
-            return false;
-        }else if ($today_date_array[0] > $limit_date_array[0]){
-            $this->assign("error_msg", "The caducity date has to be a future day.");
-            return false;
+        else {
+            $this->assign('conditions', $this->conditions);
+            return true;
         }
-
-        $this->assign('limit_date', $this->limit_date);
-        return true;
     }
 
 
     private function completeFields()
     {
-       // $this->assign('username_value', $this->user_name);
         $this->assign('product_name', $this->product_name);
         $this->assign('description_product', $this->product_description);
         $this->assign('price', $this->price);

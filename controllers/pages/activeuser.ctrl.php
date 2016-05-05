@@ -12,7 +12,7 @@ class PagesActiveuserController extends Controller
 
 	public function build()
 	{
-        $this->obj = $this->getClass(PagesUserModel);
+        $this->obj = $this->getClass('PagesUserModel');
 		$this->getIdFromUrl();
 
 	}
