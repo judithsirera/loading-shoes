@@ -35,13 +35,6 @@
                                 <td><img src="{$url.global}/imag/products/{$p.image_path}" class="img_responsive myProd-img"></td>
                                 <td><a href="{$global.url}/p/{$p.URL}/id={$p.id}" class="product-link">{$p.name}</a></td>
                                 <td>{$p.stock}</td>
-<<<<<<< HEAD
-                                <td>{$p.date}</td>
-                                <td>${$p.price}</td>
-                                <td>
-                                    <i class="material-icons">mode_edit</i>
-                                    <a class="material-icons modal-trigger" href="#modal{$p.id}">delete</a>
-=======
                                 <td>
                                     {foreach from = $date item = d}
                                         {if $p.id == $d.id}
@@ -52,8 +45,7 @@
                                 <td>{$p.price} €</td>
                                 <td>
                                     <a href="#"><i class="material-icons">mode_edit</i></a>
-                                    <a href="#"><i class="material-icons">delete</i></a>
->>>>>>> 8fea6a7b76429ad3fb479c8b8498e7bc421b15ce
+                                    <a class = "modal-trigger" href="#modal{$p.id}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                         {/foreach}
@@ -91,17 +83,12 @@
     </div>
 
     {foreach from=$products item=p}
-        <div id="modal{$p.id}" class="modal">
+        <div id="modal{$p.id}" class="modal bottom-sheet">
             <div class="modal-content">
-                <h4>Are you sure you want to delete this product?</h4>
-                <p>A bunch of text</p>
+                <h4>Are you sure you want to delete this {$p.name}?</h4>
             </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="modal-footer">
-                        <a href="{$url.global}/delete/{$p.URL}/id={$p.id}" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <a href="{$url.global}/delete/{$p.URL}/id={$p.id}" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
 
         </div>
