@@ -27,13 +27,12 @@ class SharedHeadController extends PagesLoggedController
 			$this->loginClass = new PagesLoginController();
 
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-				$this->loginClass->getData();
-				$this->user_name = $this->loginClass->getUserName();
-				$this->password = $this->loginClass->getPassword();
 				$this->loginClass->initVars();
+				$this->getData();
+				$this->loginClass->setUserName($this->user_name);
+				$this->loginClass->setPassword($this->password);
 
-
-				if($this->loginClass->checkUserName() && $this->loginClass->checkIsActive() && $this->loginClass->checkPassword() ){
+				if($this->loginClass->checkUserName() && $this->loginClass->checkIsActive() && $this->loginClass->checkPassword()){
 					$this->loginClass->saveLogin();
 					header('Location: '. URL_ABSOLUTE .'/home');
 				}else{
@@ -42,6 +41,18 @@ class SharedHeadController extends PagesLoggedController
 
 			}
 		}
+	}
+
+	private function getData(){
+
+		$this->user_name = Filter::getEmail('uHeader');
+
+		//comprovem si es mail
+		if(!$this->user_name) {
+			$this->user_name = Filter::getString('uHeader');
+			$this->loginClass->setByEmail(false);
+		}
+		$this->password = Filter::getString('pswHeader');
 	}
 
 

@@ -140,6 +140,21 @@ class PagesLoginController extends PagesLoggedController
 		return $this->password;
 	}
 
+	public function setUserName($user_name)
+	{
+		$this->user_name = $user_name;
+	}
+
+	public function setPassword($password)
+	{
+		$this->password = $password;
+	}
+
+	public function setByEmail($byEmail)
+	{
+		$this->byEmail = $byEmail;
+	}
+
 	/**
 	 * With this method you can load other modules that we will need in our page. You will have these modules availables in your template inside the "modules" array (example: {$modules.head}).
 	 * The sintax is the following:

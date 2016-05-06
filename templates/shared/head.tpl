@@ -9,6 +9,7 @@
 	<title>Loading shoes</title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="{$url.global}/css/wysiwyg.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="{$url.global}/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="{$url.global}/css/materialize.min.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="{$url.global}/css/preset.css" media="screen" title="no title" charset="utf-8">
@@ -50,8 +51,8 @@
 						<li class="login-box">
 							<form method="post">
 								<div class="login-input">
-									<input name="user_name" id="user_name" type="text" placeholder="Username or email" required>
-									<input name="password" id="password" type="password" placeholder="Password" required>
+									<input name="uHeader" id="uHeader" type="text" placeholder="Username or email" required>
+									<input name="pswHeader" id="pswHeader" type="password" placeholder="Password" required>
 									<input class="login-btn right" type="submit" name="login-submit" value="Log in">
 								</div>
 							</form>
