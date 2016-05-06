@@ -114,7 +114,6 @@ class PagesMyProductsController extends PagesLoggedController
 		{
 			$img = explode(".", $p['image_path']);
 			$p['image_path'] = $img[0] . "_100x100." . $img[1];
-			echo $p['image_path'];
 		}
 	}
 

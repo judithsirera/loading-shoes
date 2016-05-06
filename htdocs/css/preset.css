@@ -373,3 +373,7 @@ tr #product-name{
 .modal-footer{
     border: none;
 }
+
+.password-verdict{
+    color: #afafaf;
+}

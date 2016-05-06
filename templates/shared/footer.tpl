@@ -25,6 +25,7 @@
 <script type="text/javascript" src="{$url.global}/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{$url.global}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{$url.global}/js/materialize.min.js"></script>
+<script type="text/javascript" src="{$url.global}/js/pass-strength.js"></script>
 <script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 
 </body>

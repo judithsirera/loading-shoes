@@ -21,7 +21,7 @@ class PagesDeleteController extends PagesLoggedController
 
 			if($this->username == $this->usuari_bbdd){
 				$this->deleteProduct();
-				header('Location: '.URL_ABSOLUTE.'/myProducts');
+				header('Location: '.URL_ABSOLUTE.'/my-products');
 		}
 		}else{
 			$this->setLayout($this->error403);
