@@ -8,7 +8,7 @@ $(document).ready(function () {
             $(evt.target).pwstrength("outputErrorList");
         }
     };
-    $(':password').pwstrength(options);
+    $('#password-signup').pwstrength(options);
 });
 
 

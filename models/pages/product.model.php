@@ -53,7 +53,7 @@ QUERY;
         $query = <<<QUERY
              SELECT *
              FROM product
-             WHERE stock > 0
+             WHERE stock > 0 AND limit_date > CURRENT_DATE
              ORDER BY limit_date DESC;
 QUERY;
 
@@ -106,7 +106,7 @@ QUERY;
     public function deleteProduct($id)
     {
         $query = <<<QUERY
-            DELETE FROM `product`
+            DELETE FROM product
             WHERE id = '$id';
 QUERY;
         $this->execute($query);

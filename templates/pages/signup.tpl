@@ -46,7 +46,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="user_password" id="password" type="password" class="validate" value="{$password_value}" required>
+                                <input name="user_password" id="password-signup" type="password" class="validate" value="{$password_value}" required>
                                 <label for="password" data-error="wrong" data-success="right">Password</label>
                                 <span class="instructions right">Minimum 6 characters, maximum 10 characters</span>
                             </div>

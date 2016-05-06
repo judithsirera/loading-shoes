@@ -12,23 +12,33 @@ class PagesLoginController extends PagesLoggedController
 	private $user_name="";
 	private $password="";
 	private $byEmail;
+	private $error_msg;
 
 	public function build()
 	{
 
 		if (!$this->isLogged())
 		{
-			$this->byEmail = true;
-			$this->obj = $this->getClass('PagesUserModel');
+
+			$error = $this->getParams()['url_arguments'][0];
 
 			$this->setLayout( $this->view );
 
-			$this->getData();
+			if ($error == "error")
+			{
+				$this->assign("error_msg", "Username or password is incorrect");
+			}else{
+				$this->initVars();
 
-			if(!empty($this->user_name)){
-				if($this->checkUserName() && $this->checkIsActive() && $this->checkPassword() ){
-					$this->saveLogin();
-					header('Location: '.URL_ABSOLUTE.'/home');
+				$this->getData();
+
+				if(!empty($this->user_name)){
+					if($this->checkUserName() && $this->checkIsActive() && $this->checkPassword() ){
+						$this->saveLogin();
+						header('Location: '.URL_ABSOLUTE.'/home');
+					}else{
+						$this->assign("error_msg", $this->error_msg);
+					}
 				}
 			}
 		}else {
@@ -37,7 +47,13 @@ class PagesLoginController extends PagesLoggedController
 
 	}
 
-	private function getData(){
+	public function initVars()
+	{
+		$this->byEmail = true;
+		$this->obj = $this->getClass('PagesUserModel');
+	}
+
+	public function getData(){
 
 		$this->user_name = Filter::getEmail('user_name');
 
@@ -52,19 +68,19 @@ class PagesLoginController extends PagesLoggedController
 
 
 	//comprovem si existeix el nom/mail entrat
-	private function checkUserName()
+	public function checkUserName()
 	{
 		//si es mail
 		if($this->obj->getUsernameByEmail($this->user_name) || $this->obj->getUserByUsername($this->user_name)){
 			return true;
 		}else{
-			$this->assign("error_msg", "User doesn't exists.");
+			$this->error_msg = "User doesn't exists.";
 			return false;
 		}
 
 	}
 
-	private function checkIsActive()
+	public function checkIsActive()
 	{
 		if($this->byEmail)
 		{
@@ -77,14 +93,14 @@ class PagesLoginController extends PagesLoggedController
 
 		if($isActive == 0)
 		{
-			$this->assign("error_msg", "This user has not validate the account");
+			$this->error_msg = "This user has not validate the account";
 			return false;
 		}
 		return true;
 
 	}
 
-	private function checkPassword(){
+	public function checkPassword(){
 
 		if(!$this->byEmail){
 			$passwordbbdd = $this->obj->getPasswordByName($this->user_name);
@@ -95,14 +111,14 @@ class PagesLoginController extends PagesLoggedController
 		$passwordbbdd = $passwordbbdd[0]['password'];
 
 		if($passwordbbdd != $this->password){
-			$this->assign("error_msg", "The password is wrong.");
+			$this->error_msg = "The password is wrong.";
 		}else{
 			return true;
 		}
 	}
 
 
-	private function saveLogin()
+	public function saveLogin()
 	{
 		if($this->byEmail)
 		{
@@ -112,6 +128,16 @@ class PagesLoginController extends PagesLoggedController
 		Session::getInstance()->set('money', $this->obj->getUserByUsername($this->user_name)[0]['money']);
 		Session::getInstance()->set('isLogged', true);
 
+	}
+
+	public function getUserName()
+	{
+		return $this->user_name;
+	}
+
+	public function getPassword()
+	{
+		return $this->password;
 	}
 
 	/**

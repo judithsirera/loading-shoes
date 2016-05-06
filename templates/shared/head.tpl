@@ -31,7 +31,7 @@
 				<ul class="right hide-on-med-and-down">
 					{if $isLogged}
 						<li class="search-box">
-							<form>
+							<form method="post">
 								<div class="search-input">
 									<input name="search" id="search" type="text" placeholder="Search">
 									<a id="searchBtn" href="{$global.url}/products"><i class="material-icons">search</i></a>
@@ -47,7 +47,16 @@
 					{else}
 						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
 						<li><a href="{$url.global}/signup">Sign up</a></li>
-						<li><a href="{$url.global}/login">Log in</a>
+						<li class="login-box">
+							<form method="post">
+								<div class="login-input">
+									<input name="user_name" id="user_name" type="text" placeholder="Username or email" required>
+									<input name="password" id="password" type="password" placeholder="Password" required>
+									<input class="login-btn right" type="submit" name="login-submit" value="Log in">
+								</div>
+							</form>
+						</li>
+						<!--<li><a href="{$url.global}/login">Log in</a>-->
 					{/if}
 				</ul>
 				<ul class="side-nav" id="mobile-demo">

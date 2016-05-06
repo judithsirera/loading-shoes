@@ -36,7 +36,7 @@
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn waves-effect waves-light btn-large right" type="submit" name="action">Log in</button>
+                                <button class="btn waves-effect waves-light btn-large right" type="submit" name="login">Log in</button>
                             </div>
                         </div>
                     </form>
