@@ -39,21 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col s6">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="product_name" id="product_name" type="text" class="validate" value="{$product_name}" required>
-                                    <label for="product_name">Product name</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea name="description_product" id="description_product" class="materialize-textarea" required>{$description_product}</textarea>
-                                    <label for="description_product">Description</label>
-                                </div>
-                            </div>
-                            <div class="row">
+                            <div style="width: 95%; margin-left: 2.5%" class="row">
                                 <div class="input-field col s4">
                                     <input name="price" id="price" type="number" class="validate" min="1" max="1000" value="{$price}" required>
                                     <label for="price">Price (€)</label>
@@ -67,6 +53,20 @@
                                     <label for="datepicker">Data caducitat</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="product_name" id="product_name" type="text" class="validate" value="{$product_name}" required>
+                                    <label for="product_name">Product name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 extra-margin-top">
+                                    <textarea name="description_product" id="description_product">{$description_product}</textarea>
+                                    <label class="less-margin-top" for="description_product">Description</label>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col s8 translateY">
                                     <input type="checkbox" class="filled-in" id="conditions" name="conditions"/>
@@ -74,7 +74,7 @@
                                     <a class="modal-trigger" href="#modal-conditions"><span>Read conditions</span></a>
                                 </div>
                                 <div class="col s4">
-                                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit">Create</button>
+                                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit" id="submit">Create</button>
                                 </div>
                             </div>
                         </div>

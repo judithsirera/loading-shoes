@@ -29,7 +29,11 @@
                     <div class="col s4">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator img-responsive" src="{$global.url}/imag/products/{$p.image_path}">
+                                {foreach from=$images item=img}
+                                    {if $img.id == $p.id}
+                                        <img class="activator img-responsive" src="{$global.url}/imag/products/{$img.image_path}">
+                                    {/if}
+                                {/foreach}
                             </div>
                             <div class="card-content">
                                 <span class="card-title"><a href="{$global.url}/p/{$p.URL}/id={$p.id}">{$p.name}</a></span>

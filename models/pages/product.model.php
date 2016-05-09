@@ -11,11 +11,15 @@ class PagesProductModel extends Model{
 
     public function insertNewProduct($productname, $description, $price, $stock, $limit_date, $username, $image, $url)
     {
-        $query = <<<QUERY
+        if($productname && $description && $price && $stock && $limit_date && $username && $image && $url)
+        {
+            $query = <<<QUERY
         INSERT INTO product (name, description, price, stock, limit_date, usuari, image_path, URL)
         VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username", "$image", "$url");
 QUERY;
-        $this->execute($query);
+            $this->execute($query);
+        }
+
     }
 
     public function searchProduct($search)

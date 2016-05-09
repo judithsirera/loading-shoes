@@ -38,6 +38,10 @@
     margin-bottom: 100px;
 }
 
+.less-margin-top{
+    margin-top: -40px;
+}
+
 .row .extra-padding-bottom{
     padding-bottom: 30px;
 }

@@ -22,6 +22,7 @@ class PagesProductsController extends PagesLoggedController
     private $isNextDis = "";
     private $actualData;
     private $starsAvaluation;
+    private $imgs;
 
 	protected $view = 'pages/products.tpl';
 
@@ -135,10 +136,11 @@ class PagesProductsController extends PagesLoggedController
 
     private function setImagesPath()
     {
-        foreach ($this->actualData as $p)
+        for($i = 0; $i < sizeof($this->actualData); $i++)
         {
-            $img = explode(".", $p['image_path']);
-            $p['image_path'] = $img[0] . "_600x600" . $img[1];
+            $img_path = explode(".", $this->actualData[$i]['image_path']);
+            $this->imgs[$i]['image_path'] = $img_path[0] . "_600x600." . $img_path[1];
+            $this->imgs[$i]['id'] = $this->actualData[$i]['id'];
         }
     }
 
@@ -170,6 +172,7 @@ class PagesProductsController extends PagesLoggedController
         $this->assign('products', $this->actualData);
         $this->assign('diff_days', $this->diff);
         $this->assign('stars', $this->starsAvaluation);
+        $this->assign('images', $this->imgs);
         $this->assign('actual_page', $this->actualPage);
         $this->assign('prev_page', $this->actualPage - 1);
         $this->assign('isPrevDis', $this->isPrevDis);
@@ -184,7 +187,6 @@ class PagesProductsController extends PagesLoggedController
             $this->assign('user', "");
         }
         $this->assign('logged', $this->isLogged());
-
     }
 
 

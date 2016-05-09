@@ -84,7 +84,24 @@ $(document).ready(function() {
 $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal-trigger').leanModal();
+
+    tinymce.init({
+        selector:'textarea',
+        height : '50px',
+        max_height: '100px',
+        resize: false
+    });
 });
 
-//date
+/*
+$(document).ready(function() {
+
+    $('.btn').click(function(event){
+        var editor =  $('#editor');
+        console.log($(editor).innerHTML);
+
+        description = $(editor).innerHTML;
+        console.log($(editor).innerHTML);
+    });
+});*/
 

@@ -27,8 +27,8 @@
 <script type="text/javascript" src="{$url.global}/js/materialize.min.js"></script>
 <script type="text/javascript" src="{$url.global}/js/pass-strength.js"></script>
 <script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
-<script type="text/javascript" src="{$url.global}/js/tinyeditor.js"></script>
-<script type="text/javascript" src="{$url.global}/js/wysiwyg.js"></script>
+<script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
 
 
 </body>

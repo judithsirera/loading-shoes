@@ -18,15 +18,15 @@ class PagesNewProductController extends PagesLoggedController
     private $obj_user;
 
 
-    protected $view = 'pages/newproduct.tpl';
+    protected $view = 'pages/newProduct.tpl';
 
 	public function build()
     {
+
         if ($this->isLogged())
         {
             $this->obj_product = $this->getClass('PagesProductModel');
             $this->obj_user = $this->getClass('PagesUserModel');
-
 
             $this->getUserData();
 
@@ -43,13 +43,15 @@ class PagesNewProductController extends PagesLoggedController
 
 	private function getUserData()
 	{
-		$this->product_name = Filter::getString('product_name');
-		$this->product_description = Filter::getString('description_product');
+
+        $this->product_name = Filter::getString('product_name');
+		$this->product_description = Filter::getUnfiltered('description_product');
 		$this->price = Filter::getFloat('price');
         $this->stock = Filter::getInteger('quantity');
         $this->limit_date = Filter::getUnfiltered('limit_date');
         $this->conditions = Filter::getBoolean('conditions');
 
+        $this->product_description = addslashes($this->product_description);
         $this->getImage();
     }
 
