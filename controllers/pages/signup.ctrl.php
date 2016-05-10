@@ -25,6 +25,7 @@ class PagesSignUpController extends PagesLoggedController
 
             $this->getUserData();
 
+
             $this->insertUserData();
 
 
@@ -51,6 +52,7 @@ class PagesSignUpController extends PagesLoggedController
 	{
 		if ($this->checkUserName() && $this->checkPassword() && $this->checkEmail() && $this->checkTwitter())
 		{
+            exit();
 			$this->obj->insertNewUser($this->user_name, $this->email, $this->password, $this->twitter, $this->photo);
             $this->completeFields();
             $active_link = $this->generateActiveLink();
@@ -94,6 +96,8 @@ class PagesSignUpController extends PagesLoggedController
 		}
 
         $this->assign('password_value', $this->password);
+
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         return true;
 
 	}

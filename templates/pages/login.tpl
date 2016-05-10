@@ -21,7 +21,7 @@
                     {/if}
                 </div>
                 <div class="row">
-                    <form class="col s12">
+                    <form method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_name" id="user_name" type="text" class="validate" required>

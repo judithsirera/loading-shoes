@@ -56,7 +56,7 @@
                                 <div style="width: 100%; margin-left: auto" id="fileInput" class="file-field input-field">
                                     <div style="height: 3rem" class="btn waves-effect waves-light btn-large">
                                         <span>File</span>
-                                        <input id="fileName" name="fileName" type="file" required>
+                                        <input id="fileName" name="fileName" type="file">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">

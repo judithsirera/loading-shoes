@@ -110,7 +110,9 @@ class PagesLoginController extends PagesLoggedController
 
 		$passwordbbdd = $passwordbbdd[0]['password'];
 
-		if($passwordbbdd != $this->password){
+		//if($passwordbbdd != $this->password){
+		if(!password_verify($passwordbbdd, $this->password))
+		{
 			$this->error_msg = "The password is wrong.";
 		}else{
 			return true;
