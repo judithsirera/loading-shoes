@@ -27,7 +27,7 @@ QUERY;
         $query = <<<QUERY
             SELECT *
             FROM product
-            WHERE name LIKE '%$search%'
+            WHERE UPPER(name) LIKE UPPER('%$search%')
 QUERY;
         return $this->getAll($query);
     }
@@ -123,6 +123,24 @@ QUERY;
             SELECT usuari
             FROM product
             WHERE id = "$id"
+QUERY;
+        return $this->getAll($query);
+    }
+
+    public function getLastProductInserted()
+    {
+        $query = <<<QUERY
+            SELECT MAX(id) as max
+            FROM product
+QUERY;
+        $lastId = $this->getAll($query);
+        $lastId = $lastId[0]['max'];
+
+
+        $query = <<<QUERY
+            SELECT *
+            FROM product
+            WHERE id = "$lastId";
 QUERY;
         return $this->getAll($query);
     }

@@ -7,7 +7,7 @@
                 <h1>My products</h1>
             </div>
             <div class="offset-s2 col s4 total-information">
-                <h5>Total: {$numberOfProducts} products, {$price} €</h5>
+                <h5>Total: {$numberOfProducts} products</h5>
             </div>
         </div>
         <div class="row">

@@ -32,7 +32,7 @@
                         <tr>
                             <td>
                                 {foreach from = $products item = prod}
-                                    {if $prod.name == $p.product}
+                                    {if $prod.id == $p.product_id}
                                         <a href="{$global.url}/p/{$prod.URL}/id={$prod.id}" class="product-link">{$p.product}</a>
                                     {/if}
                                 {/foreach}

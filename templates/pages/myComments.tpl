@@ -17,7 +17,7 @@
         <div class="row">
             {if $numComments == 0}
                 <div class="col s12 comment">
-                    <h1>You don't have any comment.</h1>
+                    <h4>You don't have any comment.</h4>
                 </div>
             {else}
                 {foreach from=$comments item=c}

@@ -43,8 +43,6 @@ class PagesProductViewController extends PagesLoggedController
         {
             $this->product = $this->product[0];
             $this->updateViews();
-            $this->getProduct();
-            $this->product = $this->product[0];
             $this->setDateProductsFormat();
             $this->setStars();
             $this->setImagePath();
@@ -69,11 +67,18 @@ class PagesProductViewController extends PagesLoggedController
         if ($this->getParams()['url_arguments'])
         {
             $this->product_url = $this->getParams()['url_arguments'][0];
-
             $this->actualPage = 1;
-            if($this->getParams()['url_arguments'][3])
+            if(sizeof($this->getParams()['url_arguments']) > 1)
             {
-                $this->actualPage = $this->getParams()['url_arguments'][3];
+                $info = $this->getParams()['url_arguments'][1];
+
+                if (strpos($info, "id"))
+                {
+                    if ($this->getParams()['url_arguments'][2])
+                    {
+                        $this->actualPage = $this->getParams()['url_arguments'][2];
+                    }
+                }
             }
         }else{
             header("Location:", URL_ABSOLUTE . '/products');
@@ -82,7 +87,7 @@ class PagesProductViewController extends PagesLoggedController
 
     private function getIdFromParams()
     {
-        if (sizeof($this->getParams()['url_arguments']) == 2)
+        if (sizeof($this->getParams()['url_arguments']) > 1)
         {
             $this->product_name = $this->getParams()['url_arguments'][0];
             $this->product_id = $this->getParams()['url_arguments'][1];
@@ -98,9 +103,11 @@ class PagesProductViewController extends PagesLoggedController
         $this->product = $this->obj_product->getProductByUrl($this->product_url);
         if (sizeof($this->product) > 1)
         {
+
             $this->getIdFromParams();
             $this->product = $this->obj_product->getProductById($this->product_id);
         }
+
         if (!isset($this->product))
         {
             return false;
@@ -173,7 +180,6 @@ class PagesProductViewController extends PagesLoggedController
     }
 
     private function setCommentsForPage(){
-
         for ($i = $this->actualPage*10 - 10; $i <= 10*$this->actualPage && $i < sizeof($this->allComments); $i++)
         {
             $this->actualComments[$i-($this->actualPage - 1)*10] = $this->allComments[$i];

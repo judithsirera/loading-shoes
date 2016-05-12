@@ -85,7 +85,7 @@ class PagesProductsController extends PagesLoggedController
 
     private function setProductsForPage()
     {
-        for ($i = $this->actualPage*10 - 10; $i <= 10*$this->actualPage && $i < sizeof($this->products); $i++)
+        for ($i = $this->actualPage*10 - 10; $i < 10*$this->actualPage && $i < sizeof($this->products); $i++)
         {
             $this->actualData[$i-($this->actualPage - 1)*10] = $this->products[$i];
         }

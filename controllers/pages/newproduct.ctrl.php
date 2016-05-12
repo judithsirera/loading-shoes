@@ -108,8 +108,8 @@ class PagesNewProductController extends PagesLoggedController
                 $this->obj_product->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo, $this->url);
                 $this->updateUsersMoney();
 
-                $product = $this->obj_product->getProductByUrl($this->url)[0];
-                header('Location: ' . URL_ABSOLUTE . '/p/' . $this->url . '/' . $product['id']);
+                $product = $this->obj_product->getLastProductInserted($this->url)[0];
+                header('Location: ' . URL_ABSOLUTE . '/p/' . $this->url . '/id=' . $product['id']);
             }else{
                 $this->setLayout('error/noMoney.tpl');
             }

@@ -12,7 +12,6 @@ class PagesMyProductsController extends PagesLoggedController
 	private $dataProducts;
 	private $actualPage;
 	private $actualData;
-	private $totalPrice;
 	private $limitPages;
 	private $isPrevDis = "";
 	private $isNextDis = "";
@@ -55,11 +54,6 @@ class PagesMyProductsController extends PagesLoggedController
 		$this->dataProducts = $this->obj->getAllProductsByUser($this->username);
 		$totalProducts = sizeof($this->dataProducts);
 
-		for ($i = 0; $i < sizeof($this->dataProducts); $i++)
-		{
-			$this->totalPrice += $this->dataProducts[$i]['price'];
-		}
-		$this->assign("price", $this->totalPrice);
 		$this->assign("numberOfProducts",$totalProducts );
 
 	}
