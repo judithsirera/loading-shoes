@@ -15,7 +15,18 @@ class PagesProductViewController extends PagesLoggedController
     private $starsAvaluation;
     private $obj_product;
     private $obj_user;
+    private $obj_comment;
     private $image_user;
+
+    private $to_userData;
+    private $date_comments;
+    private $limitPages;
+    private $actualPage;
+    private $actualComments;
+    private $isPrevDis;
+    private $isNextDis;
+    private $from_userImgs;
+    private $allComments;
 
 
 
@@ -25,16 +36,26 @@ class PagesProductViewController extends PagesLoggedController
         $this->layout = $this->view;
         $this->obj_product = $this->getClass('PagesProductModel');
         $this->obj_user = $this->getClass('PagesUserModel');
+        $this->obj_comment = $this->getClass('PagesCommentModel');
 
         $this->getAllParams();
         if ($this->getProduct())
         {
             $this->product = $this->product[0];
             $this->updateViews();
-            $this->setDateFormat();
+            $this->getProduct();
+            $this->product = $this->product[0];
+            $this->setDateProductsFormat();
             $this->setStars();
             $this->setImagePath();
-            $this->setTemplate();
+            $this->setProductTemplate();
+
+            $this->getAllComments();
+            $this->setCommentsForPage();
+            $this->setPages();
+            $this->setDateCommentsFormat();
+            $this->setFromUserImgs();
+            $this->setCommentsTemplate();
         }else{
             $this->layout = 'error/productNoExist.tpl';
         }
@@ -48,6 +69,12 @@ class PagesProductViewController extends PagesLoggedController
         if ($this->getParams()['url_arguments'])
         {
             $this->product_url = $this->getParams()['url_arguments'][0];
+
+            $this->actualPage = 1;
+            if($this->getParams()['url_arguments'][3])
+            {
+                $this->actualPage = $this->getParams()['url_arguments'][3];
+            }
         }else{
             header("Location:", URL_ABSOLUTE . '/products');
         }
@@ -81,7 +108,7 @@ class PagesProductViewController extends PagesLoggedController
         return true;
     }
 
-    private function setDateFormat()
+    private function setDateProductsFormat()
     {
         $date = explode('-', $this->product['limit_date']);
         $this->dateLimit = $date[2] . "/" . $date[1] . "/" . $date[0];
@@ -122,7 +149,7 @@ class PagesProductViewController extends PagesLoggedController
         $this->obj_product->updateViews($this->product['id'], $views);
     }
 
-    private function setTemplate()
+    private function setProductTemplate()
     {
         $this->assign('p', $this->product);
         $this->assign('date_limit', $this->dateLimit);
@@ -136,6 +163,93 @@ class PagesProductViewController extends PagesLoggedController
             $this->assign('user', "");
         }
         $this->assign('logged', $this->isLogged());
+
+    }
+
+    private function getAllComments()
+    {
+        $to_user = $this->product['usuari'];
+        $this->allComments = $this->obj_comment->getAllCommentsToOrderByDate($to_user);
+    }
+
+    private function setCommentsForPage(){
+
+        for ($i = $this->actualPage*10 - 10; $i <= 10*$this->actualPage && $i < sizeof($this->allComments); $i++)
+        {
+            $this->actualComments[$i-($this->actualPage - 1)*10] = $this->allComments[$i];
+        }
+
+    }
+
+    private function setPages(){
+
+        $totalPages = sizeof($this->allComments) / 10;
+        if($totalPages == 0)
+        {
+            $totalPages = 1;
+        }
+        if (!is_int($totalPages))
+        {
+            $totalPages = floor($totalPages);
+            $totalPages++;
+        }
+        for ($i = 0; $i < $totalPages; $i++)
+        {
+            $this->limitPages[$i] = $i + 1;
+        }
+
+
+        if($this->actualPage - 1 <= 0) $this->isPrevDis = 'disabled';
+        if($this->actualPage + 1 > $totalPages) $this->isNextDis = 'disabled';
+
+    }
+
+    private function setDateCommentsFormat()
+    {
+        for ($i = 0; $i < sizeof($this->actualComments); $i++)
+        {
+            $dateInfo = explode('-', $this->actualComments[$i]['date']);
+            $this->date_comments[$i]['date'] = $dateInfo[2] . "/" . $dateInfo[1] . "/" . $dateInfo[0];
+            $this->date_comments[$i]['id'] = $this->actualComments[$i]['id_comment'];
+        }
+
+    }
+
+    private function setFromUserImgs()
+    {
+        for ($i = 0; $i < sizeof($this->actualComments); $i++) {
+            $user_name = $this->actualComments[$i]['from_user'];
+            $insert = true;
+            foreach ($this->from_userImgs as $fu) {
+                if ($fu['username'] == $user_name) {
+                    $insert = false;
+                }
+            }
+
+            if ($insert) {
+                $from_user = $this->obj_user->getUserByUsername($user_name)[0];
+                $info = explode(".", $from_user['image_path']);
+                $this->from_userImgs[$i]['img'] = $info[0] . "_100x100." . $info[1];
+                $this->from_userImgs[$i]['username'] = $from_user['username'];
+            }
+
+        }
+    }
+
+
+    private function setCommentsTemplate()
+    {
+        $this->assign('to_user', $this->product['usuari']);
+        $this->assign('from_userImgs', $this->from_userImgs);
+        $this->assign('comments', $this->actualComments);
+        $this->assign('numComments', sizeof($this->allComments));
+        $this->assign('date', $this->date_comments);
+        $this->assign('pages', $this->limitPages);
+        $this->assign('actual_page', $this->actualPage);
+        $this->assign('prev_page', $this->actualPage - 1);
+        $this->assign('isPrevDis', $this->isPrevDis);
+        $this->assign('next_page', $this->actualPage + 1);
+        $this->assign('isNextDis', $this->isNextDis);
 
     }
 

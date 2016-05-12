@@ -31,7 +31,9 @@
                             <div class="card-image waves-effect waves-block waves-light">
                                 {foreach from=$images item=img}
                                     {if $img.id == $p.id}
-                                        <img class="activator img-responsive" src="{$global.url}/imag/products/{$img.image_path}">
+                                        <a >
+                                            <img class="img-responsive" src="{$global.url}/imag/products/{$img.image_path}">
+                                        </a>
                                     {/if}
                                 {/foreach}
                             </div>
@@ -53,7 +55,7 @@
                                 <div class="row">
                                     <div class="col s10">
                                         <div class="collection-item">
-                                            <p class="user">{$p.usuari}</p>
+                                            <p class="user"><a href="{$url.global}/user-comments/{$p.usuari}">{$p.usuari}</a></p>
                                             <p>
                                                 {foreach from=$stars item=sa}
                                                     {if $sa.id == $p.id}

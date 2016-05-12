@@ -58,7 +58,7 @@ QUERY;
              SELECT *
              FROM product
              WHERE stock > 0 AND limit_date > CURRENT_DATE
-             ORDER BY limit_date DESC;
+             ORDER BY limit_date ASC;
 QUERY;
 
          return $this->getAll($query);

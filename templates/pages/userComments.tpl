@@ -1,86 +1,81 @@
 {$modules.head}
 
-
-
-<section id="productView">
-    <div class="goBackBtn">
-        <a href="{$url.global}/products">
-            <i id="back-icon" class="material-icons">arrow_back</i>
-        </a>
-    </div>
+<section id="user">
     <div class="container extra-margin-top">
-        <div class="row">
-            <div class="col s6">
-                <h1 class="product-title">{$p.name}</h1>
+        <div class="row box">
+            <div class="col s5">
+                <img src="{$url.global}/imag/users/{$to_user.image_path}" class="img-responsive circle img-uComments">
             </div>
-            <div class="col s6 user">
-                <img src="{$url.global}/imag/users/{$image_user}" alt="" class="circle img-user">
-                <h4><a href="{$url.global}/user-comments/{$p.usuari}">{$p.usuari}</a></h4>
-            </div>
-        </div>
-
-    </div>
-    <div class="container box">
-        <div class="row">
-            <div class="col s6">
-                <img class="img-product z-depth-1" src="{$url.global}/imag/products/{$p.image_path}">
-            </div>
-            <div class="col s6 extra-margin-top">
+            <div class="col s7">
                 <div class="row">
-                    <div class="col s12" style="min-height: 125px">
-                        <h5>Description</h5>
-                        <p>{$p.description}</p>
-                    </div>
-                    <div class="col s4">
-                        <h5>Price</h5>
-                        <p>{$p.price}<i class="material-icons">euro_symbol</i></p>
-                    </div>
-                    <div class="col s4">
-                        <h5>Stock</h5>
-                        <p>{$p.stock} units</p>
-                    </div>
-                    <div class="col s4">
-                        <h5>Date limit</h5>
-                        <p>{$date_limit}</p>
+                    <div class="col 12">
+                        <h1 class="user-name">{$to_user.username}</h1>
                     </div>
                 </div>
-                <div class="row recharge-box">
-                    <div class="col s4">
-                        <h5>Views</h5>
-                        <p>{$p.views} views</p>
+                <div class="row">
+                    <div class="col s6">
+                        <h5>Comments</h5>
+                        <p>{$numComments} comments</p>
                     </div>
-                    <div class="col s8">
-                        <h5>User success</h5>
+                    <div class="col s6">
+                        <h5>Success</h5>
                         <p>
-                            {foreach from = $stars item = s}
+                            {foreach from=$to_user.stars item=s}
                                 <i class="material-icons">{$s}</i>
                             {/foreach}
                         </p>
+
                     </div>
                 </div>
             </div>
         </div>
-        {if $p.stock > 0 && $p.usuari != $user && $logged}
-        <div class="shoppingBtn">
-            <a href="{$global.url}/buy/{$p.URL}/id={$p.id}">
-                <i id="shopping-icon" class="medium material-icons right">add_shopping_cart</i>
-            </a>
-        </div>
-        {/if}
     </div>
 </section>
 
-<section id="comments">
-    <div class="container row extra-margin-top">
-        <div class="col s12">
-            <h4>Comments to {$to_user}</h4>
+<section id="commentForm">
+    <div class="container extra-margin-top">
+        <div class="comment">
+            {if $isEnableToComment}
+                <div class="row">
+                    <div class="col s12">
+                        <h1>Make your comment</h1>
+                    </div>
+                </div>
+                <form method="POST">
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <input name="subject" id="subject" type="text" class="validate" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <button class="btn waves-effect waves-light btn-large right" type="submit" name="comment">Comment</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <textarea name="commentText" id="commentText"></textarea>
+                        </div>
+                    </div>
+                </form>
+            {else}
+                <div class="row">
+                    <div class="col s12">
+                        <h1>You must buy a product to {$to_user.username} to comment.</h1>
+                    </div>
+                </div>
+            {/if}
         </div>
     </div>
-    <div class="container extra-margin-bottom">
+
+</section>
+
+
+<section id="comments">
+    <div class="container extra-margin-top extra-margin-bottom">
         <div class="row">
             {if $numComments == 0}
                 <div class="col s12 comment">
-                    <h4>{$to_user} doesn't have any comment.</h4>
+                    <h4>{$to_user.username} doesn't have any comment.</h4>
                 </div>
             {else}
                 {foreach from=$comments item=c}
@@ -128,21 +123,21 @@
         <div class="container">
             <ul class="pagination">
                 <li class="{$isPrevDis}">
-                    <a href="{$url.global}/user-comments/{$to_user}/{$prev_page}" aria-label="Previous">
+                    <a href="{$url.global}/user-comments/{$to_user.username}/{$prev_page}" aria-label="Previous">
                         <i class="material-icons">keyboard_arrow_left</i>
                     </a>
                 </li>
 
                 {foreach from=$pages item=i}
                     {if $i == $actual_page}
-                        <li class="active"><a href="{$url.global}/user-comments/{$to_user}/{$i}">{$i}</a></li>
+                        <li class="active"><a href="{$url.global}/user-comments/{$to_user.username}/{$i}">{$i}</a></li>
                     {else}
-                        <li class=""><a href="{$url.global}/user-comments/{$to_user}/{$i}">{$i}</a></li>
+                        <li class=""><a href="{$url.global}/user-comments/{$to_user.username}/{$i}">{$i}</a></li>
                     {/if}
                 {/foreach}
 
                 <li class="{$isNextDis}">
-                    <a href="{$url.global}/user-comments/{$to_user}/{$next_page}" aria-label="Next">
+                    <a href="{$url.global}/user-comments/{$to_user.username}/{$next_page}" aria-label="Next">
                         <i class="material-icons">keyboard_arrow_right</i>
                     </a>
                 </li>
@@ -164,7 +159,6 @@
     {/foreach}
 
 </section>
-
 
 
 {$modules.footer}

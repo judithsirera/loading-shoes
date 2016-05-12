@@ -124,6 +124,12 @@ span{
     right: 30px;
 }
 
+.img-uComments{
+    width: 70%;
+    margin: 20px 15% 20px 15%;
+}
+
+
 /*Form colors*/
 /* label color */
 .input-field label {
@@ -257,6 +263,12 @@ td .myProd-img{
     max-width: 100px;
     margin-left: 25%;
     max-height: 50%;
+}
+
+td .toComment,
+td .toComment:hover,
+td .toComment:active{
+    color: black;
 }
 
 tr #options{

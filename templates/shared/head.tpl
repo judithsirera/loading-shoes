@@ -39,6 +39,7 @@
 							</form>
 						</li>
 						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
+						<li><a href="{$url.global}/my-comments"><i class="material-icons">comment</i></a></li>
 						<li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
                         <li><a href="{$url.global}/my-purchases"><i class="material-icons">shopping_cart</i></a></li>
 						<li><a href="{$url.global}/recharge">{$money}<i class="material-icons">euro_symbol</i></a></li>
@@ -70,6 +71,7 @@
 							</form>
 						</li>
 						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
+						<li><a href="{$url.global}/my-comments"><i class="material-icons">comment</i></a></li>
 						<li><a href="{$url.global}/my-products"><i class="material-icons">list</i></a></li>
                         <li><a href="{$url.global}/my-purchases"><i class="material-icons">shopping_cart</i></a></li>
 						<li><a href="{$url.global}/recharge">{$money}<i class="material-icons">euro_symbol</i></a></li>

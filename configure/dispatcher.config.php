@@ -17,5 +17,6 @@ $config['logout']			    = 'PagesLogoutController';
 $config['products']             = 'PagesProductsController';
 $config['buy']                  = 'PagesBuyController';
 $config['p']                    = 'PagesProductViewController';
-
+$config['user-comments']        = 'PagesUserCommentsController';
+$config['my-comments']          = 'PagesMyCommentsController';
 $config['delete']               = 'PagesDeleteController';

@@ -26,7 +26,8 @@ class SharedHeadController extends PagesLoggedController
 		{
 			$this->loginClass = new PagesLoginController();
 
-			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if (Filter::getString("login-submit"))
+			{
 				$this->loginClass->initVars();
 				$this->getData();
 				$this->loginClass->setUserName($this->user_name);

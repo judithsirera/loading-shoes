@@ -157,6 +157,10 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
 
 /*PRODUCT CARTS*/
 
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating){
+    color: #EA8F63;
+}
+
 .card{
     margin-top: 2rem;
 }
@@ -211,7 +215,8 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
 /*PRODUCT VIEW*/
 
 
-#productView p, #productView i{
+#productView p, #productView i,
+#userComments p, #userComments i{
     font-size: 16px;
     color: #333333;
 }
@@ -232,11 +237,13 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
     color: #852F06;
 }
 
-#productView h5{
+#productView h5,
+#userComments h5{
     color: #777777;
 }
 
-.product-title{
+.product-title,
+.user-name{
     text-transform: uppercase;
 }
 
@@ -253,5 +260,41 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
     font-style: italic;
     color: #afafaf;
 }
+#comments .comment{
+    margin-bottom: 20px;
+}
+
+#comments .comment,
+#commentForm .comment{
+    position: relative;
+    background-color: rgba(203, 203, 203, 0.08);
+    padding: 5% 5% 5% 5%;
+    border-radius: 10px;
+}
+
+#comments .comment h4{
+     text-transform: uppercase;
+     font-style: italic;
+     color: #afafaf;
+ }
+
+#comments .comment img{
+    width: 70px;
+
+}
+
+#comments .comment h5,
+#comments .comment p,
+#comments .comment i{
+    margin-top: 20px;
+    text-align: justify;
+    text-justify: distribute;
+}
+
+#comments .comment-text{
+    max-height: 200px;
+    overflow: scroll;
+}
+
 
 

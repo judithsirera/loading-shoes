@@ -9,6 +9,7 @@ class PagesSignUpController extends PagesLoggedController
 	private $user_name = "";
 	private $email = "";
 	private $password = "";
+    private $hash_password = "";
 	private $twitter = "";
     private $photo = "";
 	private $obj;
@@ -24,7 +25,6 @@ class PagesSignUpController extends PagesLoggedController
             $this->obj = $this->getClass('PagesUserModel');
 
             $this->getUserData();
-
 
             $this->insertUserData();
 
@@ -52,8 +52,7 @@ class PagesSignUpController extends PagesLoggedController
 	{
 		if ($this->checkUserName() && $this->checkPassword() && $this->checkEmail() && $this->checkTwitter())
 		{
-            exit();
-			$this->obj->insertNewUser($this->user_name, $this->email, $this->password, $this->twitter, $this->photo);
+			$this->obj->insertNewUser($this->user_name, $this->email, $this->hash_password, $this->twitter, $this->photo);
             $this->completeFields();
             $active_link = $this->generateActiveLink();
             $this->assign('active_link', $active_link);
@@ -97,7 +96,7 @@ class PagesSignUpController extends PagesLoggedController
 
         $this->assign('password_value', $this->password);
 
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+        $this->hash_password = password_hash($this->password, PASSWORD_DEFAULT);
         return true;
 
 	}
@@ -231,15 +230,19 @@ class PagesSignUpController extends PagesLoggedController
         $ruta ="./imag/users/"; //ruta carpeta donde queremos copiar las imágenes
         $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
         $end = explode(".", $_FILES['fileName']['name'])[1];
-        $this->photo = $this->user_name . "." . $end;
-
-        if (is_uploaded_file($uploadFile_temporal))
+        if($uploadFile_temporal)
         {
-            move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+            $this->photo = $this->user_name . "." . $end;
+
+            if (is_uploaded_file($uploadFile_temporal))
+            {
+                move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+            }
+
+            $this->redimImage(600, 600);
+            $this->redimImage(100, 100);
         }
 
-        $this->redimImage(600, 600);
-        $this->redimImage(100, 100);
 
     }
 

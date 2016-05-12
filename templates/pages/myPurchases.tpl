@@ -37,7 +37,7 @@
                                     {/if}
                                 {/foreach}
                             </td>
-                            <td>{$p.user_sell}</td>
+                            <td><a class="toComment" href="{$url.global}/user-comments/{$p.user_sell}">{$p.user_sell}</a></td>
                             <td>{$p.price} €</td>
                             <td>
                                 {foreach from = $date item = d}

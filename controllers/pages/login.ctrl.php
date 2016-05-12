@@ -27,18 +27,20 @@ class PagesLoginController extends PagesLoggedController
 			if ($error == "error")
 			{
 				$this->assign("error_msg", "Username or password is incorrect");
-			}else{
-				$this->initVars();
+			}
+			$this->initVars();
 
-				$this->getData();
+			$this->getData();
 
-				if(!empty($this->user_name)){
-					if($this->checkUserName() && $this->checkIsActive() && $this->checkPassword() ){
-						$this->saveLogin();
-						header('Location: '.URL_ABSOLUTE.'/home');
-					}else{
-						$this->assign("error_msg", $this->error_msg);
-					}
+
+			if(!empty($this->user_name)){
+
+				if($this->checkUserName() && $this->checkIsActive() && $this->checkPassword())
+				{
+					$this->saveLogin();
+					header('Location: '.URL_ABSOLUTE.'/home');
+				}else{
+					$this->assign("error_msg", $this->error_msg);
 				}
 			}
 		}else {
@@ -110,11 +112,11 @@ class PagesLoginController extends PagesLoggedController
 
 		$passwordbbdd = $passwordbbdd[0]['password'];
 
-		//if($passwordbbdd != $this->password){
-		if(!password_verify($passwordbbdd, $this->password))
+		if(!password_verify($this->password, $passwordbbdd))
 		{
 			$this->error_msg = "The password is wrong.";
-		}else{
+		}else
+		{
 			return true;
 		}
 	}

@@ -42,4 +42,15 @@ QUERY;
         return $this->getAll($query);
     }
 
+    public function purchasesFromUserToUser($from_user, $to_user)
+    {
+        $query = <<<QUERY
+            SELECT COUNT(*) AS numPurchases
+            FROM purchase
+            WHERE user_buy = "$from_user"
+                AND user_sell = "$to_user";
+QUERY;
+        return $this->getAll($query);
+    }
+
 }
