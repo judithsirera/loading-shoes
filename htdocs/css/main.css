@@ -93,6 +93,15 @@
     text-overflow: clip;
 }
 
+#forgotPsw a{
+   color: rgba(158, 158, 158, 0.9);
+}
+
+#forgotPsw a:hover,
+#forgotPsw a:active{
+    color: rgba(149, 149, 149, 1);
+}
+
 .last_product_image{
     width: 50%;
 }
@@ -141,7 +150,8 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
 }
 
 #uploadshoesfoto > img{
-    opacity: 0.2;
+    min-height: 150px;
+    width: auto;
 }
 
 #fileInput{
@@ -272,7 +282,8 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
     border-radius: 10px;
 }
 
-#comments .comment h4{
+#comments .comment h4,
+#commentForm .comment h4{
      text-transform: uppercase;
      font-style: italic;
      color: #afafaf;

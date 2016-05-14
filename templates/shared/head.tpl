@@ -47,6 +47,7 @@
 
 					{else}
 						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
+						<li><a href="{$url.global}/my-comments"><i class="material-icons">comment</i></a></li>
 						<li><a href="{$url.global}/signup">Sign up</a></li>
 						<li class="login-box">
 							<form method="post">
@@ -78,6 +79,7 @@
 						<li><a href="{$url.global}/logout">{$username}<i id="logout" class="material-icons">power_settings_new</i></a></li>
 					{else}
 						<li><a href="{$url.global}/new-product"><i class="material-icons">add_circle_outline</i></a></li>
+						<li><a href="{$url.global}/my-comments"><i class="material-icons">comment</i></a></li>
 						<li><a href="{$url.global}/signup">Sign up</a></li>
 						<li><a href="{$url.global}/login">Log in</a>
 					{/if}

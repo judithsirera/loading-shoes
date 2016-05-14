@@ -60,7 +60,7 @@
             {else}
                 <div class="row">
                     <div class="col s12">
-                        <h1>You must buy a product to {$to_user.username} to comment.</h1>
+                        <h4>You can't comment to {$to_user.username}. You have already commented, if not you must buy a product to this user.</h4>
                     </div>
                 </div>
             {/if}
@@ -123,7 +123,11 @@
         <div class="container">
             <ul class="pagination">
                 <li class="{$isPrevDis}">
-                    <a href="{$url.global}/user-comments/{$to_user.username}/{$prev_page}" aria-label="Previous">
+                    {if $isPrevDis}
+                        <a aria-label="Previous">
+                    {else}
+                        <a href="{$url.global}/user-comments/{$to_user.username}/{$prev_page}" aria-label="Previous">
+                    {/if}
                         <i class="material-icons">keyboard_arrow_left</i>
                     </a>
                 </li>
@@ -137,7 +141,11 @@
                 {/foreach}
 
                 <li class="{$isNextDis}">
-                    <a href="{$url.global}/user-comments/{$to_user.username}/{$next_page}" aria-label="Next">
+                    {if $isNextDis}
+                        <a aria-label="Next">
+                    {else}
+                        <a href="{$url.global}/user-comments/{$to_user.username}/{$next_page}" aria-label="Next">
+                    {/if}
                         <i class="material-icons">keyboard_arrow_right</i>
                     </a>
                 </li>

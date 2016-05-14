@@ -93,7 +93,11 @@
             <ul class="pagination">
                 {if !$isResult}
                     <li class="{$isPrevDis}">
-                        <a href="{$url.global}/products/{$prev_page}" aria-label="Previous">
+                        {if $isPrevDis}
+                            <a aria-label="Previous">
+                        {else}
+                            <a href="{$url.global}/products/{$prev_page}" aria-label="Previous">
+                        {/if}
                             <i class="material-icons">keyboard_arrow_left</i>
                         </a>
                     </li>
@@ -107,13 +111,21 @@
                     {/foreach}
 
                     <li class="{$isNextDis}">
-                        <a href="{$url.global}/products/{$next_page}" aria-label="Next">
+                        {if $isNextDis}
+                            <a aria-label="Next">
+                        {else}
+                            <a href="{$url.global}/products/{$next_page}" aria-label="Next">
+                        {/if}
                             <i class="material-icons">keyboard_arrow_right</i>
                         </a>
                     </li>
                 {else}
                     <li class="{$isPrevDis}">
-                        <a href="{$url.global}/products/search/{$word}/{$prev_page}" aria-label="Previous">
+                        {if $isPrevDis}
+                            <a aria-label="Previous">
+                        {else}
+                            <a href="{$url.global}/products/search/{$word}/{$prev_page}" aria-label="Previous">
+                        {/if}
                             <i class="material-icons">keyboard_arrow_left</i>
                         </a>
                     </li>
@@ -127,7 +139,11 @@
                     {/foreach}
 
                     <li class="{$isNextDis}">
-                        <a href="{$url.global}/products/search/{$word}/{$next_page}" aria-label="Next">
+                        {if $isNextDis}
+                            <a aria-label="Next">
+                        {else}
+                            <a href="{$url.global}/products/search/{$word}/{$next_page}" aria-label="Next">
+                        {/if}
                             <i class="material-icons">keyboard_arrow_right</i>
                         </a>
                     </li>

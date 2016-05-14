@@ -61,21 +61,29 @@
         <div class="container">
             <ul class="pagination">
                 <li class="{$isPrevDis}">
-                    <a href="{$url.global}/user-comments/{$to_user}/{$prev_page}" aria-label="Previous">
+                    {if $isPrevDis}
+                        <a aria-label="Previous">
+                    {else}
+                        <a href="{$url.global}/my-comments/{$prev_page}" aria-label="Previous">
+                    {/if}
                         <i class="material-icons">keyboard_arrow_left</i>
                     </a>
                 </li>
 
                 {foreach from=$pages item=i}
                     {if $i == $actual_page}
-                        <li class="active"><a href="{$url.global}/user-comments/{$to_user}/{$i}">{$i}</a></li>
+                        <li class="active"><a href="{$url.global}/my-comments/{$to_user}/{$i}">{$i}</a></li>
                     {else}
-                        <li class=""><a href="{$url.global}/user-comments/{$to_user}/{$i}">{$i}</a></li>
+                        <li class=""><a href="{$url.global}/my-comments//{$i}">{$i}</a></li>
                     {/if}
                 {/foreach}
 
                 <li class="{$isNextDis}">
-                    <a href="{$url.global}/user-comments/{$to_user}/{$next_page}" aria-label="Next">
+                    {if $isNextDis}
+                        <a aria-label="Next">
+                    {else}
+                        <a href="{$url.global}/my-comments/{$next_page}" aria-label="Next">
+                    {/if}
                         <i class="material-icons">keyboard_arrow_right</i>
                     </a>
                 </li>

@@ -76,4 +76,15 @@ QUERY;
         $this->execute($query);
 
     }
+
+    public function getCommentByToAndFrom($to, $from)
+    {
+        $query = <<<QUERY
+             SELECT COUNT(*) as numComments
+             FROM comments
+             WHERE to_user = "$to"
+                AND from_user = "$from"
+QUERY;
+        return $this->getAll($query);
+    }
 }

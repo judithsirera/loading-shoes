@@ -40,13 +40,13 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="user_email" id="email" type="email" class="validate" value="{$email_value}" required>
+                                <input name="user_email" id="email" type="email" class="validate" value="{$email_value}" {literal}pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"{/literal} required>
                                 <label for="email" data-error="wrong" data-success="right">Email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="user_password" id="password-signup" type="password" class="validate" value="{$password_value}" required>
+                                <input name="user_password" id="password-signup" type="password" class="check" value="{$password_value}" {literal}pattern=".{6,10}"{/literal} required>
                                 <label for="password" data-error="wrong" data-success="right">Password</label>
                                 <span class="instructions right">Minimum 6 characters, maximum 10 characters</span>
                             </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="user_twitter" id="twitter" type="text" value="{$twitter_value}" class="validate">
+                                <input name="user_twitter" id="twitter" type="text" value="{$twitter_value}" class="check">
                                 <label for="twitter" data-error="wrong" data-success="right">Twitter user</label>
                             </div>
                         </div>

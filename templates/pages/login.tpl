@@ -32,6 +32,7 @@
                             <div class="input-field col s12">
                                 <input name="password" id="password" type="password" class="validate" required>
                                 <label for="password">Password</label>
+                                <p id="forgotPsw"><a href="{$url.global}/forgot">I forgot my password</a></p>
                             </div>
                         </div>
                         <div class="row">

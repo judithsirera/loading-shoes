@@ -58,7 +58,11 @@
         <div class="container">
                 <ul class="pagination">
                     <li class="{$isPrevDis}">
-                        <a href="{$url.global}/my-purchases/{$prev_page}" aria-label="Previous">
+                        {if $isPrevDis}
+                            <a aria-label="Previous">
+                        {else}
+                            <a href="{$url.global}/my-purchases/{$prev_page}" aria-label="Previous">
+                        {/if}
                             <i class="material-icons">keyboard_arrow_left</i>
                         </a>
                     </li>
@@ -72,7 +76,11 @@
                     {/foreach}
 
                     <li class="{$isNextDis}">
-                        <a href="{$url.global}/my-purchases/{$next_page}" aria-label="Next">
+                        {if $isNextDis}
+                            <a aria-label="Next">
+                        {else}
+                            <a href="{$url.global}/my-purchases/{$next_page}" aria-label="Next">
+                        {/if}
                             <i class="material-icons">keyboard_arrow_right</i>
                         </a>
                     </li>

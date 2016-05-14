@@ -133,9 +133,13 @@ class PagesUsercommentsController extends PagesLoggedController
 
 	private function isEnableToComment()
 	{
-		$num = $this->obj_purchase->purchasesFromUserToUser($this->username, $this->to_user);
-		$num = $num[0]['numPurchases'];
-		$this->isEnableToComment = $num > 0;
+		$numPurchases = $this->obj_purchase->purchasesFromUserToUser($this->username, $this->to_user);
+		$numPurchases = $numPurchases[0]['numPurchases'];
+
+		$numComments = $this->obj_comment->getCommentByToAndFrom($this->to_user, $this->username);
+		$numComments = $numComments[0]['numComments'];
+
+		$this->isEnableToComment = $numPurchases > 0 && $numComments == 0;
 	}
 
 	private function getAllComments()

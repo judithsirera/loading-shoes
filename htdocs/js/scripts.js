@@ -1,12 +1,25 @@
 
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imgFile').attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 //SIGN UP
 $(document).ready(function() {
     //CHECK PASSWORD
     $('input[type=password]').on('keyup',function(){
         object = $('input[type=password]');
-        len = $('input[type=password]').val().length;
+        len = object.val().length;
 
-        if (object.hasClass('validate')) {
+        if (object.hasClass('check')) {
             object.removeClass('valid');
             object.addClass('invalid');
         }
@@ -24,14 +37,14 @@ $(document).ready(function() {
     });
 
     //CHECK TWITTER
-    $('#twitter').on('keyup',function(){
+    $('#twitter').on('keyup change focusout',function(){
         object = $('#twitter');
-        first = $('#twitter').val().charAt(0);
-        len = $('#twitter').val().length;
+        first = object.val().charAt(0);
+        len = object.val().length;
         console.log(first);
         console.log(len);
 
-        if (object.hasClass('validate')) {
+        if (object.hasClass('check')) {
             object.removeClass('valid');
             object.addClass('invalid');
         }
@@ -46,10 +59,8 @@ $(document).ready(function() {
             }
         }
     });
-});
 
-//SEARCH BAR
-$(document).ready(function() {
+    //SEARCH BAR
     $('#search').keydown(function (e){
         url = "/products/search/"
         if(e.keyCode == 13){
@@ -68,40 +79,46 @@ $(document).ready(function() {
         }
 
     });
-});
 
-$(document).ready(function() {
-  //CHARACTER COUNTER
-  $('#description_product').characterCounter();
-
+    //DATEPICKER
     $('#datepicker').datepicker({
         minDate: 0,
         startOfWeek: 1
     });
-});
 
-//MODAL
-$(document).ready(function(){
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal-trigger').leanModal();
+    //MODAL
+    $('.modal-trigger').leanModal();
 
+    //TINY EDITOR
     tinymce.init({
         selector:'textarea',
         height : '50px',
         max_height: '100px',
         resize: false
     });
+
+    $('#fileName').change(function (){
+        readURL(this);
+    });
+
+    /*$('#fileName').on('change', function() {
+        img = $('#fileName').val();
+
+        img_template = $('#uploadshoesfoto').children();
+
+        img_template.attr('src', img);
+
+        console.log('done');
+
+
+    });*/
+
 });
 
-/*
-$(document).ready(function() {
 
-    $('.btn').click(function(event){
-        var editor =  $('#editor');
-        console.log($(editor).innerHTML);
 
-        description = $(editor).innerHTML;
-        console.log($(editor).innerHTML);
-    });
-});*/
+
+
+
+
 

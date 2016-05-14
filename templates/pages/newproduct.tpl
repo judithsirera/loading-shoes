@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col s12">
                                     <div id="uploadshoesfoto">
-                                        <img class="img-responsive" src="{$url.global}/imag/uploadFotoShoes.png" alt="" />
+                                        <img id="imgFile" class="img-responsive" src="{$url.global}/imag/uploadFotoShoes.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="col s12">

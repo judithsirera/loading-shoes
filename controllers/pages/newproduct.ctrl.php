@@ -111,7 +111,7 @@ class PagesNewProductController extends PagesLoggedController
                 $product = $this->obj_product->getLastProductInserted($this->url)[0];
                 header('Location: ' . URL_ABSOLUTE . '/p/' . $this->url . '/id=' . $product['id']);
             }else{
-                $this->setLayout('error/noMoney.tpl');
+                $this->view = 'error/noMoney.tpl';
             }
 
 

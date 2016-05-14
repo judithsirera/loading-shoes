@@ -78,6 +78,10 @@ class PagesMyPurchasesController extends PagesLoggedController
 			$totalPages = floor($totalPages);
 			$totalPages++;
 		}
+		if($totalPages == 0)
+		{
+			$totalPages = 1;
+		}
 		for ($i = 0; $i < $totalPages; $i++)
 		{
 			$this->limitPages[$i] = $i + 1;
