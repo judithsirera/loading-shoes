@@ -20,3 +20,4 @@ $config['p']                    = 'PagesProductViewController';
 $config['user-comments']        = 'PagesUserCommentsController';
 $config['my-comments']          = 'PagesMyCommentsController';
 $config['delete']               = 'PagesDeleteController';
+$config['edit']                 = 'PagesEditController';

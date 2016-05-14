@@ -100,19 +100,6 @@ $(document).ready(function() {
     $('#fileName').change(function (){
         readURL(this);
     });
-
-    /*$('#fileName').on('change', function() {
-        img = $('#fileName').val();
-
-        img_template = $('#uploadshoesfoto').children();
-
-        img_template.attr('src', img);
-
-        console.log('done');
-
-
-    });*/
-
 });
 
 

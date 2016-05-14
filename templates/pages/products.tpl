@@ -31,7 +31,7 @@
                             <div class="card-image waves-effect waves-block waves-light">
                                 {foreach from=$images item=img}
                                     {if $img.id == $p.id}
-                                        <a >
+                                        <a href="{$global.url}/p/{$p.URL}/id={$p.id}">
                                             <img class="img-responsive" src="{$global.url}/imag/products/{$img.image_path}">
                                         </a>
                                     {/if}

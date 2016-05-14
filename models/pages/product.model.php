@@ -22,6 +22,22 @@ QUERY;
 
     }
 
+    public function updateProduct($productname, $description, $price, $stock, $limit_date, $image, $url, $id)
+    {
+        if($image == ""){
+            $query = <<<QUERY
+            UPDATE product SET name="$productname",description="$description",price="$price",stock="$stock",limit_date="$limit_date",URL="$url"
+             WHERE id="$id";
+QUERY;
+        }else{
+            $query = <<<QUERY
+            UPDATE product SET name="$productname",description="$description",price="$price",stock="$stock",limit_date="$limit_date",image_path="$image",URL="$url"
+             WHERE id="$id";
+QUERY;
+        }
+        $this->execute($query);
+    }
+
     public function searchProduct($search)
     {
         $query = <<<QUERY
@@ -136,11 +152,20 @@ QUERY;
         $lastId = $this->getAll($query);
         $lastId = $lastId[0]['max'];
 
-
         $query = <<<QUERY
             SELECT *
             FROM product
             WHERE id = "$lastId";
+QUERY;
+        return $this->getAll($query);
+    }
+
+    public function getMostViewed(){
+        $query = <<<QUERY
+            SELECT *
+            FROM product
+            WHERE stock > 0 AND limit_date > CURRENT_DATE
+            ORDER BY views DESC
 QUERY;
         return $this->getAll($query);
     }

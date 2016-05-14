@@ -52,7 +52,7 @@ $config['PagesRechargeController']      = PATH_CONTROLLERS . 'pages/recharge.ctr
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
 
 $config['PagesDeleteController']        = PATH_CONTROLLERS . 'pages/delete.ctrl.php';
-
+$config['PagesEditController']        = PATH_CONTROLLERS . 'pages/edit.ctrl.php';
 
 // Shared controllers
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';
