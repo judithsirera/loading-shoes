@@ -35,7 +35,7 @@ class PagesMyProductsController extends PagesLoggedController
 			$this->assign('next_page', $this->actualPage + 1);
 
 
-			$this->getCash();
+			$this->getProducts();
 			$this->setProductsForPage();
 			$this->setPages();
 			$this->setDateFormat();
@@ -49,7 +49,7 @@ class PagesMyProductsController extends PagesLoggedController
 
 	}
 
-	private function getCash(){
+	private function getProducts(){
 
 		$this->dataProducts = $this->obj->getAllProductsByUser($this->username);
 		$totalProducts = sizeof($this->dataProducts);
@@ -60,7 +60,7 @@ class PagesMyProductsController extends PagesLoggedController
 
 	private function setProductsForPage(){
 
-		for ($i = $this->actualPage*10 - 10; $i <= 10*$this->actualPage && $i < sizeof($this->dataProducts); $i++)
+		for ($i = $this->actualPage*10 - 10; $i < 10*$this->actualPage && $i < sizeof($this->dataProducts); $i++)
 		{
 			$this->actualData[$i-($this->actualPage - 1)*10] = $this->dataProducts[$i];
 		}

@@ -44,7 +44,7 @@
                                 </td>
                                 <td>{$p.price} €</td>
                                 <td>
-                                    <a href="#"><i class="material-icons">mode_edit</i></a>
+                                    <a href="{$url.global}/edit/{$p.url}/id={$p.id}"><i class="material-icons">mode_edit</i></a>
                                     <a class = "modal-trigger" href="#modal{$p.id}"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
