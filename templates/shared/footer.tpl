@@ -29,7 +29,5 @@
 <script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
-
-
 </body>
 </html>

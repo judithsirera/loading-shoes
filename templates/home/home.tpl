@@ -3,10 +3,10 @@
 <section id="lastproduct">
     <div class="container">
         <div id="last_product" class="row">
-            <div class="col s6 left">
+            <div class="col s12 left">
                 <h2> Last Product </h2>
             </div>
-            <div class="col s8">
+            <div class="col s6">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a href="{$global.url}/p/{$p_last.URL}/id={$p_last.id}">
@@ -51,6 +51,9 @@
                         <p>{$p_last.description}.</p>
                     </div>
                 </div>
+            </div>
+            <div class="col s6">
+                <a class="twitter-timeline" href="https://twitter.com/hashtag/LSStore" data-widget-id="731540669144154113">Tweets sobre #lsstore</a>
             </div>
         </div>
 </section>

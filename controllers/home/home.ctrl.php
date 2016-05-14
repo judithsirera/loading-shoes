@@ -14,7 +14,6 @@ class HomeHomeController extends PagesLoggedController
 	private $actualPage;
 
 
-
     public function build()
     {
 
@@ -26,8 +25,9 @@ class HomeHomeController extends PagesLoggedController
         $this->setLastProduct();
         $this->setMostViewed();
 
-
         $this->setLayout($this->view);
+
+		//$this->setLayout('home/provaTW.tpl');
 
 
 
@@ -76,6 +76,7 @@ class HomeHomeController extends PagesLoggedController
 
 	private function setStars($actualData)
 	{
+		$starsAvaluation = false;
 		for($p = 0; $p < sizeof($actualData); $p++)
 		{
 			$sell_user = $actualData[$p]['usuari'];
@@ -103,6 +104,7 @@ class HomeHomeController extends PagesLoggedController
 
 	private function setImagesPath($actualData)
 	{
+		$imgs = false;
 		for($i = 0; $i < sizeof($actualData); $i++)
 		{
 			$img_path = explode(".", $actualData[$i]['image_path']);
@@ -115,10 +117,10 @@ class HomeHomeController extends PagesLoggedController
 
 	private function setDaysToCaducate($actualData)
 	{
+		$diff = false;
 		$today = getdate();
 		$today = $today['year'] ."-" .$today['mon'] ."-" .$today['mday'];
 		$today = date('d-m-Y', strtotime($today));
-
 
 		for ($i = 0; $i < sizeof($actualData); $i++)
 		{
@@ -136,6 +138,8 @@ class HomeHomeController extends PagesLoggedController
 
 	private function setProductsForPage(){
 
+		$actualData = false;
+
 		for ($i = $this->actualPage*10 - 10; $i < 10*$this->actualPage && $i < sizeof($this->most_Viewed); $i++)
 		{
 			$actualData[$i-($this->actualPage - 1)*10] = $this->most_Viewed[$i];
@@ -145,6 +149,9 @@ class HomeHomeController extends PagesLoggedController
 	}
 
 	private function setMostViewedPages(){
+		$limitPages = "";
+		$isPrevDis = "";
+		$isNextDis = "";
 
 		$totalPages = sizeof($this->most_Viewed) / 10;
 		if (!is_int($totalPages))
@@ -174,6 +181,12 @@ class HomeHomeController extends PagesLoggedController
 		$this->assign('isNextDis', $isNextDis);
 
 	}
+
+
+
+
+
+
 
 
 	/**

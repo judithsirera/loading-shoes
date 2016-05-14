@@ -19,5 +19,6 @@ define( 'PATH_CONFIGURE', INSTANCE_PATH . 'configure/');
 define( 'PATH_SMARTY', PATH_ENGINE . 'smarty/');
 define( 'PATH_CONTROLLERS', INSTANCE_PATH . 'controllers/');
 define( 'PATH_MODELS', INSTANCE_PATH . 'models/');
+define( 'PATH_LIBS', INSTANCE_PATH . 'libs/');
 define( 'PATH_TEMPLATES', INSTANCE_PATH . 'templates/');
 define( 'PATH_TEMPLATES_C', INSTANCE_PATH . 'templates_c/');
