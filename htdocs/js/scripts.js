@@ -83,7 +83,8 @@ $(document).ready(function() {
     //DATEPICKER
     $('#datepicker').datepicker({
         minDate: 0,
-        startOfWeek: 1
+        startOfWeek: 1,
+        dateFormat: "dd/mm/yy"
     });
 
     //MODAL

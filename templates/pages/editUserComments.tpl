@@ -47,12 +47,12 @@
                         <label for="subject">Subject</label>
                     </div>
                     <div class="input-field col s3">
-                        <button class="btn waves-effect waves-light btn-large right" type="submit" name="edit" value="edit">Edit</input>
+                        <button class="btn waves-effect waves-light btn-large right" type="submit" name="edit" value="edit">Edit</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <textarea name="commentText" id="commentText">{$c_toEdit.text}</textarea>
+                        <textarea name="commentText" id="commentText" required>{$c_toEdit.text}</textarea>
                     </div>
                 </div>
             </form>

@@ -24,7 +24,7 @@ QUERY;
              SELECT *
              FROM comments
              WHERE to_user = "$to"
-             ORDER BY date ASC;
+             ORDER BY date DESC;
 QUERY;
         return $this->getAll($query);
     }

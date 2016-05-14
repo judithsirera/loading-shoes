@@ -13,9 +13,9 @@ class PagesEditController extends PagesLoggedController
 	private $limit_date = "";
     private $conditions;
     private $photo;
-    private $photo_pre;
-    private $same_photo = false;
     private $url;
+    private $last_url;
+    private $product;
     private $obj_product;
     private $obj_user;
     private $id;
@@ -31,6 +31,7 @@ class PagesEditController extends PagesLoggedController
             $this->obj_product = $this->getClass('PagesProductModel');
             $this->obj_user = $this->getClass('PagesUserModel');
 
+            $this->url = $this->getParams()['url_arguments'][0];
             $this->id = $this->getParams()['url_arguments'][1];
             $this->id = explode('=',$this->id);
             $this->id = $this->id[1];
@@ -44,22 +45,6 @@ class PagesEditController extends PagesLoggedController
 
 
             $this->setLayout( $this->view );
-
-
-
-
-
-           /* echo '<pre>';
-            print_r($this->id);
-            echo '</pre>';
-
-            echo '<pre>';
-            print_r($this->obj_product->getProductById($this->id[1]));
-            echo '</pre>';
-
-            echo '<pre>';
-            print_r($this->product_name);
-            echo '</pre>';*/
 
         }else{
             $this->setLayout($this->error403);
@@ -81,6 +66,7 @@ class PagesEditController extends PagesLoggedController
         $this->limit_date = Filter::getUnfiltered('datepicker');
         $this->conditions = Filter::getBoolean('conditions');
 
+        $this->product_description = addslashes($this->product_description);
         $this->getImage();
 
     }
@@ -93,14 +79,17 @@ class PagesEditController extends PagesLoggedController
         $this->photo = $_FILES['fileName']['name'];
 
 
-
-        if (is_uploaded_file($uploadFile_temporal))
+        if (isset($this->photo))
         {
-            move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+            if (is_uploaded_file($uploadFile_temporal))
+            {
+                move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+            }
+
+            $this->redimImage(600, 600);
+            $this->redimImage(100, 100);
         }
 
-        $this->redimImage(600, 600);
-        $this->redimImage(100, 100);
 
     }
 
@@ -138,7 +127,8 @@ class PagesEditController extends PagesLoggedController
             {
                 $this->setDate();
                 $this->setUrl();
-                $this->obj_product->updateProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo, $this->url,$this->id);
+
+                $this->obj_product->updateProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->photo, $this->url, $this->last_url, $this->id);
                 $this->updateUsersMoney();
 
                 $product = $this->obj_product->getProductById($this->id)[0];
@@ -154,11 +144,13 @@ class PagesEditController extends PagesLoggedController
     }
 
     private function setProductData(){
-        $name = $this->obj_product->getProductById($this->id)[0]['name'];
-        $description =  $this->obj_product->getProductById($this->id)[0]['description'];
-        $price = $this->obj_product->getProductById($this->id)[0]['price'];
-        $stock = $this->obj_product->getProductById($this->id)[0]['stock'];
-        $limit_date = $this->obj_product->getProductById($this->id)[0]['limit_date'];
+        $this->product = $this->obj_product->getProductById($this->id)[0];
+
+        $name = $this->product['name'];
+        $description =  $this->product['description'];
+        $price = $this->product['price'];
+        $stock = $this->product['stock'];
+        $limit_date = $this->product['limit_date'];
 
         $date = strtotime($limit_date);
         $limit_date = date('d/m/Y', $date);
@@ -174,23 +166,29 @@ class PagesEditController extends PagesLoggedController
 
     private function setImagePath()
     {
-        $this->photo_pre = $this->obj_product->getProductById($this->id)[0]['image_path'];
+        $photo_pre = $this->obj_product->getProductById($this->id)[0]['image_path'];
 
-        $this->assign("foto", $this->photo_pre);
-
-
+        $this->assign("foto", $photo_pre);
     }
 
     private function setDate()
     {
-        $date = strtotime($this->limit_date);
-        $this->limit_date = date('Y-m-d', $date);
+        $info = explode('/', $this->limit_date);
+        $this->limit_date = $info[2] . "-" . $info[1] . "-" . $info[0];
     }
 
     private function setUrl()
     {
-        $this->url = $this->product_name;
-        $this->url = str_replace(" ", "-", $this->url);
+        $new_url = $this->product_name;
+        $new_url = str_replace(" ", "-", $new_url);
+
+        if ($new_url != $this->url)
+        {
+            $this->last_url = $this->url;
+            $this->url = $new_url;
+        }else {
+            $this->last_url = "";
+        }
     }
 
     private function enoughMoney()
@@ -288,7 +286,6 @@ class PagesEditController extends PagesLoggedController
         $this->assign('price', $this->price);
         $this->assign('quantity_value', $this->stock);
         $this->assign('limit_date', $this->limit_date);
-
 
     }
 

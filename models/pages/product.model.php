@@ -22,19 +22,54 @@ QUERY;
 
     }
 
-    public function updateProduct($productname, $description, $price, $stock, $limit_date, $image, $url, $id)
+    public function updateProduct($productname, $description, $price, $stock, $limit_date, $image, $url, $last_url,$id)
     {
-        if($image == ""){
-            $query = <<<QUERY
-            UPDATE product SET name="$productname",description="$description",price="$price",stock="$stock",limit_date="$limit_date",URL="$url"
+        $query = <<<QUERY
+            UPDATE product SET name="$productname",
+                               description="$description",
+                               price="$price",
+                               stock="$stock",
+                               limit_date="$limit_date",
+                               URL="$url",
+                               image_path="$image",
+                               last_URL="$last_url"
              WHERE id="$id";
 QUERY;
-        }else{
+        if($image == "" && $last_url == ""){
             $query = <<<QUERY
-            UPDATE product SET name="$productname",description="$description",price="$price",stock="$stock",limit_date="$limit_date",image_path="$image",URL="$url"
+            UPDATE product SET name="$productname",
+                               description="$description",
+                               price="$price",
+                               stock="$stock",
+                               limit_date="$limit_date",
+                               URL="$url"
+             WHERE id="$id";
+QUERY;
+        }else if ($image != "" && $last_url == ""){
+            $query = <<<QUERY
+            UPDATE product SET name="$productname",
+                               description="$description",
+                               price="$price",
+                               stock="$stock",
+                               limit_date="$limit_date",
+                               URL="$url",
+                               image_path="$image"
+             WHERE id="$id";
+QUERY;
+        }else if($image == "" && $last_url != "")
+        {
+            $query = <<<QUERY
+            UPDATE product SET name="$productname",
+                               description="$description",
+                               price="$price",
+                               stock="$stock",
+                               limit_date="$limit_date",
+                               URL="$url",
+                               last_URL="$last_url"
              WHERE id="$id";
 QUERY;
         }
+
         $this->execute($query);
     }
 
@@ -53,7 +88,17 @@ QUERY;
         $query = <<<QUERY
             SELECT *
             FROM product
-            WHERE url = "$url"
+            WHERE URL = "$url"
+QUERY;
+        return $this->getAll($query);
+    }
+
+    public function getProductByLastUrl($url)
+    {
+        $query = <<<QUERY
+            SELECT *
+            FROM product
+            WHERE last_URL = "$url"
 QUERY;
         return $this->getAll($query);
     }

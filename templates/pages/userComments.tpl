@@ -53,7 +53,7 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <textarea name="commentText" id="commentText"></textarea>
+                            <textarea name="commentText" id="commentText" required></textarea>
                         </div>
                     </div>
                 </form>

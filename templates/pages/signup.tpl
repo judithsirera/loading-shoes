@@ -12,8 +12,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12">
-                            <!--Captcha-->
+                        <div class="offset-s2 col s10 extra-margin-top">
+                            <div class="g-recaptcha" data-sitekey="6LfZ5B8TAAAAAPvZ2Klvaiw9OJco5hdZdnlIA02B"></div>
                         </div>
                     </div>
                 </div>
@@ -88,8 +88,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LfZ5B8TAAAAAPvZ2Klvaiw9OJco5hdZdnlIA02B"></div>
-                    </form>
                     </div>
                 </div>
             </form>

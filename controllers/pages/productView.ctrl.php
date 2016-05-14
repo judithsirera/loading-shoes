@@ -18,7 +18,6 @@ class PagesProductViewController extends PagesLoggedController
     private $obj_comment;
     private $image_user;
 
-    private $to_userData;
     private $date_comments;
     private $limitPages;
     private $actualPage;
@@ -39,25 +38,34 @@ class PagesProductViewController extends PagesLoggedController
         $this->obj_comment = $this->getClass('PagesCommentModel');
 
         $this->getAllParams();
-        if ($this->getProduct())
-        {
-            $this->product = $this->product[0];
-            $this->updateViews();
-            $this->setDateProductsFormat();
-            $this->setStars();
-            $this->setImagePath();
-            $this->setProductTemplate();
 
-            $this->getAllComments();
-            $this->setCommentsForPage();
-            $this->setPages();
-            $this->setDateCommentsFormat();
-            $this->setFromUserImgs();
-            $this->setCommentsTemplate();
+        $this->isLastUrl();
+
+        if ($this->isLastUrl())
+        {
+            header("Location:" . URL_ABSOLUTE . '/p/' . $this->product['URL'] . '/id=' . $this->product['id']);
+            exit();
         }else{
-            $this->layout = 'error/productNoExist.tpl';
+            if ($this->getProduct())
+            {
+                $this->product = $this->product[0];
+                $this->updateViews();
+                $this->setDateProductsFormat();
+                $this->setStars();
+                $this->setImagePath();
+                $this->setProductTemplate();
+
+                $this->getAllComments();
+                $this->setCommentsForPage();
+                $this->setPages();
+                $this->setDateCommentsFormat();
+                $this->setFromUserImgs();
+                $this->setCommentsTemplate();
+            }else{
+                $this->layout = 'error/productNoExist.tpl';
+            }
+            $this->setLayout($this->layout);
         }
-        $this->setLayout($this->layout);
 
 
 	}
@@ -81,9 +89,11 @@ class PagesProductViewController extends PagesLoggedController
                 }
             }
         }else{
-            header("Location:", URL_ABSOLUTE . '/products');
+            header("Location:" . URL_ABSOLUTE . '/products');
         }
     }
+
+
 
     private function getIdFromParams()
     {
@@ -96,6 +106,23 @@ class PagesProductViewController extends PagesLoggedController
         } else{
             $this->layout = $this->error404;
         }
+    }
+
+    private function isLastUrl()
+    {
+        $this->product = $this->obj_product->getProductByLastUrl($this->product_url);
+        if (sizeof($this->product) > 1)
+        {
+            $this->getIdFromParams();
+            $this->product = $this->obj_product->getProductById($this->product_id);
+        }
+
+        if(!empty($this->product))
+        {
+            $this->product = $this->product[0];
+            return true;
+        }
+        return false;
     }
 
     private function getProduct()

@@ -13,7 +13,7 @@ include_once( PATH_ENGINE . 'images.class.php' );
 include_once( PATH_ENGINE . 'session.class.php' );
 include_once( PATH_ENGINE . 'uploader.class.php' );
 
-require_once "../recaptchalib.php";
+require_once "../libs/recaptchalib.php";
 
 include_once( PATH_ENGINE . 'dispatcher.class.php' );
 
