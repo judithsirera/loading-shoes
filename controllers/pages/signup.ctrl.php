@@ -182,6 +182,7 @@ class PagesSignUpController extends PagesLoggedController
 
 
     private function createAndSendEmail($link){
+
         $to = $this->email;
         $from = "From: Loading Shoes <productionsloading@gmail.com>";
         $subject = "Registration in Loading shoes";
