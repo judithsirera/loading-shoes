@@ -112,6 +112,9 @@ class PagesLoginController extends PagesLoggedController
 
 		$passwordbbdd = $passwordbbdd[0]['password'];
 
+		echo $passwordbbdd;
+		echo $this->password;
+
 		if(!password_verify($this->password, $passwordbbdd))
 		{
 			$this->error_msg = "The password is wrong.";

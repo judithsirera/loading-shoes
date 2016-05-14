@@ -28,7 +28,6 @@ class PagesSignUpController extends PagesLoggedController
 
             $this->insertUserData();
 
-
             $this->setLayout( $this->view );
         }else {
             header('Location: '.URL_ABSOLUTE.'/home');
@@ -44,13 +43,16 @@ class PagesSignUpController extends PagesLoggedController
 		$this->password = Filter::getString('user_password');
 		$this->twitter = Filter::getString('user_twitter');
 
+
+
+
         $this->getImage();
 
     }
 
 	private function insertUserData()
 	{
-		if ($this->checkUserName() && $this->checkPassword() && $this->checkEmail() && $this->checkTwitter())
+		if ($this->checkUserName() && $this->checkPassword() && $this->checkEmail() && $this->checkTwitter()&& $this->checkCaptcha())
 		{
 			$this->obj->insertNewUser($this->user_name, $this->email, $this->hash_password, $this->twitter, $this->photo);
             $this->completeFields();
@@ -60,6 +62,36 @@ class PagesSignUpController extends PagesLoggedController
             $this->assign('to_active', "Check your mail box and your spam folder.");
 		}
 	}
+
+    private function checkCaptcha()
+    {
+        $captcha = Filter::getString('g-recaptcha-response');
+
+        // tu clave secreta
+        $secret = "6LfZ5B8TAAAAAHhhVAF-yLB4usrJhCotYDlluUV8";
+
+        // respuesta vacía
+        $response = null;
+
+        // comprueba la clave secreta
+        $reCaptcha = new ReCaptcha($secret);
+
+
+        // si se detecta la respuesta como enviada
+        if ($captcha) {
+            $response = $reCaptcha->verifyResponse(
+                $_SERVER["REMOTE_ADDR"],
+                $captcha
+            );
+        }
+
+        if ($response != null && $response->success) {
+            return true;
+        } else {
+            $this->assign("error_msg", "I catch you, you are a robot!");
+            return false;
+        }
+    }
 
 	private function checkUserName()
 	{
@@ -147,6 +179,7 @@ class PagesSignUpController extends PagesLoggedController
 
         return URL_ABSOLUTE ."/active-user/user-id/$id";
     }
+
 
     private function createAndSendEmail($link){
         $to = $this->email;

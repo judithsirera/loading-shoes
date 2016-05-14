@@ -1,4 +1,5 @@
 {$modules.head}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <section id="signup">
     <div class="container extra-margin-top">
@@ -76,6 +77,7 @@
                                 <button class="btn waves-effect waves-light btn-large right" type="submit" name="submit">Sign up</button>
                             </div>
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6LfZ5B8TAAAAAPvZ2Klvaiw9OJco5hdZdnlIA02B"></div>
                     </form>
                 </div>
             </div>
