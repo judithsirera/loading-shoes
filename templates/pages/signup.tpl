@@ -35,19 +35,19 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_name" id="user_name" type="text" class="validate" value="{$username_value}" required>
-                                <label for="user_name" data-error="wrong" data-success="right">User name</label>
+                                <label for="user_name" data-error="wrong" data-success="right">Username (*)</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_email" id="email" type="email" class="validate" value="{$email_value}" {literal}pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"{/literal} required>
-                                <label for="email" data-error="wrong" data-success="right">Email</label>
+                                <label for="email" data-error="wrong" data-success="right">Email (*)</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="user_password" id="password-signup" type="password" class="check" value="{$password_value}" {literal}pattern=".{6,10}"{/literal} required>
-                                <label for="password" data-error="wrong" data-success="right">Password</label>
+                                <label for="password" data-error="wrong" data-success="right">Password (*)</label>
                                 <span class="instructions right">Minimum 6 characters, maximum 10 characters</span>
                             </div>
                         </div>
@@ -55,8 +55,8 @@
                             <div class="col s12">
                                 <div style="width: 100%; margin-left: auto" id="fileInput" class="file-field input-field">
                                     <div style="height: 3rem" class="btn waves-effect waves-light btn-large">
-                                        <span>File</span>
-                                        <input id="fileName" name="fileName" type="file" required>
+                                        <span>Photo</span>
+                                        <input id="fileName" name="fileName" type="file">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">
@@ -68,6 +68,7 @@
                             <div class="input-field col s12">
                                 <input name="user_twitter" id="twitter" type="text" value="{$twitter_value}" class="check">
                                 <label for="twitter" data-error="wrong" data-success="right">Twitter user</label>
+                                <span class="instructions right">@example</span>
                             </div>
                         </div>
                         <div class="row">

@@ -30,7 +30,7 @@
                                 <div class="col s12">
                                     <div id="fileInput" class="file-field input-field">
                                         <div style="height: 3rem" class="btn waves-effect waves-light btn-large">
-                                            <span>File</span>
+                                            <span>File (*)</span>
                                             <input id="fileName" name="fileName" type="file" required>
                                         </div>
                                         <div class="file-path-wrapper">
@@ -42,15 +42,16 @@
                             <div style="width: 95%; margin-left: 2.5%" class="row">
                                 <div class="input-field col s4">
                                     <input name="price" id="price" type="number" class="validate" min="1" max="1000" value="{$price}" required>
-                                    <label for="price">Price (€)</label>
+                                    <label for="price">Price (*)</label>
+                                    <span class="instructions right">Coin: €</span>
                                 </div>
                                 <div class="input-field col s4">
                                     <input name="quantity" id="quantity" type="number" class="validate" min="1" max="1000" value="{$quantity_value}" required>
-                                    <label for="quantity">Quantity</label>
+                                    <label for="quantity">Quantity (*)</label>
                                 </div>
                                 <div class="input-field col s4">
                                     <input name="limit_date" type="text" id="datepicker" class="validate" value="{$limit_date}" required>
-                                    <label for="datepicker">Data caducitat</label>
+                                    <label for="datepicker">Data caducitat (*)</label>
                                 </div>
                             </div>
                         </div>
@@ -58,13 +59,13 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input name="product_name" id="product_name" type="text" class="validate" value="{$product_name}" required>
-                                    <label for="product_name">Product name</label>
+                                    <label for="product_name">Product name (*)</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 extra-margin-top">
                                     <textarea name="description_product" id="description_product">{$description_product}</textarea>
-                                    <label class="less-margin-top" for="description_product">Description</label>
+                                    <label class="less-margin-top" for="description_product">Description (*)</label>
                                 </div>
                             </div>
                             <div class="row">
