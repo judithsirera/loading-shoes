@@ -52,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <textarea name="commentText" id="commentText" required>{$c_toEdit.text}</textarea>
+                        <textarea name="commentText" id="commentText">{$c_toEdit.text}</textarea>
                     </div>
                 </div>
             </form>

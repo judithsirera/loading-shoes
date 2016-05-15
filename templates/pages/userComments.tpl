@@ -48,12 +48,12 @@
                             <label for="subject">Subject</label>
                         </div>
                         <div class="input-field col s3">
-                            <button class="btn waves-effect waves-light btn-large right" type="submit" name="comment">Comment</button>
+                            <button class="btn waves-effect waves-light btn-large right" type="submit" value="comment" name="comment">Comment</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <textarea name="commentText" id="commentText" required></textarea>
+                            <textarea name="commentText" id="commentText"></textarea>
                         </div>
                     </div>
                 </form>

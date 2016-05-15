@@ -216,7 +216,7 @@ input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:fo
 }
 
 .price-stock h5{
-    margin-right: 80px;
+    margin-right: 45px;
 }
 
 .price-stock h6{

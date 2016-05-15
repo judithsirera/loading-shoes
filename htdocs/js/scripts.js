@@ -14,8 +14,45 @@ function readURL(input) {
 
 //SIGN UP
 $(document).ready(function() {
+
+    //CHECK USERNAME
+    $('#name').on('keyup change focusout',function(){
+        object = $('#name');
+        len = object.val().length;
+        val = object.val();
+        error = false;
+
+        console.log(val);
+
+        if (object.hasClass('check')) {
+            object.removeClass('valid');
+            object.addClass('invalid');
+        }
+
+        if(len < 6) error = true;
+
+        for (i=0; i<len; i++)
+        {
+            if(val.charAt(i) == " "){
+                error = true;
+                console.log(val.charAt(i))
+            }
+        }
+
+        if(error){
+            if(object.hasClass('valid')){
+                object.removeClass('valid').addClass('invalid');
+            }
+        }else{
+            if(object.hasClass('invalid')){
+                object.removeClass('invalid').addClass('valid');
+            }
+        }
+
+    });
+
     //CHECK PASSWORD
-    $('input[type=password]').on('keyup',function(){
+    $('input[type=password]').on('keyup change focusout',function(){
         object = $('input[type=password]');
         len = object.val().length;
 
@@ -41,8 +78,7 @@ $(document).ready(function() {
         object = $('#twitter');
         first = object.val().charAt(0);
         len = object.val().length;
-        console.log(first);
-        console.log(len);
+
 
         if (object.hasClass('check')) {
             object.removeClass('valid');
@@ -59,6 +95,7 @@ $(document).ready(function() {
             }
         }
     });
+
 
     //SEARCH BAR
     $('#search').keydown(function (e){

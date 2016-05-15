@@ -79,6 +79,8 @@ QUERY;
             SELECT *
             FROM product
             WHERE UPPER(name) LIKE UPPER('%$search%')
+                AND stock > 0 AND limit_date > CURRENT_DATE
+            ORDER BY views DESC;
 QUERY;
         return $this->getAll($query);
     }
@@ -113,13 +115,13 @@ QUERY;
         return $this->getAll($query);
     }
 
-    public function getAllProductsOrderByDate()
+    public function getAllProductsOrderByViews()
     {
         $query = <<<QUERY
              SELECT *
              FROM product
              WHERE stock > 0 AND limit_date > CURRENT_DATE
-             ORDER BY limit_date ASC;
+             ORDER BY views DESC;
 QUERY;
 
          return $this->getAll($query);
@@ -213,6 +215,18 @@ QUERY;
             ORDER BY views DESC
 QUERY;
         return $this->getAll($query);
+    }
+
+    public function getTotalViews()
+    {
+        $query = <<<QUERY
+            SELECT SUM(views) as numViews
+            FROM product
+            WHERE stock > 0 AND limit_date > CURRENT_DATE
+QUERY;
+        echo $query;
+        return $this->getAll($query);
+
     }
 
 }

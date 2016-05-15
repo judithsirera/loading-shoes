@@ -11,6 +11,7 @@ class HomeHomeController extends PagesLoggedController
     private $most_Viewed;
     private $obj_product;
     private $obj_user;
+	private $obj_purchase;
 	private $actualPage;
 
 
@@ -19,6 +20,7 @@ class HomeHomeController extends PagesLoggedController
 
         $this->obj_product = $this->getClass('PagesProductModel');
         $this->obj_user = $this->getClass('PagesUserModel');
+		$this->obj_purchase = $this->getClass('PagesPurchaseModel');
 
         $this->getAllParams();
 
@@ -64,13 +66,17 @@ class HomeHomeController extends PagesLoggedController
 
 		$stars_most = $this->setStars($this->most_Viewed);
 		$img_most = $this->setImagesPath($this->most_Viewed);
-		$diff_most = $this->setDaysToCaducate($this->most_Viewed);
+		$dates = $this->setDate($this->most_Viewed);
+		$percent = $this->setPercentage($this->most_Viewed);
+		$numPurchases = $this->setTotalPurchases($this->most_Viewed);
 
 		$this->setProductsForPage();
 		$this->setMostViewedPages();
 		$this->assign('stars_most', $stars_most);
 		$this->assign('i_most', $img_most);
-		$this->assign('diff_most', $diff_most);
+		$this->assign('dates', $dates);
+		$this->assign('numPurchases', $numPurchases);
+		$this->assign('percent', $percent);
 
     }
 
@@ -108,7 +114,7 @@ class HomeHomeController extends PagesLoggedController
 		for($i = 0; $i < sizeof($actualData); $i++)
 		{
 			$img_path = explode(".", $actualData[$i]['image_path']);
-			$imgs[$i]['image_path'] = $img_path[0] . "_600x600." . $img_path[1];
+			$imgs[$i]['image_path'] = $img_path[0] . SIZE_400x300 . $img_path[1];
 			$imgs[$i]['id'] = $actualData[$i]['id'];
 		}
 
@@ -134,6 +140,55 @@ class HomeHomeController extends PagesLoggedController
 		}
 
 		return $diff;
+	}
+
+	private function setDate($actualData)
+	{
+		$dateLimit = false;
+
+		for ($i = 0; $i < sizeof($actualData); $i++)
+		{
+			$date = explode('-', $actualData[$i]['limit_date']);
+			$dateLimit[$i]['date'] = $date[2] . "/" . $date[1] . "/" . $date[0];
+			$dateLimit[$i]['id'] = $actualData[$i]['id'];
+		}
+
+		return $dateLimit;
+
+	}
+
+	private function setPercentage($actualData)
+	{
+		$p = false;
+		$totalViews = $this->obj_product->getTotalViews()[0]['numViews'];
+
+		for ($i = 0; $i < sizeof($actualData); $i++)
+		{
+			$id = $actualData[$i]['id'];
+			$viewsOfThisProduct = $actualData[$i]['views'];
+
+			$p[$i]['numViews'] = ($viewsOfThisProduct[0]['numViews']/$totalViews) * 100;
+			$p[$i]['numViews'] = round($p[$i]['numViews'], 0);
+			$p[$i]['id'] = $id;
+		}
+
+		return $p;
+	}
+
+	private function setTotalPurchases($actualData)
+	{
+		$p = false;
+
+		for ($i = 0; $i < sizeof($actualData); $i++)
+		{
+			$id = $actualData[$i]['id'];
+			$purchasesOfThisProduct = $this->obj_purchase->getTotalPurchasesOfAProd($id)[0]['numPurchases'];
+
+			$p[$i]['num'] = $purchasesOfThisProduct[0]['numPurchases'];
+			$p[$i]['id'] = $id;
+		}
+
+		return $p;
 	}
 
 	private function setProductsForPage(){

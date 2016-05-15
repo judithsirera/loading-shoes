@@ -30,6 +30,16 @@ QUERY;
         return $this->getAll($query);
     }
 
+    public function getPurchasesByProductId($id)
+    {
+        $query = <<<QUERY
+            SELECT *
+            FROM purchase
+            WHERE product_id = "$id"
+QUERY;
+        return $this->getAll($query);
+    }
+
     public function getStadisticsByUserSell($user_sell)
     {
         $query = <<<QUERY
@@ -53,4 +63,22 @@ QUERY;
         return $this->getAll($query);
     }
 
+    public function getTotalPurchases()
+    {
+        $query = <<<QUERY
+            SELECT COUNT(*) AS numPurchases
+            FROM purchase
+QUERY;
+        return $this->getAll($query);
+    }
+
+    public function getTotalPurchasesOfAProd($id)
+    {
+        $query = <<<QUERY
+            SELECT COUNT(*) AS numPurchases
+            FROM purchase
+            WHERE product_id = "$id"
+QUERY;
+        return $this->getAll($query);
+    }
 }

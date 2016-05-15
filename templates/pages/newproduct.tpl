@@ -58,8 +58,8 @@
                         <div class="col s6">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input name="product_name" id="product_name" type="text" class="validate" value="{$product_name}" required>
-                                    <label for="product_name">Product name (*)</label>
+                                    <input name="product_name" id="product_name" type="text" class="check" maxlength="50" value="{$product_name}" required>
+                                    <label for="product_name" data-error="wrong" data-success="right">Product name (*)</label>
                                 </div>
                             </div>
                             <div class="row">

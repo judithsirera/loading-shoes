@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col s10">
                                 <div class="collection-item">
-                                    <p class="user">{$p_last.usuari}</p>
+                                    <p class="user"><a href="{$url.global}/user-comments/{$p_last.usuari}">{$p_last.usuari}</a></p>
                                     <p>
                                         {foreach from=$stars_last.stars item=s}
                                             <i class="material-icons">{$s}</i>
@@ -80,21 +80,48 @@
                             <span class="card-title"><a href="{$global.url}/p/{$p.URL}/id={$p.id}">{$p.name}</a></span>
                             <span><i class="activator material-icons right">description</i></span>
                             <div class="price-stock">
-                                <h5>{$p.price}€</h5>
-                                <h6>
-                                    {foreach from=$diff_most item=d}
-                                        {if $d.id == $p.id}
-                                            -{$d.days} days
-                                        {/if}
-                                    {/foreach}
-                                </h6>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <h6>{$p.price}€</h6>
+                                    </div>
+                                    <div class="col s6">
+                                        <h6>
+                                            {foreach from=$dates item=d}
+                                                {if $d.id == $p.id}
+                                                    {$d.date}
+                                                {/if}
+                                            {/foreach}
+                                        </h6>
+                                    </div>
+
+                                    <div class="col s6">
+                                        <h6>
+                                            {foreach from=$numPurchases item=n}
+                                                {if $n.id == $p.id}
+                                                    {$n.num} sales
+                                                {/if}
+                                            {/foreach}
+                                        </h6>
+                                    </div>
+                                    <div class="col s6">
+                                        <h6>
+                                            {foreach from=$percent item=n}
+                                                {if $n.id == $p.id}
+                                                    {$n.numViews}%
+                                                {/if}
+                                            {/foreach}
+                                        </h6>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                         <div class="card-action">
                             <div class="row">
                                 <div class="col s10">
                                     <div class="collection-item">
-                                        <p class="user">{$p.usuari}</p>
+                                        <p class="user"><a href="{$url.global}/user-comments/{$p.usuari}">{$p.usuari}</a></p>
                                         <p>
                                             {foreach from=$stars_most item=sa}
                                                 {if $sa.id == $p.id}

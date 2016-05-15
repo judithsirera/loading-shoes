@@ -86,7 +86,7 @@ class PagesEditController extends PagesLoggedController
                 move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
             }
 
-            $this->redimImage(600, 600);
+            $this->redimImage(400, 300);
             $this->redimImage(100, 100);
         }
 
@@ -131,8 +131,7 @@ class PagesEditController extends PagesLoggedController
                 $this->obj_product->updateProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->photo, $this->url, $this->last_url, $this->id);
                 $this->updateUsersMoney();
 
-                $product = $this->obj_product->getProductById($this->id)[0];
-                header('Location: ' . URL_ABSOLUTE . '/p/' . $this->url . '/id=' . $product['id']);
+                header('Location: ' . URL_ABSOLUTE . '/my-products');
             }else{
                 $this->setLayout('error/noMoney.tpl');
             }

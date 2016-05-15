@@ -22,3 +22,6 @@ define( 'PATH_MODELS', INSTANCE_PATH . 'models/');
 define( 'PATH_LIBS', INSTANCE_PATH . 'libs/');
 define( 'PATH_TEMPLATES', INSTANCE_PATH . 'templates/');
 define( 'PATH_TEMPLATES_C', INSTANCE_PATH . 'templates_c/');
+
+define( 'SIZE_400x300', '_400x300.');
+define( 'SIZE_100x100', '_100x100.');

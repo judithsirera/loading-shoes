@@ -66,7 +66,7 @@ class PagesNewProductController extends PagesLoggedController
             move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
         }
 
-        $this->redimImage(600, 600);
+        $this->redimImage(400, 300);
         $this->redimImage(100, 100);
 
     }

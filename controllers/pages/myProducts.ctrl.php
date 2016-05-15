@@ -111,7 +111,7 @@ class PagesMyProductsController extends PagesLoggedController
 		foreach ($this->actualData as $p)
 		{
 			$img = explode(".", $p['image_path']);
-			$p['image_path'] = $img[0] . "_100x100." . $img[1];
+			$p['image_path'] = $img[0] . SIZE_100x100 . $img[1];
 		}
 	}
 

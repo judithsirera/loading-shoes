@@ -173,7 +173,7 @@ class PagesProductViewController extends PagesLoggedController
         $sell_user = $this->product['usuari'];
         $img = $this->obj_user->getUserByUsername($sell_user)[0]['image_path'];
         $info = explode(".", $img);
-        $this->image_user = $info[0] . "_600x600." . $info[1];
+        $this->image_user = $info[0] . SIZE_100x100 . $info[1];
 
     }
 
@@ -262,7 +262,7 @@ class PagesProductViewController extends PagesLoggedController
             if ($insert) {
                 $from_user = $this->obj_user->getUserByUsername($user_name)[0];
                 $info = explode(".", $from_user['image_path']);
-                $this->from_userImgs[$i]['img'] = $info[0] . "_100x100." . $info[1];
+                $this->from_userImgs[$i]['img'] = $info[0] . SIZE_100x100 . $info[1];
                 $this->from_userImgs[$i]['username'] = $from_user['username'];
             }
 

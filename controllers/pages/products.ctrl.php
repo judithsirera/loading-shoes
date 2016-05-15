@@ -74,11 +74,11 @@ class PagesProductsController extends PagesLoggedController
             $this->areResults = true;
             if(sizeof($this->products) == 0)
             {
-                $this->products = $this->obj_product->getAllProductsOrderByDate();
+                $this->products = $this->obj_product->getAllProductsOrderByViews();
                 $this->areResults = false;
             }
         }else{
-            $this->products = $this->obj_product->getAllProductsOrderByDate();
+            $this->products = $this->obj_product->getAllProductsOrderByViews();
 
         }
     }
@@ -143,7 +143,7 @@ class PagesProductsController extends PagesLoggedController
         for($i = 0; $i < sizeof($this->actualData); $i++)
         {
             $img_path = explode(".", $this->actualData[$i]['image_path']);
-            $this->imgs[$i]['image_path'] = $img_path[0] . "_600x600." . $img_path[1];
+            $this->imgs[$i]['image_path'] = $img_path[0] . SIZE_400x300 . $img_path[1];
             $this->imgs[$i]['id'] = $this->actualData[$i]['id'];
         }
     }

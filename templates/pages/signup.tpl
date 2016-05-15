@@ -45,7 +45,7 @@
                         <div class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input name="user_name" id="user_name" type="text" class="validate" value="{$username_value}" required>
+                                    <input name="user_name" id="name" type="text" class="check" value="{$username_value}" required>
                                     <label for="user_name" data-error="wrong" data-success="right">Username (*)</label>
                                 </div>
                             </div>

@@ -222,7 +222,7 @@ class PagesUsercommentsController extends PagesLoggedController
 	{
 		$img = $this->obj_user->getUserByUsername($this->to_user)[0]['image_path'];
 		$info = explode(".", $img);
-		$this->to_userData['image_path'] = $info[0] . "_600x600." . $info[1];
+		$this->to_userData['image_path'] = $info[0] . SIZE_400x300 . $info[1];
 
 	}
 
@@ -244,7 +244,7 @@ class PagesUsercommentsController extends PagesLoggedController
 			{
 				$from_user = $this->obj_user->getUserByUsername($user_name)[0];
 				$info = explode(".", $from_user['image_path']);
-				$this->from_userImgs[$i]['img'] = $info[0] . "_100x100." . $info[1];
+				$this->from_userImgs[$i]['img'] = $info[0] . SIZE_100x100 . $info[1];
 				$this->from_userImgs[$i]['username'] = $from_user['username'];
 			}
 
@@ -269,7 +269,7 @@ class PagesUsercommentsController extends PagesLoggedController
 
 	private function makeComment()
 	{
-		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		if (Filter::getString('comment') == 'comment') {
 			$subject = Filter::getString('subject');
 			$comment = Filter::getUnfiltered('commentText');
 

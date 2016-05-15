@@ -42,6 +42,7 @@
                                 <span><i class="activator material-icons right">description</i></span>
                                 <div class="price-stock">
                                     <h5>{$p.price}€</h5>
+                                    <h5>{$p.stock}u.</h5>
                                     <h6>
                                         {foreach from=$diff_days item=d}
                                             {if $d.id == $p.id}

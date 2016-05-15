@@ -31,11 +31,16 @@ class PagesBuyController extends PagesLoggedController
             $this->getAllParams();
             if ($this->getProductToBuy() && $this->enoughMoney())
             {
-                $this->getUsers();
-                $this->updateUsersMoney();
-                $this->updateStock();
-                $this->insertPurchaseDB();
-                $this->updateUserSuccess();
+                if (!$this->isAlreadyBuy())
+                {
+                    $this->getUsers();
+                    $this->updateUsersMoney();
+                    $this->updateStock();
+                    $this->insertPurchaseDB();
+                    $this->updateUserSuccess();
+                }else {
+                    $this->layout = 'error/alreadyBuy.tpl';
+                }
 
             }elseif (!$this->getProductToBuy())
             {
@@ -78,6 +83,17 @@ class PagesBuyController extends PagesLoggedController
         if ($this->product_to_buy[0]['URL'] == $this->product_name)
         {
             $this->product_to_buy = $this->product_to_buy[0];
+            return true;
+        }
+        return false;
+    }
+
+    private function isAlreadyBuy()
+    {
+        $p = $this->obj_purchase->getPurchasesByProductId($this->product_id);
+
+        if (sizeof($p) > 0)
+        {
             return true;
         }
         return false;

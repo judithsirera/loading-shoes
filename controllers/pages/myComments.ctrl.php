@@ -121,7 +121,7 @@ class PagesMyCommentsController extends PagesLoggedController
 			{
 				$from_user = $this->obj_user->getUserByUsername($user_name)[0];
 				$info = explode(".", $from_user['image_path']);
-				$this->from_userImgs[$i]['img'] = $info[0] . "_100x100." . $info[1];
+				$this->from_userImgs[$i]['img'] = $info[0] . SIZE_100x100 . $info[1];
 				$this->from_userImgs[$i]['username'] = $from_user['username'];
 			}
 
