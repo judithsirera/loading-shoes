@@ -28,6 +28,8 @@
 <script type="text/javascript" src="{$url.global}/js/pass-strength.js"></script>
 <script type="text/javascript" src="{$url.global}/js/scripts.js"></script>
 <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script type="text/javascript" src="{$url.global}/js/redSocials.js"></script>
+
 
 </body>
 </html>

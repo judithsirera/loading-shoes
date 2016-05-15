@@ -52,8 +52,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col s6">
-                <a class="twitter-timeline" href="https://twitter.com/hashtag/LSStore" data-widget-id="731540669144154113">Tweets sobre #lsstore</a>
+            <!--TWITTER-->
+            <div class="col s6 extra-margin-top">
+                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/LSStore" data-widget-id="731543619614674944">Tweets sobre #LSStore</a>
             </div>
         </div>
 </section>

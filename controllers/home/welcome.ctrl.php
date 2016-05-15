@@ -11,7 +11,7 @@ class HomeWelcomeController extends Controller
 	{
 
 
-		$this->setLayout( $this->view );
+		$this->setLayout( 'pages/provaFB.tpl' );
 
 	}
 
