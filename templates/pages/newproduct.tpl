@@ -35,6 +35,7 @@
                                         </div>
                                         <div class="file-path-wrapper">
                                             <input class="file-path validate" type="text">
+                                            <span class="instructions right">2MB max.</span>
                                         </div>
                                     </div>
                                 </div>

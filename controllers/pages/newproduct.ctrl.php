@@ -61,13 +61,22 @@ class PagesNewProductController extends PagesLoggedController
         $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
         $this->photo = $_FILES['fileName']['name'];
 
-        if (is_uploaded_file($uploadFile_temporal))
+        if (filesize($uploadFile_temporal) > TWO_MB)
         {
-            move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+            echo filesize($uploadFile_temporal);
+            $this->assign("error_msg", "The file size is 2MB maximum.");
+            $this->photo = false;
+        }else{
+            if (is_uploaded_file($uploadFile_temporal))
+            {
+                move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+            }
+
+
+            $this->redimImage(400, 300);
+            $this->redimImage(100, 100);
         }
 
-        $this->redimImage(400, 300);
-        $this->redimImage(100, 100);
 
     }
 
@@ -99,7 +108,7 @@ class PagesNewProductController extends PagesLoggedController
 
 	private function insertProductData()
 	{
-		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkConditions())
+		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->photo && $this->checkConditions())
 		{
             if ($this->enoughMoney())
             {

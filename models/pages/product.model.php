@@ -224,7 +224,6 @@ QUERY;
             FROM product
             WHERE stock > 0 AND limit_date > CURRENT_DATE
 QUERY;
-        echo $query;
         return $this->getAll($query);
 
     }
