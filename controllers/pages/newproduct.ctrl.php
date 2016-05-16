@@ -66,6 +66,7 @@ class PagesNewProductController extends PagesLoggedController
             echo filesize($uploadFile_temporal);
             $this->assign("error_msg", "The file size is 2MB maximum.");
             $this->photo = false;
+
         }else{
             if (is_uploaded_file($uploadFile_temporal))
             {
@@ -131,8 +132,10 @@ class PagesNewProductController extends PagesLoggedController
 
     private function setDate()
     {
-        $date = strtotime($this->limit_date);
-        $this->limit_date = date('Y-m-d', $date);
+
+        $info = explode('/', $this->limit_date);
+        $this->limit_date = $info[2] . "-" . $info[1] . "-" . $info[0];
+
     }
 
     private function setUrl()

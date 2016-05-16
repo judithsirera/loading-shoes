@@ -29,9 +29,9 @@ class HomeHomeController extends PagesLoggedController
 
         $this->setLayout($this->view);
 
-		//$this->setLayout('home/provaTW.tpl');
 
-
+		$this->assign('logged', $this->isLogged());
+		$this->assign('user', $this->username);
 
 	}
 

@@ -41,8 +41,13 @@
 
                                 </div>
                             </div>
+
                             <div class="col s2 shopping">
-                                <a href="{$global.url}/buy/{$p_last.URL}/id={$p_last.id}"><i class="medium material-icons right">add_shopping_cart</i></a>
+                                {if $p.usuari != $user && $logged}
+                                    <div class="col s2 shopping">
+                                        <a href="{$global.url}/buy/{$p_last.URL}/id={$p_last.id}"><i class="medium material-icons right">add_shopping_cart</i></a>
+                                    </div>
+                                {/if}
                             </div>
                         </div>
                     </div>
@@ -136,7 +141,7 @@
 
                                     </div>
                                 </div>
-                                {if $p.usuari != $user}
+                                {if $p.usuari != $user && $logged}
                                     <div class="col s2 shopping">
                                         <a href="{$global.url}/buy/{$p.URL}/id={$p.id}"><i class="medium material-icons right">add_shopping_cart</i></a>
                                     </div>

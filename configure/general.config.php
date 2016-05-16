@@ -5,6 +5,12 @@ if( strpos( $_SERVER['HTTP_HOST'], '.dev' ) !== false )
 	define( 'URL_ABSOLUTE', 'http://g4.dev');
 	define( 'DEV_MODE' , true );
 	define( 'SQL_DEBUG', true );
+
+}elseif( strpos( $_SERVER['HTTP_HOST'], '.tk' ) !== false )
+{
+	define( 'URL_ABSOLUTE', 'http://loadingshoes.tk');
+	define( 'DEV_MODE' , false );
+	define( 'SQL_DEBUG', false );
 }
 else
 {
