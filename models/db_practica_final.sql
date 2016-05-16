@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 14-05-2016 a las 10:59:13
+-- Tiempo de generación: 16-05-2016 a las 16:14:16
 -- Versión del servidor: 5.5.42
 -- Versión de PHP: 5.6.10
 
@@ -28,6 +28,7 @@ USE `db_practica_final`;
 -- Estructura de tabla para la tabla `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id_comment` int(11) NOT NULL,
   `subject` varchar(300) COLLATE latin1_bin DEFAULT NULL,
@@ -35,7 +36,7 @@ CREATE TABLE `comments` (
   `date` date DEFAULT NULL,
   `from_user` varchar(50) COLLATE latin1_bin NOT NULL,
   `to_user` varchar(50) COLLATE latin1_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Volcado de datos para la tabla `comments`
@@ -43,8 +44,9 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id_comment`, `subject`, `text`, `date`, `from_user`, `to_user`) VALUES
 (1, 'guapa', '<p>hoahaob</p>', '2016-05-11', 'jsirera', 'jud'),
-(5, 'Guapa', '<p>BNAOHBOA</p>', '2016-05-12', 'juju', 'jsirera'),
-(6, 'se rompen', '', '2016-05-13', 'eluskie', 'jsirera');
+(5, 'Guapa editat', '<p>BNAOHBOA</p>', '2016-05-12', 'juju', 'jsirera'),
+(6, 'se rompen', '', '2016-05-13', 'eluskie', 'jsirera'),
+(9, 'hello', '<p>hello</p>', '2016-05-15', 'jsirera', 'dasix');
 
 -- --------------------------------------------------------
 
@@ -52,6 +54,7 @@ INSERT INTO `comments` (`id_comment`, `subject`, `text`, `date`, `from_user`, `t
 -- Estructura de tabla para la tabla `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE latin1_bin NOT NULL,
@@ -62,28 +65,26 @@ CREATE TABLE `product` (
   `image_path` varchar(100) COLLATE latin1_bin NOT NULL,
   `views` int(11) NOT NULL DEFAULT '0',
   `URL` varchar(100) COLLATE latin1_bin NOT NULL,
+  `last_URL` varchar(100) COLLATE latin1_bin DEFAULT NULL,
   `usuari` varchar(50) COLLATE latin1_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `limit_date`, `image_path`, `views`, `URL`, `usuari`) VALUES
-(1, 'nike bambas', 'bambas muy lindas', 49, 20, '2016-05-12', 'nike_prova.jpg', 33, 'nike-bambas', 'dasix'),
-(2, 'nike bambas azules', 'bambas muy lindas y azules', 20, 2, '2016-05-27', 'nike_prova.jpg', 45, 'nike-bambas-azules', 'dasix'),
-(52, 'new balance', 'new balance bonitas. \r\nGranates\r\nTalla 39.', 40, 39, '2016-05-02', 'new balance.jpg', 6, 'new-balance', 'jsirera'),
-(70, 'prova1', '<h2>hola uqe <strong><em>tal</em></strong></h2>', 23, 22, '2016-05-18', 'victoria.gif', 3, 'prova1', 'jsirera'),
-(71, 'prova2', '<p style=''text-align: center;''>hola <sup>que</sup> tal<sub>jdaogaob</sub></p>\r\n<p><strong>dheogqhoahbaohbd</strong></p>', 23, 22, '2016-05-31', 'victoria.gif', 5, 'prova2', 'jsirera'),
-(72, 'prova3', '<p style="padding-left: 30px;">hola wappos</p>', 23, 34, '2016-05-26', 'victoria.gif', 9, 'prova3', 'jsirera'),
-(73, 'prova3', '<p style="padding-left: 30px;">hola wappos</p>', 23, 34, '2016-05-26', 'victoria.gif', 0, 'prova3', 'jsirera'),
-(75, 'Victoria', '<h1>Bambas victoria.</h1>\r\n<h3>Talla 39.</h3>\r\n<p><span style="text-decoration: underline;"><strong>Nuevas!</strong></span></p>', 34, 33, '2016-05-31', 'victoria.gif', 11, 'Victoria', 'jsirera'),
-(76, 'Nike bonitas', '<p>jejejeje ja funciona</p>', 45, 45, '2016-05-17', 'nike_prova.jpg', 11, 'Nike-bonitas', 'jsirera'),
-(77, 'Guitarrista/Cantant', '<p>Bla&nbsp;<strong>wrrn</strong></p>', 4, 12, '2016-05-10', 'IMG_0021.JPG', 0, 'Guitarrista/Cantant', 'jud'),
-(79, 'Victoria', '<p>Estic provant la practica</p>', 23, 1, '2016-05-19', 'victoria.gif', 1, 'Victoria', 'juju'),
-(83, 'prova 4', '<p>jboahboa</p>', 34, 3, '2016-05-30', 'victoria.gif', 0, 'prova-4', 'juju'),
-(86, 'prova 4', '<p>jboahboa</p>', 34, 3, '2016-05-30', 'victoria.gif', 0, 'prova-4', 'juju'),
-(87, 'prova 4', '<p>jboahboa</p>', 34, 3, '2016-05-30', 'victoria.gif', 14, 'prova-4', 'juju');
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `limit_date`, `image_path`, `views`, `URL`, `last_URL`, `usuari`) VALUES
+(1, 'nike bambas', 'bambas muy lindas', 49, 20, '2016-05-12', 'nike_prova.jpg', 33, 'nike-bambas', NULL, 'dasix'),
+(2, 'nike bambas azules', 'bambas muy lindas y azules', 20, 0, '2016-05-27', 'nike_prova.jpg', 47, 'nike-bambas-azules', NULL, 'dasix'),
+(76, 'Nike bonitas', '<p>jejejeje ja funciona</p>', 45, 45, '2016-05-17', 'nike_prova.jpg', 15, 'Nike-bonitas', NULL, 'jsirera'),
+(77, 'Guitarrista/Cantant', '<p>Bla&nbsp;<strong>wrrn</strong></p>', 4, 12, '2016-05-10', 'IMG_0021.JPG', 0, 'Guitarrista/Cantant', NULL, 'jud'),
+(79, 'Victoria editat 4', '<p>Estic provant la practica</p>', 23, 0, '2016-05-27', 'victoria.gif', 13, 'Victoria-editat-4', 'Victoria-editat-2', 'juju'),
+(83, 'prova 4 45', '<p>jboahboa</p>', 34, 2, '2016-05-28', 'user_default.png', 25, 'prova-4-45', NULL, 'juju'),
+(87, 'prova 4', '<p>jboahboa</p>', 34, -2, '2016-05-30', 'victoria.gif', 16, 'prova-4', NULL, 'juju'),
+(89, 'gaga', '<p>dagag</p>', 3, 4, '1970-01-01', 'user_default.png', 10, 'gaga', NULL, 'jsirera'),
+(90, 'victoria bonitas', '<p>hoabhoahgoa hagohboaho afhoahgoa</p>', 34, 2, '1970-01-01', 'victoria.gif', 2, 'victoria-bonitas', NULL, 'jsirera'),
+(91, 'emoji', '<p>baohboad</p>', 3, 3, '1970-01-01', 'emoji.jpg', 1, 'emoji', NULL, 'jsirera'),
+(92, 'eree', '<p>rgg</p>', 4, 3, '2016-05-31', 'victoria.gif', 1, 'eree', NULL, 'jsirera');
 
 -- --------------------------------------------------------
 
@@ -91,6 +92,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `limit_dat
 -- Estructura de tabla para la tabla `purchase`
 --
 
+DROP TABLE IF EXISTS `purchase`;
 CREATE TABLE `purchase` (
   `id` int(11) NOT NULL,
   `user_sell` varchar(50) COLLATE latin1_bin NOT NULL,
@@ -99,35 +101,26 @@ CREATE TABLE `purchase` (
   `product_id` int(11) DEFAULT NULL,
   `purchase_date` date DEFAULT NULL,
   `price` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Volcado de datos para la tabla `purchase`
 --
 
 INSERT INTO `purchase` (`id`, `user_sell`, `user_buy`, `product`, `product_id`, `purchase_date`, `price`) VALUES
-(35, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(36, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(37, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(38, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(39, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(40, 'pepito', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(41, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-02', 20),
-(42, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(43, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(44, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(45, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(46, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(47, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(48, 'dasix', 'jsirera', 'nike bambas', NULL, '2016-05-03', 49),
-(49, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-03', 20),
-(50, 'dasix', 'jsirera', 'nike bambas azules', NULL, '2016-05-03', 20),
-(51, 'dasix', 'adrively', 'nike bambas azules', NULL, '2016-05-03', 20),
-(52, 'dasix', 'adrively', 'nike bambas azules', NULL, '2016-05-03', 20),
 (53, 'jud', 'jsirera', 'prova2', 71, '2016-05-09', 23),
 (54, 'dasix', 'jud', 'nike bambas azules', 2, '2016-05-09', 20),
 (55, 'jsirera', 'juju', 'Victoria', 75, '2016-05-11', 34),
-(56, 'jsirera', 'eluskie', 'prova1', 70, '2016-05-13', 23);
+(56, 'jsirera', 'eluskie', 'prova1', 70, '2016-05-13', 23),
+(57, 'dasix', 'jsirera', 'nike bambas azules', 2, '2016-05-14', 20),
+(58, 'dasix', 'jsirera', 'nike bambas azules', 2, '2016-05-14', 20),
+(59, 'juju', 'jsirera', 'Victoria editat 4', 79, '2016-05-15', 23),
+(60, 'juju', 'jsirera', 'prova 4', 87, '2016-05-15', 34),
+(61, 'juju', 'jsirera', 'prova 4', 87, '2016-05-15', 34),
+(62, 'juju', 'jsirera', 'prova 4', 87, '2016-05-15', 34),
+(63, 'juju', 'jsirera', 'prova 4', 87, '2016-05-15', 34),
+(64, 'juju', 'jsirera', 'prova 4', 87, '2016-05-15', 34),
+(65, 'juju', 'jsirera', 'prova 4 45', 83, '2016-05-15', 34);
 
 -- --------------------------------------------------------
 
@@ -135,6 +128,7 @@ INSERT INTO `purchase` (`id`, `user_sell`, `user_buy`, `product`, `product_id`, 
 -- Estructura de tabla para la tabla `usuari`
 --
 
+DROP TABLE IF EXISTS `usuari`;
 CREATE TABLE `usuari` (
   `id_user` int(11) NOT NULL,
   `username` varchar(50) COLLATE latin1_bin NOT NULL,
@@ -145,7 +139,7 @@ CREATE TABLE `usuari` (
   `isActive` tinyint(1) NOT NULL DEFAULT '0',
   `money` int(11) NOT NULL DEFAULT '0',
   `success` float NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Volcado de datos para la tabla `usuari`
@@ -154,13 +148,15 @@ CREATE TABLE `usuari` (
 INSERT INTO `usuari` (`id_user`, `username`, `email`, `password`, `u_twitter`, `image_path`, `isActive`, `money`, `success`) VALUES
 (51, 'adrively', 'adrianvr1995@yahoo.es', 'hola123', '@adrively', 'user_default.png', 1, 110, 0),
 (62, 'alex', 'alex@hotmail.com', 'hola1234', NULL, 'alex.png', 0, 0, 0),
-(49, 'dasix', 'dasix.98@gmail.com', 'lavevafea', NULL, 'user_default.png', 1, 812, 4.5),
+(49, 'dasix', 'dasix.98@gmail.com', 'lavevafea', NULL, 'user_default.png', 1, 852, 4.16667),
 (65, 'eluskie', 'gerardmt22@gmail.com', '$2y$10$l2colfD2BFzeXCqSJEqLAuG66cv0XP3NIzmD/mfSlI24Xpk.tALri', '@hola', 'eluskie.JPG', 1, 88, 0),
 (63, 'hola', 'hola@gmail.com', '$2y$10$cGu270LZeYDMLNyaMXM6Q.7j37v3lsV18FZQEWFCtNyx/dOcgfiGq', NULL, 'user_default.png', 1, 0, 0),
-(66, 'jsirera', 'judsirera@gmail.com', '$2y$10$9L9GNx.zS6XJ8KIYfwiNvefE5qor6wGo3ATmu6KLe94z4aR6KR77C', NULL, 'user_default.png', 1, 0, 0),
-(61, 'jud', 'judithsp95@hotmail.com', 'jud123', NULL, 'jud.jpg', 1, 56, 0),
-(64, 'juju', 'juju@gmail.com', '$2y$10$3xovs6qnRbSawgWc3fQps.OHT640KV8Yuj95lOjxEQSePFRLx41aW', NULL, 'juju.gif', 1, 156, 0),
+(70, 'jsirera', 'judsirera@gmail.com', '$2y$10$P3zs8wxV7DZ3Ov0jpI.CDOKGxPwf9RTKkheRuxmNi8Wvq.eFCY9gi', NULL, 'user_default.png', 1, 728, 0),
+(69, 'jud', 'judithsp95@hotmail.com', '$2y$10$I5RvfwijNmzNbKjDZq04QuNIBRJJa9.Hyr9/wejS0CR0FkIWOqRyG', NULL, 'user_default.png', 1, 0, 0),
+(64, 'juju', 'juju@gmail.com', '$2y$10$3xovs6qnRbSawgWc3fQps.OHT640KV8Yuj95lOjxEQSePFRLx41aW', NULL, 'juju.gif', 1, 354, 1.12903),
 (1, 'lluisk', 'lluiscornella@hotmail.com', 'lluisk15', '@llcornella_95', 'user_default.png', 1, 0, 0),
+(67, 'lolo', 'lolo@gmail.com', '$2y$10$SGUTcFzYNkssPbM2sckLuO.YvLNRqtKOmzlYmn0oYGEGJTEnHYQVW', NULL, 'user_default.png', 0, 0, 0),
+(68, 'ok', 'ok@gmail.com', '$2y$10$2eHXB7JTo1mxrqR1ZNotAOXfnNEEf7/ZzCT3AVTNA9AUS2S4mgI0q', NULL, 'user_default.png', 0, 0, 0),
 (42, 'pinocho', 'pinocho@gmail.com', 'pipnocho', '@pesaos', 'user_default.png', 1, 41, 0),
 (48, 'xavier sirera', 'sirera.javier@gmail.com', '123456', NULL, 'user_default.png', 1, 0, 0);
 
@@ -202,22 +198,22 @@ ALTER TABLE `usuari`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=93;
 --
 -- AUTO_INCREMENT de la tabla `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
 --
 -- AUTO_INCREMENT de la tabla `usuari`
 --
 ALTER TABLE `usuari`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
