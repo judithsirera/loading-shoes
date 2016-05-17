@@ -92,6 +92,7 @@ QUERY;
             FROM product
             WHERE URL = "$url"
 QUERY;
+
         return $this->getAll($query);
     }
 
@@ -195,6 +196,8 @@ QUERY;
         $query = <<<QUERY
             SELECT MAX(id) as max
             FROM product
+            WHERE stock > 0 AND limit_date > CURRENT_DATE
+
 QUERY;
         $lastId = $this->getAll($query);
         $lastId = $lastId[0]['max'];

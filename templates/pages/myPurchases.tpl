@@ -31,9 +31,9 @@
                         {foreach from=$purchases item=p}
                         <tr>
                             <td>
-                                {foreach from = $products item = prod}
-                                    {if $prod.id == $p.product_id}
-                                        <a href="{$global.url}/p/{$prod.URL}/id={$prod.id}" class="product-link">{$p.product}</a>
+                                {foreach from = $url_products item = pu}
+                                    {if $pu.id == $p.id}
+                                        <a href="{$global.url}/p/{$pu.url}/id={$p.product_id}" class="product-link">{$p.product}</a>
                                     {/if}
                                 {/foreach}
                             </td>

@@ -128,14 +128,14 @@ class PagesProductViewController extends PagesLoggedController
     private function getProduct()
     {
         $this->product = $this->obj_product->getProductByUrl($this->product_url);
+        $this->getIdFromParams();
+
         if (sizeof($this->product) > 1)
         {
-
-            $this->getIdFromParams();
             $this->product = $this->obj_product->getProductById($this->product_id);
         }
 
-        if (!isset($this->product))
+        if (!isset($this->product) || $this->product_id != $this->product[0]['id'])
         {
             return false;
         }
