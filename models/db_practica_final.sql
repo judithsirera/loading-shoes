@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 16-05-2016 a las 16:14:16
+-- Tiempo de generación: 17-05-2016 a las 21:31:31
 -- Versión del servidor: 5.5.42
 -- Versión de PHP: 5.6.10
 
@@ -28,7 +28,6 @@ USE `db_practica_final`;
 -- Estructura de tabla para la tabla `comments`
 --
 
-DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id_comment` int(11) NOT NULL,
   `subject` varchar(300) COLLATE latin1_bin DEFAULT NULL,
@@ -54,7 +53,6 @@ INSERT INTO `comments` (`id_comment`, `subject`, `text`, `date`, `from_user`, `t
 -- Estructura de tabla para la tabla `product`
 --
 
-DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE latin1_bin NOT NULL,
@@ -67,7 +65,7 @@ CREATE TABLE `product` (
   `URL` varchar(100) COLLATE latin1_bin NOT NULL,
   `last_URL` varchar(100) COLLATE latin1_bin DEFAULT NULL,
   `usuari` varchar(50) COLLATE latin1_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Volcado de datos para la tabla `product`
@@ -84,7 +82,8 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `limit_dat
 (89, 'gaga', '<p>dagag</p>', 3, 4, '1970-01-01', 'user_default.png', 10, 'gaga', NULL, 'jsirera'),
 (90, 'victoria bonitas', '<p>hoabhoahgoa hagohboaho afhoahgoa</p>', 34, 2, '1970-01-01', 'victoria.gif', 2, 'victoria-bonitas', NULL, 'jsirera'),
 (91, 'emoji', '<p>baohboad</p>', 3, 3, '1970-01-01', 'emoji.jpg', 1, 'emoji', NULL, 'jsirera'),
-(92, 'eree', '<p>rgg</p>', 4, 3, '2016-05-31', 'victoria.gif', 1, 'eree', NULL, 'jsirera');
+(92, 'eree', '<p>rgg</p>', 4, 3, '2016-05-31', 'victoria.gif', 2, 'eree', NULL, 'jsirera'),
+(93, 'Victoria', '<p><span style="text-decoration: underline;"><strong>Victoria de tots colors de la imatge.</strong></span></p>\r\n<p><span style="text-decoration: underline;">Talles</span>: 38 / 39 / 40</p>', 23, 1, '2016-05-31', 'victoria.gif', 3, 'Victoria', NULL, 'jsirera');
 
 -- --------------------------------------------------------
 
@@ -92,7 +91,6 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `limit_dat
 -- Estructura de tabla para la tabla `purchase`
 --
 
-DROP TABLE IF EXISTS `purchase`;
 CREATE TABLE `purchase` (
   `id` int(11) NOT NULL,
   `user_sell` varchar(50) COLLATE latin1_bin NOT NULL,
@@ -128,7 +126,6 @@ INSERT INTO `purchase` (`id`, `user_sell`, `user_buy`, `product`, `product_id`, 
 -- Estructura de tabla para la tabla `usuari`
 --
 
-DROP TABLE IF EXISTS `usuari`;
 CREATE TABLE `usuari` (
   `id_user` int(11) NOT NULL,
   `username` varchar(50) COLLATE latin1_bin NOT NULL,
@@ -151,7 +148,7 @@ INSERT INTO `usuari` (`id_user`, `username`, `email`, `password`, `u_twitter`, `
 (49, 'dasix', 'dasix.98@gmail.com', 'lavevafea', NULL, 'user_default.png', 1, 852, 4.16667),
 (65, 'eluskie', 'gerardmt22@gmail.com', '$2y$10$l2colfD2BFzeXCqSJEqLAuG66cv0XP3NIzmD/mfSlI24Xpk.tALri', '@hola', 'eluskie.JPG', 1, 88, 0),
 (63, 'hola', 'hola@gmail.com', '$2y$10$cGu270LZeYDMLNyaMXM6Q.7j37v3lsV18FZQEWFCtNyx/dOcgfiGq', NULL, 'user_default.png', 1, 0, 0),
-(70, 'jsirera', 'judsirera@gmail.com', '$2y$10$P3zs8wxV7DZ3Ov0jpI.CDOKGxPwf9RTKkheRuxmNi8Wvq.eFCY9gi', NULL, 'user_default.png', 1, 728, 0),
+(70, 'jsirera', 'judsirera@gmail.com', '$2y$10$WKA95LXZFD2Gz53N0JiI9uMMt4CFmpuxHwNWGTSxpWd34Bb/4preC', NULL, 'user_default.png', 1, 727, 0),
 (69, 'jud', 'judithsp95@hotmail.com', '$2y$10$I5RvfwijNmzNbKjDZq04QuNIBRJJa9.Hyr9/wejS0CR0FkIWOqRyG', NULL, 'user_default.png', 1, 0, 0),
 (64, 'juju', 'juju@gmail.com', '$2y$10$3xovs6qnRbSawgWc3fQps.OHT640KV8Yuj95lOjxEQSePFRLx41aW', NULL, 'juju.gif', 1, 354, 1.12903),
 (1, 'lluisk', 'lluiscornella@hotmail.com', 'lluisk15', '@llcornella_95', 'user_default.png', 1, 0, 0),
@@ -203,7 +200,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT de la tabla `purchase`
 --
