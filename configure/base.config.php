@@ -11,6 +11,7 @@
 //$config['sql']							=  PATH_ENGINE . 'sql.class.php';
 
 
+
 $config['mail']							=  PATH_ENGINE . 'mail.class.php';
 $config['session']						=  PATH_ENGINE . 'session.class.php';
 $config['user']							=  PATH_ENGINE . 'user.class.php';
@@ -52,7 +53,9 @@ $config['PagesRechargeController']      = PATH_CONTROLLERS . 'pages/recharge.ctr
 $config['PagesLogoutController']        = PATH_CONTROLLERS . 'pages/logout.ctrl.php';
 
 $config['PagesDeleteController']        = PATH_CONTROLLERS . 'pages/delete.ctrl.php';
-$config['PagesEditController']        = PATH_CONTROLLERS . 'pages/edit.ctrl.php';
+$config['PagesEditController']          = PATH_CONTROLLERS . 'pages/edit.ctrl.php';
+$config['PagesForgotController']        = PATH_CONTROLLERS . 'pages/forgot.ctrl.php';
+$config['PagesPasswordController']      = PATH_CONTROLLERS . 'pages/passwordestablishment.ctrl.php';
 
 // Shared controllers
 $config['SharedHeadController']			= PATH_CONTROLLERS . 'shared/head.ctrl.php';

@@ -52,8 +52,29 @@ $(document).ready(function() {
     });
 
     //CHECK PASSWORD
-    $('input[type=password]').on('keyup change focusout',function(){
-        object = $('input[type=password]');
+    $('#password-signup').on('keyup change focusout',function(){
+        object = $('#password-signup');
+        len = object.val().length;
+
+        if (object.hasClass('check')) {
+            object.removeClass('valid');
+            object.addClass('invalid');
+        }
+
+        if(len < 6 || len > 10){
+            if(object.hasClass('valid')){
+                object.removeClass('valid').addClass('invalid');
+            }
+        }else if(len >= 6 && len <= 10){
+            if(object.hasClass('invalid')){
+                object.removeClass('invalid').addClass('valid');
+            }
+        }
+
+    });
+
+    $('#password-establishment-1').on('keyup change focusout',function(){
+        object = $('#password-establishment-1');
         len = object.val().length;
 
         if (object.hasClass('check')) {

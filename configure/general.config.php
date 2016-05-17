@@ -6,9 +6,9 @@ if( strpos( $_SERVER['HTTP_HOST'], '.dev' ) !== false )
 	define( 'DEV_MODE' , true );
 	define( 'SQL_DEBUG', true );
 
-}elseif( strpos( $_SERVER['HTTP_HOST'], '.tk' ) !== false )
+}elseif( strpos( $_SERVER['HTTP_HOST'], '.esy.es' ) !== false )
 {
-	define( 'URL_ABSOLUTE', 'http://loadingshoes.tk');
+	define( 'URL_ABSOLUTE', 'http://loadingshoes.esy.es');
 	define( 'DEV_MODE' , false );
 	define( 'SQL_DEBUG', false );
 }

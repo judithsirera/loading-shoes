@@ -128,4 +128,14 @@ QUERY;
         return $this->getAll($query);
 
     }
+
+    public function updatePasswordByName($user_name, $password){
+        $query = <<<QUERY
+            UPDATE usuari
+            SET password="$password"
+            WHERE username="$user_name"
+QUERY;
+        $this->execute($query);
+
+    }
 }

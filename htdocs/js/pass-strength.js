@@ -9,6 +9,7 @@ $(document).ready(function () {
         }
     };
     $('#password-signup').pwstrength(options);
+    $('#password-establishment-1').pwstrength(options);
 });
 
 
