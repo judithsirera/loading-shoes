@@ -18,7 +18,7 @@ class PagesProductModel extends Model{
         VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username", "$image", "$url");
 QUERY;
 
-            echo $query;
+
             $this->execute($query);
         }
 
