@@ -2,7 +2,7 @@
 
 <section id="fbShare">
     <div id="fb-root"></div>
-    <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fg4.dev%2Fp%2F{$p.URL}%2Fid%3D{$p.id}&layout=box_count&mobile_iframe=true&width=80&height=61&appId" width="80" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fg4.dev%2Fp%2F{$p.URL}%2Fid%3D{$p.id}&layout=box_count&mobile_iframe=true&width=80&height=61&appId=1602552660063023" width="80" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 </section>
 
 <section id="productView">
