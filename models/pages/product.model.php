@@ -17,6 +17,8 @@ class PagesProductModel extends Model{
         INSERT INTO product (name, description, price, stock, limit_date, usuari, image_path, URL)
         VALUES ("$productname", "$description", "$price","$stock", "$limit_date", "$username", "$image", "$url");
 QUERY;
+
+            echo $query;
             $this->execute($query);
         }
 

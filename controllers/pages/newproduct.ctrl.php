@@ -13,6 +13,9 @@ class PagesNewProductController extends PagesLoggedController
 	private $limit_date = "";
     private $conditions;
     private $photo;
+    private $aux_photo;
+    private $photoOK;
+    private $aux_photo_name;
     private $url;
     private $obj_product;
     private $obj_user;
@@ -55,35 +58,66 @@ class PagesNewProductController extends PagesLoggedController
         $this->getImage();
     }
 
+    private function checkImage()
+    {
+        $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
+
+        $this->aux_photo = Session::getInstance()->get('photoOK_path');
+        $this->photo = Session::getInstance()->get('photoOK_name');
+
+        if (filesize($uploadFile_temporal) > TWO_MB)
+        {
+            $this->assign("error_msg", "The file size is 2MB maximum.");
+            $this->photo = false;
+            $this->photoOK = false;
+
+        }else{
+            $this->photoOK = Session::getInstance()->get('photoOK');
+
+            if (!$uploadFile_temporal && !$this->photoOK)
+            {
+                $this->assign("error_msg", "You must upload a photo of the product.");
+                return false;
+
+            }elseif($this->photoOK)
+            {
+                $this->photo = $this->aux_photo_name;
+                return true;
+            }
+
+            return true;
+        }
+
+    }
+
     private function getImage()
     {
         $ruta ="./imag/products/"; //ruta carpeta donde queremos copiar las imágenes
         $uploadFile_temporal = $_FILES['fileName']['tmp_name'];
         $this->photo = $_FILES['fileName']['name'];
 
-        if (filesize($uploadFile_temporal) > TWO_MB)
-        {
-            echo filesize($uploadFile_temporal);
-            $this->assign("error_msg", "The file size is 2MB maximum.");
-            $this->photo = false;
 
-        }else{
+        if (filesize($uploadFile_temporal) < TWO_MB)
+        {
             if (is_uploaded_file($uploadFile_temporal))
             {
                 move_uploaded_file($uploadFile_temporal, $ruta . $this->photo);
+                $this->photoOK = true;
+                $this->aux_photo = $ruta . $this->photo;
+                $this->aux_photo_name = $this->photo;
+
+                Session::getInstance()->set('photoOK', $this->photoOK);
+                Session::getInstance()->set('photoOK_path', $this->aux_photo);
+                Session::getInstance()->set('photoOK_name', $this->photo);
+
             }
-
-
-            $this->redimImage(400, 300);
-            $this->redimImage(100, 100);
         }
-
-
     }
 
     private function redimImage($new_width, $new_height)
     {
         $ruta = "./imag/products/";
+        $this->photo = Session::getInstance()->get('photoOK_name');
         $filename = $ruta . $this->photo;
         $info = explode(".", $this->photo);
         $newFilename = $info[0] . "_" . $new_width . "x" . $new_height . "." . $info[1];
@@ -109,10 +143,16 @@ class PagesNewProductController extends PagesLoggedController
 
 	private function insertProductData()
 	{
-		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->photo && $this->checkConditions())
+		if ($this->checkProductName() && $this->checkPrice() && $this->checkStock() && $this->checkImage() && $this->checkConditions())
 		{
             if ($this->enoughMoney())
             {
+                $this->redimImage(400, 300);
+                $this->redimImage(100, 100);
+                Session::getInstance()->delete('photoOK');
+                Session::getInstance()->delete('photoOK_path');
+                Session::getInstance()->delete('photoOK_name');
+
                 $this->setDate();
                 $this->setUrl();
                 $this->obj_product->insertNewProduct($this->product_name, $this->product_description, $this->price, $this->stock, $this->limit_date, $this->username, $this->photo, $this->url);
@@ -239,6 +279,8 @@ class PagesNewProductController extends PagesLoggedController
         $this->assign('price', $this->price);
         $this->assign('quantity_value', $this->stock);
         $this->assign('limit_date', $this->limit_date);
+        $this->assign('photo', $this->aux_photo);
+        $this->assign('photo_name', $this->aux_photo_name);
     }
 
 

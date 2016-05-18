@@ -24,17 +24,26 @@
                             <div class="row">
                                 <div class="col s12">
                                     <div id="uploadshoesfoto">
-                                        <img id="imgFile" class="img-responsive" src="{$url.global}/imag/uploadFotoShoes.png" alt="" />
+                                        {if $photo}
+                                            <img id="imgFile" class="img-responsive" src="{$photo}" alt="" />
+
+                                        {else}
+                                            <img id="imgFile" class="img-responsive" src="{$url.global}/imag/uploadFotoShoes.png" alt="" />
+                                        {/if}
                                     </div>
                                 </div>
                                 <div class="col s12">
                                     <div id="fileInput" class="file-field input-field">
                                         <div style="height: 3rem" class="btn waves-effect waves-light btn-large">
                                             <span>File (*)</span>
-                                            <input id="fileName" name="fileName" type="file" required>
+                                            <input id="fileName" name="fileName" type="file">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text">
+                                            {if $photo_name}
+                                                <input class="file-path validate" type="text" value="{$photo_name}">
+                                            {else}
+                                                <input class="file-path validate" type="text">
+                                            {/if}
                                             <span class="instructions right">2MB max.</span>
                                         </div>
                                     </div>
